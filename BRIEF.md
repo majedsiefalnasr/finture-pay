@@ -47,6 +47,7 @@ Türkiye’s complete payment platform. Digital wallets, payment solutions, and 
 
 ## Version Control & Workflow
 
+- Use [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) for branching model.
 - Use clear, descriptive commit messages.
 - Do not commit large files (>100MB); use Git LFS or external storage.
 

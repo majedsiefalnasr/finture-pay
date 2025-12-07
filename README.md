@@ -79,6 +79,11 @@ This project follows strict coding, testing, and documentation guidelines as des
 - All tests live in `/tests`, mirroring the main app structure.
 - Each test file should include: 1 expected use, 1 edge case, 1 failure case.
 
+## Version Control
+
+- This project uses [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) for version control.
+- See [docs/README.md](docs/README.md) for detailed workflow instructions.
+
 ## Large Files
 
 - Do not commit files >100MB.
