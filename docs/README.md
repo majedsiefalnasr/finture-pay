@@ -15,6 +15,7 @@
 - [Vue TSC Integration](dev/vue-tsc.md) - TypeScript type checking for Vue components
 - [ESLint Integration](dev/eslint.md) - Code linting and quality assurance
 - [Prettier Integration](dev/prettier.md) - Automatic code formatting with plugins
+- [Husky & lint-staged Integration](dev/husky-lint-staged.md) - Git hooks for automated code quality
 
 ## Version Control
 
