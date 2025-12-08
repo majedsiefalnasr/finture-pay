@@ -13,6 +13,8 @@
 ## Development Tools
 
 - [Vue TSC Integration](dev/vue-tsc.md) - TypeScript type checking for Vue components
+- [ESLint Integration](dev/eslint.md) - Code linting and quality assurance
+- [Prettier Integration](dev/prettier.md) - Automatic code formatting with plugins
 
 ## Version Control
 

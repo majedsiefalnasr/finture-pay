@@ -1,5 +1,5 @@
 {
-  "name": "Finture-Pay",
+  "name": "finture-pay",
   "type": "module",
   "private": true,
   "scripts": {
@@ -8,7 +8,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@iconify-json/hugeicons": "^1.2.19",
@@ -22,6 +26,16 @@
   "devDependencies": {
     "vite-plugin-vuetify": "^2.1.2",
     "vuetify": "^3.11.2",
-    "vue-tsc": "^2.0.0"
+    "vue-tsc": "^2.0.0",
+    "eslint": "^9.0.0",
+    "@nuxt/eslint": "^0.7.0",
+    "@nuxt/eslint-config": "^0.7.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-css-order": "^2.0.0",
+    "prettier-plugin-jsdoc": "^1.0.0",
+    "prettier-plugin-organize-attributes": "^1.0.0",
+    "prettier-plugin-organize-imports": "^4.0.0"
   }
 }
