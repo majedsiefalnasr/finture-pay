@@ -10,6 +10,10 @@
 
 - [Ultimate Core UI Integration](core/Ultimate-Core-UI.md) - Primary UI component library
 
+## Development Tools
+
+- [Vue TSC Integration](dev/vue-tsc.md) - TypeScript type checking for Vue components
+
 ## Version Control
 
 See [Version Control Workflow](dev/version-control.md) for details on Git Flow usage.
