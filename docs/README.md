@@ -1,5 +1,9 @@
 # Project Documentation
 
+## Internationalization
+
+- [Internationalization (i18n) Integration](core/i18n.md) - Multi-language support with @nuxtjs/i18n and Ultimate Core UI
+
 ## UI Integrations
 
 - [Iconify Integration](ui/Iconify.md) - Unified icon system with thousands of icons
