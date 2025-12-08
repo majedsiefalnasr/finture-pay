@@ -1,6 +1,6 @@
-import {createUltimateCoreUI} from 'ultimate-core-ui'
+import { createUltimateCoreUI } from 'ultimate-core-ui'
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   const ultimateCoreUI = createUltimateCoreUI({
     theme: {
       defaultTheme: 'light',

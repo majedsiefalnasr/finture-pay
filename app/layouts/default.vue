@@ -1,3 +1,7 @@
+<script setup lang="ts">
+// Layout-specific logic
+</script>
+
 <template>
   <u-app>
     <!-- Main content of the application -->
@@ -7,7 +11,3 @@
     </u-main>
   </u-app>
 </template>
-
-<script setup lang="ts">
-  // Layout-specific logic
-</script>

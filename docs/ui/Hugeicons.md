@@ -26,7 +26,7 @@ You can use Hugeicons in your components like this:
 </template>
 
 <script setup>
-  import {Icon} from '@iconify/vue'
+import { Icon } from '@iconify/vue'
 </script>
 ```
 
