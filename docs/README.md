@@ -16,6 +16,7 @@
 - [ESLint Integration](dev/eslint.md) - Code linting and quality assurance
 - [Prettier Integration](dev/prettier.md) - Automatic code formatting with plugins
 - [Husky & lint-staged Integration](dev/husky-lint-staged.md) - Git hooks for automated code quality
+- [Image Size Checker](dev/image-size-checker.md) - Automated image size validation
 
 ## Version Control
 

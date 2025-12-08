@@ -13,7 +13,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky && husky install",
+    "test:images": "bash scripts/check_image_sizes.sh"
   },
   "dependencies": {
     "@iconify-json/hugeicons": "^1.2.19",
