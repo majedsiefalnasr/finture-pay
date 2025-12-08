@@ -6,16 +6,13 @@ export default defineNuxtConfig({
   pages: true,
   ssr: false,
   devtools: { enabled: true },
-  css: ['ultimate-core-ui/style.css'],
+  css: ['ultimate-core-ui/style.css', '~/assets/styles/main.scss'],
   plugins: ['~/plugins/ultimate-core-ui.ts'],
   components: true,
   modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
 
   // Internationalization settings
   i18n: {
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     defaultLocale: 'en',
     locales: [
       {
@@ -35,7 +32,6 @@ export default defineNuxtConfig({
         dir: 'rtl',
       },
     ],
-    lazy: true,
     langDir: 'locales',
     strategy: 'prefix_except_default',
     vueI18n: 'i18n.config.ts',
