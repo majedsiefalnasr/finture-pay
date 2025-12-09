@@ -18,9 +18,9 @@ export default defineNuxtPlugin(() => {
   const PROVIDER_INFO =
     'International leader in Enterprise Resource Solutions and Software Development'
   const PROVIDER_LINK = 'https://ultimate-eg.net'
-  const PROJECT = 'Growth - Smart shopping platform'
+  const PROJECT = 'Finture Pay - Your Money, Simplified. Your Business, Empowered.'
   const PROJECT_INFO =
-    'Without technical experience and with ease, you can sell anywhere and anytime with your online store and with your commercial identity'
+    'Türkiye’s complete payment platform. Digital wallets, payment solutions, and business tools - all in one app.'
   const VERSION = 'beta'
 
   // # Reason: We want to show a styled message for Chrome users, and a plain message for others for best compatibility.
