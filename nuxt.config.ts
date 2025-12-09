@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
   css: ['ultimate-core-ui/style.css', '~/assets/styles/main.scss'],
-  plugins: ['~/plugins/ultimate-core-ui.ts'],
+  plugins: ['~/plugins/ultimate-core-ui.ts', { src: '~/plugins/consoleBranding', mode: 'client' }],
   components: true,
   modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
 
