@@ -25,6 +25,18 @@ export default defineNuxtConfig({
   // Global CSS files to include in the project
   css: ['ultimate-core-ui/style.css', '~/assets/styles/main.scss'],
 
+  // Build configuration for SSR with Ultimate Core UI (Vuetify)
+  build: {
+    transpile: ['ultimate-core-ui'],
+  },
+
+  // Vite configuration for SSR compatibility
+  vite: {
+    ssr: {
+      noExternal: ['ultimate-core-ui'],
+    },
+  },
+
   // Router configuration
   router: {
     options: {
@@ -37,6 +49,9 @@ export default defineNuxtConfig({
 
   // Enable automatic route generation from the
   pages: true,
+
+  // Enable server-side rendering for better SEO and performance with Ultimate Core UI
+  ssr: true,
 
   // Internationalization settings
   i18n: {

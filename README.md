@@ -41,7 +41,7 @@ tsconfig.json
 - **app/pages/**: File-based routing (home page is now `app/pages/index.vue`).
 - **app/layouts/**: Application layouts (default at `app/layouts/default.vue`).
 - **i18n/locales/**: Internationalization files (e.g., `en.json`, `ar.json`).
-- **nuxt.config.ts**: Nuxt configuration (with compatibilityVersion: 4).
+- **nuxt.config.ts**: Nuxt configuration (with compatibilityDate: '2025-07-15', SSR enabled for better SEO and performance).
 - **tsconfig.json**: Uses project references for improved type safety.
 - **public/**: Static files served at the root of the site.
 - **server/**: Custom server logic (API routes, middleware, etc.).
