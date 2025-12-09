@@ -2,14 +2,41 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+  // Runtime config for secrets and environment variables Use this section to securely manage API keys and other sensitive data. Values in `public` are exposed to the client; others are server-only.
+  runtimeConfig: {
+    // Example: apiSecret: process.env.API_SECRET,
+    public: {
+      // Example: publicApiBase: process.env.PUBLIC_API_BASE || ''
+    },
+  },
+
+  // Nuxt compatibility date for future-proof builds
   compatibilityDate: '2025-07-15',
-  pages: true,
-  ssr: false,
+
+  // Enable Nuxt DevTools for enhanced development experience
   devtools: { enabled: true },
-  css: ['ultimate-core-ui/style.css', '~/assets/styles/main.scss'],
-  plugins: ['~/plugins/ultimate-core-ui.ts', { src: '~/plugins/consoleBranding', mode: 'client' }],
-  components: true,
+
+  // Nuxt modules to include in the project
   modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
+
+  // Plugins to run before rendering the app
+  plugins: ['~/plugins/ultimate-core-ui.ts', { src: '~/plugins/consoleBranding', mode: 'client' }],
+
+  // Global CSS files to include in the project
+  css: ['ultimate-core-ui/style.css', '~/assets/styles/main.scss'],
+
+  // Router configuration
+  router: {
+    options: {
+      strict: false, // Treat /page and /page/ as distinct
+    },
+  },
+
+  // Auto-imported components configuration
+  components: ['~/components'],
+
+  // Enable automatic route generation from the
+  pages: true,
 
   // Internationalization settings
   i18n: {
