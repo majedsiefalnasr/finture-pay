@@ -1,4 +1,4 @@
-[![Finture Pay | Your Money, Simplified. Your Business, Empowered.](https://raw.githubusercontent.com/ultimate-eg/finture-pay/refs/heads/develop/docs/images/thumb.png?token=GHSAT0AAAAAADOFVT4WPPEZUWWSSH7YFBM22JYCREQ 'Finture Pay | Your Money, Simplified. Your Business, Empowered.')](https://tajmie.vercel.app/)
+[![Finture Pay | Your Money, Simplified. Your Business, Empowered.](https://i.ibb.co/Hf9dJ7fX/thumb.png 'Finture Pay | Your Money, Simplified. Your Business, Empowered.')](https://finture-pay.vercel.app/)
 
 # Finture Pay
 
