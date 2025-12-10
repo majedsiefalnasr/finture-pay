@@ -20,6 +20,29 @@ watchEffect(() => {
     },
   })
 })
+
+// Global SEO meta
+useSeoMeta({
+  titleTemplate: '%s', // Show only the page title without appending site name
+})
+
+// Auto SEO on every page
+const { setSeo } = useSeoMetaI18n()
+
+onMounted(() => {
+  setSeo()
+})
+
+// Also set SEO on route change
+const route = useRoute()
+watch(
+  () => route.path,
+  () => {
+    nextTick(() => {
+      setSeo()
+    })
+  }
+)
 </script>
 
 <template>
