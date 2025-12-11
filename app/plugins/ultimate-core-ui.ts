@@ -4,7 +4,7 @@ import { createI18n, useI18n } from 'vue-i18n'
 import { ar, en } from 'vuetify/locale'
 import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
 
-import { aliases, icons } from '../iconsets'
+import { aliases, icons } from '../iconsets/line'
 
 const messages = {
   en: {
