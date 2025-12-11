@@ -1,0 +1,17 @@
+.icon-set {
+  --tone1-color: #0047ab;
+  --tone2-color: #0047ab;
+}
+
+.icon-set .tone1 {
+  stroke: var(--tone1-color, #0047ab);
+}
+
+.icon-set .tone2 {
+  stroke: var(--tone2-color, #0047ab);
+}
+
+.icon-set.two-tones {
+  --tone1-color: #0047ab;
+  --tone2-color: #d4436d;
+}

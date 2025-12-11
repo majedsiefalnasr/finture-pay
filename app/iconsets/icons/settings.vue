@@ -1,0 +1,11 @@
+<template>
+  <svg viewBox="0 0 24 24" fill="none" class="icon-set">
+    <path
+      class="tone1"
+      d="M4 21V14M4 10V3M12 21V12M12 8V3M20 21V16M20 12V3M1 14H7M9 8H15M17 16H23"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</template>
