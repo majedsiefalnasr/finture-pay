@@ -4,8 +4,9 @@ import { createI18n, useI18n } from 'vue-i18n'
 import { ar, en } from 'vuetify/locale'
 import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
 
-import { aliases as aliases3d, icons as icons3d } from '../iconsets/3d'
-import { aliases as aliasesLine, icons as iconsLine } from '../iconsets/line'
+import { aliases as aliases3d, icons as d3 } from '../iconsets/3d'
+import { aliases as aliasesFeatures, icons as features } from '../iconsets/features'
+import { aliases as aliasesLine, icons as line } from '../iconsets/line'
 
 const messages = {
   en: {
@@ -36,10 +37,11 @@ export default defineNuxtPlugin((nuxtApp) => {
       defaultTheme: 'light',
     },
     icons: {
-      aliases: { ...aliasesLine, ...aliases3d },
+      aliases: { ...aliasesLine, ...aliases3d, ...aliasesFeatures },
       sets: {
-        iconsLine,
-        icons3d,
+        line,
+        d3,
+        features,
       },
     },
   })
