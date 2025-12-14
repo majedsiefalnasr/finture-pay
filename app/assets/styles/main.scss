@@ -1,6 +1,11 @@
 // Icon set
 @use './icons';
 
+// Default font family (Kumbh Sans)
+[class^='v-'] {
+  font-family: 'Kumbh Sans Variable', sans-serif;
+}
+
 // Main SCSS file for global styles
 .v-locale--is-rtl {
   direction: rtl;
