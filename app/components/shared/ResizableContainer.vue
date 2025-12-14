@@ -54,7 +54,7 @@ onUnmounted(() => {
       class="resizable-container @container"
       :style="{ width: containerWidth + 'px' }"
     >
-      <div class="resizable-content hidden-xs">
+      <div class="resizable-content">
         <slot />
       </div>
       <div class="resize-handle" @mousedown="startResize"></div>
