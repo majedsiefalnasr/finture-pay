@@ -6,6 +6,152 @@
   font-family: 'Kumbh Sans Variable', sans-serif;
 }
 
+// Typography styles
+h1 {
+  font-weight: 700;
+  font-size: 72px !important;
+  line-height: 84px !important;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 48px !important;
+  line-height: 58px !important;
+  letter-spacing: 0;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 40px !important;
+  line-height: 50px !important;
+  letter-spacing: 0;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 32px !important;
+  line-height: 42px !important;
+  letter-spacing: 0;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 24px !important;
+  line-height: 36px !important;
+  letter-spacing: 0.1px;
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  letter-spacing: 0.15px;
+}
+
+.text-h1 {
+  font-weight: 400;
+  font-size: 36px !important;
+  line-height: 42px !important;
+  letter-spacing: 0;
+}
+
+.text-h2 {
+  font-weight: 400;
+  font-size: 30px !important;
+  line-height: 36px !important;
+  letter-spacing: 0;
+}
+
+.text-h3 {
+  font-weight: 400;
+  font-size: 24px !important;
+  line-height: 28px !important;
+  letter-spacing: 0;
+}
+
+.text-h4 {
+  font-weight: 400;
+  font-size: 20px !important;
+  line-height: 24px !important;
+  letter-spacing: 0;
+}
+
+.text-h5 {
+  font-weight: 400;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  letter-spacing: 0.1px;
+}
+
+.text-h6 {
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.15px;
+}
+
+.label-1 {
+  font-size: 18px !important;
+  line-height: 22px !important;
+  letter-spacing: 0;
+}
+
+.label-2 {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  letter-spacing: 0;
+}
+
+.label-3 {
+  font-size: 13px !important;
+  line-height: 16px !important;
+  letter-spacing: 0;
+}
+
+.label-4 {
+  font-size: 12px !important;
+  line-height: 14px !important;
+  letter-spacing: 0;
+}
+
+.label-5 {
+  font-size: 11px !important;
+  line-height: 14px !important;
+  letter-spacing: 0;
+}
+
+body,
+.text-body-1 {
+  font-size: 18px !important;
+  line-height: 26px !important;
+  letter-spacing: 0;
+}
+
+.text-body-2 {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: 0;
+}
+
+.text-body-3 {
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0;
+}
+
+.text-body-4 {
+  font-size: 13px !important;
+  line-height: 18px !important;
+  letter-spacing: 0;
+}
+
+.text-tiny {
+  font-size: 10px !important;
+  line-height: 12px !important;
+  letter-spacing: 0;
+}
+
 // Main SCSS file for global styles
 .v-locale--is-rtl {
   direction: rtl;
