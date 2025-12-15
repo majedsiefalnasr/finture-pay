@@ -9,6 +9,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Example: apiSecret: process.env.API_SECRET,
     public: {
+      API_URL:process.env.API_URL,
+
       // Example: publicApiBase: process.env.PUBLIC_API_BASE || ''
     },
   },
@@ -23,7 +25,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxtjs/seo', '@nuxtjs/i18n'],
 
   // Plugins to run before rendering the app
-  plugins: ['~/plugins/ultimate-core-ui.ts', { src: '~/plugins/consoleBranding', mode: 'client' }],
+  plugins: ['~/plugins/ultimate-core-ui.ts', { src: '~/plugins/consoleBranding', mode: 'client' },'~/plugins/store.ts'],
 
   // Global CSS files to include in the project
   css: ['ultimate-core-ui/style.css', '~/assets/styles/main.scss'],
