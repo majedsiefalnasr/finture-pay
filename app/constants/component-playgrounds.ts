@@ -18,9 +18,14 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
     to: '/components/shared',
     pages: [
       {
-        label: 'Service Card Playground',
+        label: 'Service Card',
         to: '/components/shared/service',
         description: 'Resizable harness to preview the ServiceCard component.',
+      },
+      {
+        label: 'Feature Card',
+        to: '/components/shared/feature-card',
+        description: 'Resizable harness to preview the FeatureCard component.',
       },
     ],
   },
