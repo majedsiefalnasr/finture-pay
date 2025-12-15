@@ -55,18 +55,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <u-container>
-    <div
-      ref="containerRef"
-      class="resizable-container @container"
-      :style="containerWidth ? { width: containerWidth + 'px' } : {}"
-    >
-      <div class="resizable-content">
-        <slot />
-      </div>
-      <div class="resize-handle" @mousedown="startResize"></div>
+  <div
+    ref="containerRef"
+    class="resizable-container @container"
+    :style="containerWidth ? { width: containerWidth + 'px' } : {}"
+  >
+    <div class="resizable-content">
+      <slot />
     </div>
-  </u-container>
+    <div class="resize-handle" @mousedown="startResize"></div>
+  </div>
 </template>
 
 <style scoped>
