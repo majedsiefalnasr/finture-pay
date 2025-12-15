@@ -1,10 +1,20 @@
 <script setup lang="ts">
+import CodeViewer from '~/components/shared/CodeViewer.vue'
 import ResizableContainer from '~/components/shared/ResizableContainer.vue'
 import ServiceCard from '~/components/shared/service/ServiceCard.vue'
 
 definePageMeta({
   layout: 'components-playground',
 })
+
+const serviceCardCode = `<ServiceCard
+  subtitle="For Individuals"
+  title="Send Money Instantly"
+  description="Free transfers, multi-currency wallet, QR payments, and cashback rewards up to 5%."
+  icon="d3:wallet"
+  actionText="Learn More"
+  actionLink="#"
+/>`
 </script>
 
 <template>
@@ -21,8 +31,12 @@ definePageMeta({
       </p>
     </header>
 
-    <ResizableContainer>
-      <ServiceCard />
-    </ResizableContainer>
+    <div class="d-flex flex-column ga-16">
+      <ResizableContainer>
+        <ServiceCard />
+      </ResizableContainer>
+
+      <CodeViewer :code="serviceCardCode" />
+    </div>
   </div>
 </template>
