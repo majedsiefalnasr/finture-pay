@@ -4,6 +4,19 @@
 
 - **Always read `BRIEF.md` and `README.md`** at the start of a new conversation to understand the project's architecture, goals, style, and constraints.
 - **Use consistent naming conventions, file structure, and architecture patterns** as described in `BRIEF.md`.
+- **Check existing components, composables, and utilities** before creating new ones to avoid duplication.
+- **Understand the project's internationalization (i18n) setup** by reviewing `/i18n/` folder and `useSeoMetaI18n` composable.
+
+### 🎨 Vue & Nuxt Best Practices
+
+- **Use Composition API with `<script setup>`** for all Vue components.
+- **Leverage Nuxt auto-imports** for components, composables, and utilities – no need to manually import them.
+- **Follow Vue 3 reactivity patterns**: use `ref`, `reactive`, `computed`, and `watch` appropriately.
+- **Use TypeScript** for all new files with proper type definitions and interfaces.
+- **Organize component structure**: template → script → style (if absolutely necessary).
+- **Keep components focused and single-purpose** – split complex components into smaller, reusable ones.
+- **Use Nuxt layouts and pages** appropriately – avoid business logic in layouts.
+- **Leverage Nuxt plugins** for global functionality (see `plugins/` folder).
 
 ### 🧱 Code Structure & Modularity
 
@@ -24,13 +37,33 @@
 
 ### 📎 Style & Conventions
 
-- Write **docstrings for every function** using the Google style.
+#### Component & UI Styling:
+
+- **Use Ultimate Core UI (Vuetify) components** with `u-` prefix instead of `v-` (e.g., `<u-btn>` instead of `<v-btn>`).
+- **Leverage Vuetify utility classes** for spacing, typography, and layout:
+  - Typography: `text-h1`, `text-h2`, `text-body-1`, etc.
+  - Spacing: `ma-4`, `pa-2`, `ga-0`, `mt-8`, etc.
+  - Layout: `d-flex`, `flex-column`, `justify-center`, `align-center`, etc.
+- **Always check `app/assets/styles/main.scss`** for available custom style classes before creating new ones.
+- **Always reference `app/plugins/ultimate-core-ui.ts`** to understand theme configuration and color tokens (e.g., `<u-btn color="BL10"></u-btn>`).
+- **Avoid custom CSS and inline styles** unless absolutely necessary; use utility classes and component props instead.
+- **Use the project's icon system** (3D icons, feature icons, line icons from `app/iconsets/`).
+
+#### Code Documentation:
+
+- Write **JSDoc comments for all functions, composables, and complex logic**.
+- Use **clear, descriptive variable and function names** that make the code self-documenting.
+- Add **explanatory comments for complex business logic** – explain the "why", not the "what".
 
 ### 📚 Documentation & Explainability
 
 - **Update `README.md`** when new features are added, dependencies change, or setup steps are modified.
+- **Document new components** with usage examples and prop descriptions.
+- **Document new composables** with purpose, parameters, return values, and usage examples.
+- **Keep the `/docs` folder updated** with relevant documentation for features and patterns.
 - **Comment non-obvious code** and ensure everything is understandable to a mid-level developer.
-- When writing complex logic, **add an inline `# Reason:` comment** explaining the why, not just the what.
+- When writing complex logic, **add explanatory comments** that explain the "why", not just the "what".
+- **Use JSDoc for exported functions** to provide IntelliSense hints in the IDE.
 
 ### 🧠 AI Behavior Rules
 
@@ -41,13 +74,20 @@
 ### 🛠️ Code Quality & Maintenance
 
 - **Refactor code to improve clarity** without changing functionality.
-- **Avoid unnecessary complexity** – keep solutions straightforward.
-- **Use consistent naming conventions** throughout the codebase.
-- **Always use type hints** for function signatures.
-- **Use f-strings for string formatting**.
-- **Avoid unnecessary comments**; code should be self-explanatory.
-- **Never leave commented-out code** in the final version.
-- **Avoid using `exec`, `eval`, or similar functions** that can execute arbitrary code.
+- **Avoid unnecessary complexity** – keep solutions straightforward and idiomatic.
+- **Use consistent naming conventions**:
+  - `PascalCase` for components and classes
+  - `camelCase` for variables, functions, and methods
+  - `UPPER_SNAKE_CASE` for constants
+  - `kebab-case` for file names (except components)
+- **Always use TypeScript types and interfaces** for function parameters, return values, and props.
+- **Define prop types explicitly** using `defineProps<T>()` with TypeScript interfaces.
+- **Use template refs correctly** with proper typing: `const myRef = ref<HTMLElement>()`.
+- **Avoid `any` type** – use proper types or `unknown` with type guards if necessary.
+- **Prefer `const` over `let`** – use `let` only when reassignment is necessary.
+- **Use optional chaining (`?.`) and nullish coalescing (`??`)** for safer code.
+- **Never leave commented-out code** in the final version – use version control instead.
+- **Avoid using `eval()` or similar functions** that execute arbitrary code.
 
 ### 🗂️ File Organization & Management
 
@@ -56,8 +96,12 @@
 
 ### 📦 Dependencies & Packages
 
-- When suggesting new packages, **always check if they are already included in `requirements.txt`** or the equivalent file.
-- If a new package is needed, **ensure it is added to `requirements.txt`** with a brief explanation of its purpose.
+- When suggesting new packages, **always check `package.json`** to see if they are already installed.
+- If a new package is needed:
+  - **Use the appropriate package manager** (check `package.json` for package manager hints).
+  - **Explain the purpose** of the package and why it's necessary.
+  - **Consider the bundle size impact** – prefer lightweight alternatives when possible.
+  - **Check for TypeScript types** – install `@types/*` packages if needed.
 
 ### 📝 Commit Messages & Version Control
 
@@ -92,8 +136,9 @@
 ### ⬆️ Dependency Updates
 
 - **Review and test all dependency updates** before merging.
-- **Document any new or removed dependencies in `README.md` and `requirements.txt`**.
+- **Document any new or removed dependencies** in `README.md` and changelog.
 - **Check for security advisories** when updating dependencies.
+- **Test thoroughly** after updates – Nuxt and Vue updates can introduce breaking changes.
 
 ### 📁 Handling Large Files
 

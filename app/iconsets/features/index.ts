@@ -8,7 +8,7 @@ function kebabToCamel(str: string): string {
 }
 
 const aliases = {
-  wallet: Icons.Transparent,
+  transparent: Icons.Transparent,
   security: Icons.Security,
   lightningFast: Icons.LightningFast,
   support: Icons.Support,
