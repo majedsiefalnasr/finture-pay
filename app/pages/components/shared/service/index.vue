@@ -4,6 +4,11 @@ import PropsEditor from '~/components/shared/PropsEditor.vue'
 import ResizableContainer from '~/components/shared/ResizableContainer.vue'
 import ServiceCard from '~/components/shared/service/ServiceCard.vue'
 
+// Available only in development mode
+if (!import.meta.env.DEV) {
+  throw createError({ statusCode: 404, statusMessage: 'Not Found' })
+}
+
 definePageMeta({
   layout: 'components-playground',
 })

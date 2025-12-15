@@ -2,6 +2,11 @@
 import type { ComponentPlaygroundCategory } from '~/constants/component-playgrounds'
 import { componentPlaygroundCategories } from '~/constants/component-playgrounds'
 
+// Available only in development mode
+if (!import.meta.env.DEV) {
+  throw createError({ statusCode: 404, statusMessage: 'Not Found' })
+}
+
 const categories: ComponentPlaygroundCategory[] = componentPlaygroundCategories
 
 const { setSeo } = useSeoMetaI18n()
