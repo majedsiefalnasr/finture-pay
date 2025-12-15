@@ -2,7 +2,7 @@
 import CodeViewer from '~/components/playground/CodeViewer.vue'
 import PropsEditor from '~/components/playground/PropsEditor.vue'
 import ResizableContainer from '~/components/playground/ResizableContainer.vue'
-import ServiceCard from '~/components/shared/service/ServiceCard.vue'
+import ServiceCard from '~/components/shared/ServiceCard.vue'
 
 // Available only in development mode
 if (!import.meta.env.DEV) {
