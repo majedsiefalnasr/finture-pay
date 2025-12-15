@@ -124,7 +124,7 @@ const serviceCardCode = computed(
         <NuxtLink to="/components/shared" class="text-decoration-none text-B30">Shared</NuxtLink> /
         Service
       </p>
-      <h3 class="mb-0">Service Card Playground</h3>
+      <h3 class="mb-0">Service Card</h3>
       <p class="text-B20 text-body-3 mb-0">
         Resize the container to verify responsiveness and visual consistency.
       </p>
