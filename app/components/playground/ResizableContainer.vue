@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 
+const props = defineProps<{ width?: number }>()
+
 const containerRef = ref<HTMLElement>()
-const containerWidth = ref<number | undefined>()
+const containerWidth = ref<number | undefined>(props.width)
 const isResizing = ref(false)
 const startX = ref(0)
 const startWidth = ref(0)
