@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import CodeViewer from '~/components/shared/CodeViewer.vue'
-import PropsEditor from '~/components/shared/PropsEditor.vue'
-import ResizableContainer from '~/components/shared/ResizableContainer.vue'
+import CodeViewer from '~/components/playground/CodeViewer.vue'
+import PropsEditor from '~/components/playground/PropsEditor.vue'
+import ResizableContainer from '~/components/playground/ResizableContainer.vue'
 import ServiceCard from '~/components/shared/service/ServiceCard.vue'
 
 // Available only in development mode

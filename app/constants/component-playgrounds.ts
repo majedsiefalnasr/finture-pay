@@ -22,16 +22,6 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
         to: '/components/shared/service',
         description: 'Resizable harness to preview the ServiceCard component.',
       },
-      {
-        label: 'Service Card Playground',
-        to: '/components/shared/service0',
-        description: 'Resizable harness to preview the ServiceCard component.',
-      },
-      {
-        label: 'Service Card Playground',
-        to: '/components/shared/service1',
-        description: 'Resizable harness to preview the ServiceCard component.',
-      },
     ],
   },
 ]
