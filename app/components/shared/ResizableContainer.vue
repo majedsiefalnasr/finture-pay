@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const containerRef = ref<HTMLElement>()
-const containerWidth = ref(800) // Default width
+const containerWidth = ref<number | undefined>()
 const isResizing = ref(false)
 const startX = ref(0)
 const startWidth = ref(0)
@@ -11,7 +11,11 @@ const minWidth = 320
 const maxWidth = ref(1200)
 
 const updateMaxWidth = () => {
-  maxWidth.value = window.innerWidth
+  if (containerRef.value?.parentElement) {
+    maxWidth.value = containerRef.value.parentElement.offsetWidth
+  } else {
+    maxWidth.value = window.innerWidth
+  }
 }
 
 onMounted(() => {
@@ -20,6 +24,9 @@ onMounted(() => {
 })
 
 const startResize = (e: MouseEvent) => {
+  if (!containerWidth.value) {
+    containerWidth.value = containerRef.value?.offsetWidth || 800
+  }
   isResizing.value = true
   startX.value = e.clientX
   startWidth.value = containerWidth.value
@@ -52,7 +59,7 @@ onUnmounted(() => {
     <div
       ref="containerRef"
       class="resizable-container @container"
-      :style="{ width: containerWidth + 'px' }"
+      :style="containerWidth ? { width: containerWidth + 'px' } : {}"
     >
       <div class="resizable-content">
         <slot />
