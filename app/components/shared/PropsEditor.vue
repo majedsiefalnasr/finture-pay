@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface PropDefinition {
   name: string
-  type: 'string' | 'textarea' | 'select'
+  type: string
   default?: unknown
   description: string
   items?: string[]
