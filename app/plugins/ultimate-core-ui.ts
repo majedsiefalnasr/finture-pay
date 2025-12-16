@@ -5,6 +5,7 @@ import { ar, en } from 'vuetify/locale'
 import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
 
 import { aliases as aliases3d, icons as d3 } from '../iconsets/3d'
+import { faBrandsSet } from '../iconsets/fa-brands'
 import { aliases as aliasesFeatures, icons as features } from '../iconsets/features'
 import { aliases as aliasesLine, icons as line } from '../iconsets/line'
 
@@ -101,6 +102,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         line,
         d3,
         features,
+        faBrands: faBrandsSet,
       },
     },
   })
