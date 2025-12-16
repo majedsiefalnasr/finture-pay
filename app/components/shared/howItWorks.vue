@@ -120,11 +120,13 @@ onUnmounted(() => {
                 v-if="idx === activeIndex"
                 icon="line:arrow-narrow-right"
                 class="ml-auto d-none d-md-block"
+                color="Blue"
               />
               <u-icon
                 v-if="idx === activeIndex"
                 icon="line:arrow-narrow-down"
                 class="ml-auto d-md-none"
+                color="Blue"
               />
             </div>
           </div>
