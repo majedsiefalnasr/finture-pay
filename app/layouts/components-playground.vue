@@ -6,18 +6,19 @@ const categories: ComponentPlaygroundCategory[] = componentPlaygroundCategories
 const route = useRoute()
 
 const isActive = (to: string) => route.path === to
+const drawer = ref(false)
 </script>
 
 <template>
   <u-layout>
-    <u-navigation-drawer permanent :width="320" class="pa-4 d-flex flex-column ga-4">
+    <u-navigation-drawer v-model="drawer" :width="280" class="pa-4 d-flex flex-column ga-4">
       <header class="d-flex flex-column ga-1 mb-10">
         <p class="text-B30 label-3 mb-0">Components</p>
         <h5 class="mb-0">Playground Navigation</h5>
       </header>
 
       <u-list class="pa-0" density="compact">
-        <div v-for="category in categories" :key="category.title" class="d-flex flex-column ga-1">
+        <div v-for="category in categories" :key="category.title" class="d-flex flex-column">
           <u-list-item
             v-if="category.to"
             :to="category.to"
@@ -41,7 +42,7 @@ const isActive = (to: string) => route.path === to
             {{ category.title }}
           </div>
 
-          <div class="ml-4 d-flex flex-column ga-1">
+          <div class="ml-4 d-flex flex-column">
             <u-list-item
               v-for="page in category.pages"
               :key="page.to"
@@ -65,6 +66,9 @@ const isActive = (to: string) => route.path === to
 
     <u-main>
       <u-container class="py-10 px-10">
+        <u-btn class="mb-4" variant="text" prepend-icon="line:menu03" @click="drawer = !drawer">
+          Playground Navigation
+        </u-btn>
         <slot />
       </u-container>
     </u-main>
