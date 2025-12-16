@@ -11,7 +11,7 @@ withDefaults(defineProps<Props>(), {
   title: 'Physical POS',
   subtitle: 'Android-based smart terminals',
   price: '$750',
-  image: '/assets/images/AndroidPOS.png',
+  image: '/assets/images/solutions/AndroidPOS.png',
 })
 </script>
 

@@ -17,7 +17,7 @@ const solutionCardProps = reactive<Record<string, unknown>>({
   title: 'Physical POS',
   subtitle: 'Android-based smart terminals',
   price: '$750',
-  image: '/assets/images/AndroidPOS.png',
+  image: '/assets/images/solutions/AndroidPOS.png',
   imageMaxWidth: '',
 })
 
@@ -43,7 +43,7 @@ const propDefinitions = [
   {
     name: 'image',
     type: 'string',
-    default: '/assets/images/AndroidPOS.png',
+    default: '/assets/images/solutions/AndroidPOS.png',
     description: 'Image source URL or path.',
   },
   {
