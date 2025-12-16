@@ -32,6 +32,11 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
         to: '/components/shared/solution-card',
         description: 'Resizable harness to preview the SolutionCard component.',
       },
+      {
+        label: 'How It Works',
+        to: '/components/shared/how-it-works',
+        description: 'Resizable harness to preview the HowItWorks component.',
+      },
     ],
   },
 ]
