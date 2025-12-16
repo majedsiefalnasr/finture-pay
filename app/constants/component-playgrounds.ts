@@ -37,6 +37,11 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
         to: '/components/shared/how-it-works',
         description: 'Resizable harness to preview the HowItWorks component.',
       },
+      {
+        label: 'Get Started',
+        to: '/components/shared/get-started',
+        description: 'Resizable harness to preview the GetStarted component.',
+      },
     ],
   },
 ]
