@@ -18,6 +18,47 @@
 - **Use Nuxt layouts and pages** appropriately – avoid business logic in layouts.
 - **Leverage Nuxt plugins** for global functionality (see `plugins/` folder).
 
+### 🔧 Component Generation Rules
+
+- **Components must have default values for required props.**
+- **All props are required until provided with optional props.**
+- **Generate a playground page for generated components.**
+- **Playground page follows the next template:**
+
+  ```
+  <template>
+    <div class="d-flex flex-column ga-4">
+      <header class="d-flex flex-column ga-2 mb-5">
+        <p class="text-B30 label-2 mb-0">
+          <NuxtLink to="/components" class="text-decoration-none text-B30">Components</NuxtLink> /
+          <NuxtLink to="/components/categoryName" class="text-decoration-none text-B30">category name</NuxtLink> /
+          component name goes here
+        </p>
+        <h3 class="mb-0">component name</h3>
+        <p class="text-B20 text-body-3 mb-0">
+          component description goes here.
+        </p>
+      </header>
+
+      <div class="d-flex flex-column ga-10">
+        <ResizableContainer>
+          <ComponentName v-bind="componentProps" />
+        </ResizableContainer>
+
+        <PropsEditor
+          :props-data="componentProps"
+          :prop-definitions="propDefinitions"
+          @update="updateProps"
+        />
+
+        <CodeViewer :code="componentCode" />
+      </div>
+    </div>
+  </template>
+  ```
+
+- **Don't forget to add component playground to component-playgrounds.ts.**
+
 ### 🧱 Code Structure & Modularity
 
 - **Never create a file longer than 500 lines of code.** If a file approaches this limit, refactor by splitting it into modules or helper files.
