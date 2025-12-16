@@ -7,7 +7,7 @@
         cy="50"
         r="30"
         fill="url(#paint1_linear_8070_23482)"
-        stroke="#0047AB"
+        class="tone1"
         stroke-width="4"
         stroke-linecap="round"
         stroke-linejoin="round"

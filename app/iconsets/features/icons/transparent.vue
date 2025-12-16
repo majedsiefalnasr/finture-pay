@@ -4,14 +4,14 @@
     <path
       d="M20.6665 50C20.6665 50 31.3332 28.6667 49.9998 28.6667C68.6665 28.6667 79.3332 50 79.3332 50C79.3332 50 68.6665 71.3334 49.9998 71.3334C31.3332 71.3334 20.6665 50 20.6665 50Z"
       fill="url(#paint1_linear_8070_23430)"
-      stroke="#0047AB"
+      class="tone1"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M50 58C54.4183 58 58 54.4183 58 50C58 45.5817 54.4183 42 50 42C45.5817 42 42 45.5817 42 50C42 54.4183 45.5817 58 50 58Z"
-      stroke="#D4436D"
+      class="tone2"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"

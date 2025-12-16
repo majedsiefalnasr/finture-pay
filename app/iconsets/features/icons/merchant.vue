@@ -4,42 +4,42 @@
     <path
       d="M50.0002 76.6666C64.7278 76.6666 76.6668 64.7276 76.6668 50C76.6668 35.2724 64.7278 23.3333 50.0002 23.3333C35.2726 23.3333 23.3335 35.2724 23.3335 50C23.3335 64.7276 35.2726 76.6666 50.0002 76.6666Z"
       fill="url(#paint1_linear_8070_23504)"
-      stroke="#0047AB"
+      class="tone1"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M31.146 31.1468L42.4527 42.4535"
-      stroke="#0047AB"
+      class="tone1"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M57.5469 57.5466L68.8535 68.8532"
-      stroke="#0047AB"
+      class="tone1"
       stroke-width="4.2"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M57.5469 42.4535L68.8535 31.1468"
-      stroke="#0047AB"
+      class="tone1"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M31.146 68.8532L42.4527 57.5466"
-      stroke="#0047AB"
+      class="tone1"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M50.0002 60.6666C55.8912 60.6666 60.6668 55.891 60.6668 50C60.6668 44.1089 55.8912 39.3333 50.0002 39.3333C44.1091 39.3333 39.3335 44.1089 39.3335 50C39.3335 55.891 44.1091 60.6666 50.0002 60.6666Z"
-      stroke="#D4436D"
+      class="tone2"
       stroke-width="4"
       stroke-linecap="round"
       stroke-linejoin="round"

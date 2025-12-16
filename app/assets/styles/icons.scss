@@ -1,17 +1,17 @@
-.icon-set {
-  --tone1-color: #121416;
-  --tone2-color: #121416;
+.tone1,
+.tone2 {
+  stroke: currentColor;
 }
 
-.icon-set .tone1 {
-  stroke: var(--tone1-color, #121416);
-}
+.two-tone-icon {
+  --icon-tone1: rgb(var(--v-theme-Blue, #0047ab));
+  --icon-tone2: rgb(var(--v-theme-Pink, #d4436d));
 
-.icon-set .tone2 {
-  stroke: var(--tone2-color, #121416);
-}
+  .tone1 {
+    stroke: var(--icon-tone1);
+  }
 
-.icon-set.two-tones {
-  --tone1-color: #0047ab;
-  --tone2-color: #d4436d;
+  .tone2 {
+    stroke: var(--icon-tone2);
+  }
 }

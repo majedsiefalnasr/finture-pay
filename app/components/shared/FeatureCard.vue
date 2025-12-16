@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="text-center">
-    <u-icon :icon="icon" size="100" />
+    <u-icon :icon="icon" size="100" class="two-tone-icon" />
     <div class="d-flex flex-column ga-2">
       <h4>{{ title }}</h4>
       <p class="text-B20">{{ subtitle }}</p>
