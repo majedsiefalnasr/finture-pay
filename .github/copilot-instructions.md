@@ -26,6 +26,40 @@
 - **Playground page follows the next template:**
 
   ```
+  <script setup lang="ts">
+  import ComponentName from '~/components/category/ComponentName.vue'
+  import ResizableContainer from '~/components/playground/ResizableContainer.vue'
+  import PropsEditor from '~/components/playground/PropsEditor.vue'
+  import CodeViewer from '~/components/playground/CodeViewer.vue'
+
+  // Available only in development mode
+  if (!import.meta.env.DEV) {
+    throw createError({ statusCode: 404, statusMessage: 'Not Found' })
+  }
+
+  definePageMeta({
+    layout: 'components-playground',
+  })
+
+  const componentNameProps = ref({
+    // component props here
+  })
+
+  const propDefinitions = [
+    // prop definitions here
+  ]
+
+  const updateProps = (newProps: Record<string, any>) => {
+    componentNameProps.value = { ...newProps }
+  }
+
+  const componentCode = computed(() => {
+    return `<ComponentName
+  // props here
+  />`
+  })
+  </script>
+
   <template>
     <div class="d-flex flex-column ga-4">
       <header class="d-flex flex-column ga-2 mb-5">
@@ -42,11 +76,11 @@
 
       <div class="d-flex flex-column ga-10">
         <ResizableContainer>
-          <ComponentName v-bind="componentProps" />
+          <ComponentName v-bind="componentNameProps" />
         </ResizableContainer>
 
         <PropsEditor
-          :props-data="componentProps"
+          :props-data="componentNameProps"
           :prop-definitions="propDefinitions"
           @update="updateProps"
         />
