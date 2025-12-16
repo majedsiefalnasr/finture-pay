@@ -42,6 +42,11 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
         to: '/components/shared/get-started',
         description: 'Resizable harness to preview the GetStarted component.',
       },
+      {
+        label: 'Footer',
+        to: '/components/shared/footer',
+        description: 'Resizable harness to preview the Footer component.',
+      },
     ],
   },
 ]
