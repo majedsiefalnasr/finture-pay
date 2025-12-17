@@ -137,7 +137,7 @@ const { logoSrc, phoneNumber, socialLinks, linkGroups, tcmbText, copyrightText, 
               v-for="group in linkGroups"
               :key="group.title"
               cols="6"
-              md="3"
+              sm="3"
               class="link-group d-flex flex-column ga-2"
             >
               <p class="label-2 text-DB90">{{ group.title }}</p>
