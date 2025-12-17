@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const contentPaddingClass = computed(() =>
-  props.imagePosition === 'end' ? 'pe-md-16' : 'ps-md-16'
+  props.imagePosition === 'end' ? 'pe-3 pe-md-16' : 'ps-3 ps-md-16'
 )
 </script>
 
