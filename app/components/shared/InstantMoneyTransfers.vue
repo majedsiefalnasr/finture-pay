@@ -37,7 +37,7 @@ const contentPaddingClass = computed(() =>
     <u-col
       cols="12"
       md="6"
-      class="d-flex flex-column ga-6 align-center align-md-start justify-center text-center text-md-start pt-12 pt-md-0"
+      class="d-flex flex-column ga-6 align-center align-md-start justify-center text-center text-md-start pt-6 pt-md-0"
       :class="contentPaddingClass"
     >
       <!-- Icon -->
