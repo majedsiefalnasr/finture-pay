@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 64 64" fill="none">
     <path
@@ -10,11 +14,11 @@
     />
     <path
       d="M11 15C11 12.7909 12.7909 11 15 11H26C28.2091 11 30 12.7909 30 15V26C30 28.2091 28.2091 30 26 30H15C12.7909 30 11 28.2091 11 26V15Z"
-      fill="url(#paint0_linear_8070_23006)"
+      :fill="`url(#paint0_linear_${uniqueId})`"
     />
     <path
       d="M34 15C34 12.7909 35.7909 11 38 11H49C51.2091 11 53 12.7909 53 15V26C53 28.2091 51.2091 30 49 30L38 30C35.7909 30 34 28.2091 34 26V15Z"
-      fill="url(#paint1_linear_8070_23006)"
+      :fill="`url(#paint1_linear_${uniqueId})`"
     />
     <path
       d="M11 40C11 37.7909 12.7909 36 15 36H26C28.2091 36 30 37.7909 30 40V51C30 53.2091 28.2091 55 26 55H15C12.7909 55 11 53.2091 11 51V40Z"
@@ -22,7 +26,7 @@
     />
     <path
       d="M11 39C11 36.7909 12.7909 35 15 35H26C28.2091 35 30 36.7909 30 39V50C30 52.2091 28.2091 54 26 54H15C12.7909 54 11 52.2091 11 50V39Z"
-      fill="url(#paint2_linear_8070_23006)"
+      :fill="`url(#paint2_linear_${uniqueId})`"
     />
     <path
       d="M36.0005 40C37.1049 40.0002 38.0005 40.8956 38.0005 42V51C38.0005 52.1044 37.1049 52.9998 36.0005 53C34.8959 53 34.0005 52.1046 34.0005 51V42C34.0005 40.8955 34.8959 40 36.0005 40Z"
@@ -58,7 +62,7 @@
     />
     <defs>
       <linearGradient
-        id="paint0_linear_8070_23006"
+        :id="`paint0_linear_${uniqueId}`"
         x1="20.876"
         y1="12.4349"
         x2="20.876"
@@ -69,7 +73,7 @@
         <stop offset="1" stop-color="#B2C1D2" />
       </linearGradient>
       <linearGradient
-        id="paint1_linear_8070_23006"
+        :id="`paint1_linear_${uniqueId}`"
         x1="20.876"
         y1="12.4349"
         x2="20.876"
@@ -80,7 +84,7 @@
         <stop offset="1" stop-color="#B2C1D2" />
       </linearGradient>
       <linearGradient
-        id="paint2_linear_8070_23006"
+        :id="`paint2_linear_${uniqueId}`"
         x1="20.876"
         y1="36.4349"
         x2="20.876"

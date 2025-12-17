@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 64 64" fill="none">
     <rect
@@ -17,17 +21,17 @@
       fill="#6882A7"
     />
     <circle cx="29.3774" cy="32.889" r="23.6889" fill="#98ACC3" />
-    <circle cx="29.3774" cy="31.889" r="23.6889" fill="url(#paint0_linear_8070_23353)" />
+    <circle cx="29.3774" cy="31.889" r="23.6889" :fill="`url(#paint0_linear_${uniqueId})`" />
     <circle cx="29.3776" cy="31.8889" r="16.4" fill="#A4B5CA" />
-    <circle cx="29.3777" cy="31.889" r="9.11113" fill="url(#paint1_linear_8070_23353)" />
-    <circle cx="29.3769" cy="31.889" r="2.73334" fill="url(#paint2_linear_8070_23353)" />
+    <circle cx="29.3777" cy="31.889" r="9.11113" :fill="`url(#paint1_linear_${uniqueId})`" />
+    <circle cx="29.3769" cy="31.889" r="2.73334" :fill="`url(#paint2_linear_${uniqueId})`" />
     <path
       d="M50.9224 9.83355L42.2669 18.4891L42.0481 11.176C42.0172 10.1434 42.3871 9.13885 43.0802 8.37278L48.9821 1.84966C49.5872 1.18083 50.6988 1.59182 50.7232 2.49345L50.9224 9.83355Z"
-      fill="url(#paint3_linear_8070_23353)"
+      :fill="`url(#paint3_linear_${uniqueId})`"
     />
     <path
       d="M50.9653 10.1258L42.3097 18.7814L49.2205 18.9881C50.5113 19.0267 51.7669 18.5644 52.7245 17.698L58.9492 12.0662C59.618 11.4611 59.207 10.3495 58.3054 10.325L50.9653 10.1258Z"
-      fill="url(#paint4_linear_8070_23353)"
+      :fill="`url(#paint4_linear_${uniqueId})`"
     />
     <rect
       x="50.4834"
@@ -36,11 +40,11 @@
       height="31.889"
       rx="0.977109"
       transform="rotate(45.2254 50.4834 9.33179)"
-      fill="url(#paint5_linear_8070_23353)"
+      :fill="`url(#paint5_linear_${uniqueId})`"
     />
     <defs>
       <linearGradient
-        id="paint0_linear_8070_23353"
+        :id="`paint0_linear_${uniqueId}`"
         x1="31.2281"
         y1="8.06429"
         x2="31.2281"
@@ -51,7 +55,7 @@
         <stop offset="1" stop-color="#B2C1D2" />
       </linearGradient>
       <linearGradient
-        id="paint1_linear_8070_23353"
+        :id="`paint1_linear_${uniqueId}`"
         x1="29.3777"
         y1="22.7778"
         x2="29.3777"
@@ -62,7 +66,7 @@
         <stop offset="1" stop-color="#E8728C" />
       </linearGradient>
       <linearGradient
-        id="paint2_linear_8070_23353"
+        :id="`paint2_linear_${uniqueId}`"
         x1="31.7738"
         y1="31.647"
         x2="27.3697"
@@ -73,7 +77,7 @@
         <stop offset="1" stop-color="#335A88" />
       </linearGradient>
       <linearGradient
-        id="paint3_linear_8070_23353"
+        :id="`paint3_linear_${uniqueId}`"
         x1="49.249"
         y1="11.5"
         x2="38.589"
@@ -84,7 +88,7 @@
         <stop offset="1" stop-color="#335A88" />
       </linearGradient>
       <linearGradient
-        id="paint4_linear_8070_23353"
+        :id="`paint4_linear_${uniqueId}`"
         x1="52.3728"
         y1="10.675"
         x2="48.7604"
@@ -95,7 +99,7 @@
         <stop offset="1" stop-color="#335A88" />
       </linearGradient>
       <linearGradient
-        id="paint5_linear_8070_23353"
+        :id="`paint5_linear_${uniqueId}`"
         x1="50.3399"
         y1="6.61299"
         x2="36.0823"

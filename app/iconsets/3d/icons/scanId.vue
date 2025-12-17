@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 64 64" fill="none">
     <path
@@ -8,12 +12,7 @@
     <foreignObject x="3.44207" y="13.3003" width="57.2926" height="38.1951"
       ><div
         xmlns="http://www.w3.org/1999/xhtml"
-        style="
-          backdrop-filter: blur(1.59px);
-          clip-path: url(#bgblur_0_8070_23094_clip_path);
-          height: 100%;
-          width: 100%;
-        "
+        :style="`backdrop-filter: blur(1.59px); clip-path: url(#bgblur_0_${uniqueId}_clip_path); height: 100%; width: 100%;`"
       ></div
     ></foreignObject>
     <rect
@@ -31,11 +30,11 @@
       width="50.9268"
       height="31.8293"
       rx="3.625"
-      fill="url(#paint0_linear_8070_23094)"
+      :fill="`url(#paint0_linear_${uniqueId})`"
     />
     <rect x="13.0571" y="22.4844" width="16.3125" height="19.0312" rx="1.59146" fill="#6882A7" />
     <mask
-      id="mask0_8070_23094"
+      :id="`mask0_${uniqueId}`"
       style="mask-type: alpha"
       maskUnits="userSpaceOnUse"
       x="13"
@@ -45,7 +44,7 @@
     >
       <rect x="13.0571" y="22.4844" width="16.3125" height="19.0312" rx="1.59146" fill="#6882A7" />
     </mask>
-    <g mask="url(#mask0_8070_23094)">
+    <g :mask="`url(#mask0_${uniqueId})`">
       <path
         d="M24.2324 35.7549C26.2343 35.7551 27.8574 37.378 27.8574 39.3799V42.2705H14.3926V39.3799C14.3926 37.3779 16.0156 35.7549 18.0176 35.7549H24.2324ZM21.125 25.6562C23.6037 25.6563 25.6133 27.6659 25.6133 30.1445C25.6132 32.6231 23.6036 34.6328 21.125 34.6328C18.6464 34.6328 16.6368 32.6232 16.6367 30.1445C16.6367 27.6658 18.6463 25.6562 21.125 25.6562Z"
         fill="#B2C1D2"
@@ -56,11 +55,11 @@
       fill="#6882A7"
     />
     <defs>
-      <clipPath id="bgblur_0_8070_23094_clip_path" transform="translate(-3.44207 -13.3003)">
+      <clipPath :id="`bgblur_0_${uniqueId}_clip_path`" transform="translate(-3.44207 -13.3003)">
         <rect x="6.625" y="16.4832" width="50.9268" height="31.8293" rx="3.625" />
       </clipPath>
       <linearGradient
-        id="paint0_linear_8070_23094"
+        :id="`paint0_linear_${uniqueId}`"
         x1="34.0777"
         y1="15.6875"
         x2="34.0777"

@@ -1,6 +1,10 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 100 100" fill="none">
-    <circle cx="50" cy="50" r="50" fill="url(#paint0_linear_8070_23465)" />
+    <circle cx="50" cy="50" r="50" :fill="`url(#paint0_linear_${uniqueId})`" />
     <path
       d="M50 25C37.2975 25 27 35.2975 27 48C27 60.7025 37.2975 71 50 71C62.7025 71 73 60.7025 73 48C73 35.2975 62.7025 25 50 25ZM50 65C39.5066 65 31 56.4934 31 46C31 35.5066 39.5066 27 50 27C60.4934 27 69 35.5066 69 46C69 56.4934 60.4934 65 50 65Z"
       fill="#0047AB"
@@ -48,7 +52,7 @@
     />
     <defs>
       <linearGradient
-        id="paint0_linear_8070_23465"
+        :id="`paint0_linear_${uniqueId}`"
         x1="50"
         y1="0"
         x2="50"

@@ -1,14 +1,13 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 64 64" fill="none">
     <foreignObject x="0.487805" y="8.4878" width="63.0244" height="49.0244"
       ><div
         xmlns="http://www.w3.org/1999/xhtml"
-        style="
-          backdrop-filter: blur(1.76px);
-          clip-path: url(#bgblur_0_8070_23015_clip_path);
-          height: 100%;
-          width: 100%;
-        "
+        :style="`backdrop-filter: blur(1.76px); clip-path: url(#bgblur_0_${uniqueId}_clip_path); height: 100%; width: 100%;`"
       ></div
     ></foreignObject>
     <rect
@@ -20,7 +19,7 @@
       rx="4"
       fill="#98ACC3"
     />
-    <rect x="4" y="11" width="56" height="42" rx="4" fill="url(#paint0_linear_8070_23015)" />
+    <rect x="4" y="11" width="56" height="42" rx="4" :fill="`url(#paint0_linear_${uniqueId})`" />
     <path d="M4 22H60" stroke="#BCC9D7" stroke-width="0.5" />
     <path
       d="M50.8984 41H48.3359L47.0859 36.1797L45.8359 41H43.2734L40.75 33.1875H43.125L44.5234 38.6328L46.1016 33.1875H48.0625L49.6484 38.6562L51.0469 33.1875H53.4219L50.8984 41Z"
@@ -55,11 +54,11 @@
       fill="#D5456F"
     />
     <defs>
-      <clipPath id="bgblur_0_8070_23015_clip_path" transform="translate(-0.487805 -8.4878)">
+      <clipPath :id="`bgblur_0_${uniqueId}_clip_path`" transform="translate(-0.487805 -8.4878)">
         <rect x="4" y="12" width="56" height="42" rx="4" />
       </clipPath>
       <linearGradient
-        id="paint0_linear_8070_23015"
+        :id="`paint0_linear_${uniqueId}`"
         x1="34.1875"
         y1="11"
         x2="34.1875"

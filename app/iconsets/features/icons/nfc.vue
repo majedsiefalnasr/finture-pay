@@ -1,12 +1,16 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 100 100" fill="none">
-    <circle cx="50" cy="50" r="50" fill="url(#paint0_linear_8070_23482)" />
-    <g clip-path="url(#clip0_8070_23482)">
+    <circle cx="50" cy="50" r="50" :fill="`url(#paint0_linear_${uniqueId})`" />
+    <g :clip-path="`url(#clip0_${uniqueId})`">
       <circle
         cx="50"
         cy="50"
         r="30"
-        fill="url(#paint1_linear_8070_23482)"
+        :fill="`url(#paint1_linear_${uniqueId})`"
         class="tone1"
         stroke-width="4"
         stroke-linecap="round"
@@ -23,7 +27,7 @@
     </g>
     <defs>
       <linearGradient
-        id="paint0_linear_8070_23482"
+        :id="`paint0_linear_${uniqueId}`"
         x1="50"
         y1="0"
         x2="50"
@@ -34,7 +38,7 @@
         <stop offset="1" stop-color="#FEFEFE" />
       </linearGradient>
       <linearGradient
-        id="paint1_linear_8070_23482"
+        :id="`paint1_linear_${uniqueId}`"
         x1="50"
         y1="-1.58946e-05"
         x2="50"
@@ -44,7 +48,7 @@
         <stop stop-color="white" />
         <stop offset="1" stop-color="#CCDAEE" />
       </linearGradient>
-      <clipPath id="clip0_8070_23482">
+      <clipPath :id="`clip0_${uniqueId}`">
         <rect width="64" height="64" fill="white" transform="translate(18 18)" />
       </clipPath>
     </defs>

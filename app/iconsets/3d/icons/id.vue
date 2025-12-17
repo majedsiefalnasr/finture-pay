@@ -1,14 +1,13 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 69 64" fill="none">
     <foreignObject x="0.487805" y="11.3659" width="63.2197" height="42.1463"
       ><div
         xmlns="http://www.w3.org/1999/xhtml"
-        style="
-          backdrop-filter: blur(1.76px);
-          clip-path: url(#bgblur_0_8070_23079_clip_path);
-          height: 100%;
-          width: 100%;
-        "
+        :style="`backdrop-filter: blur(1.76px); clip-path: url(#bgblur_0_${uniqueId}_clip_path); height: 100%; width: 100%;`"
       ></div
     ></foreignObject>
     <rect
@@ -26,11 +25,11 @@
       width="56.1951"
       height="35.122"
       rx="4"
-      fill="url(#paint0_linear_8070_23079)"
+      :fill="`url(#paint0_linear_${uniqueId})`"
     />
     <rect x="11.0977" y="21.5" width="18" height="21" rx="1.7561" fill="#6882A7" />
     <mask
-      id="mask0_8070_23079"
+      :id="`mask0_${uniqueId}`"
       style="mask-type: alpha"
       maskUnits="userSpaceOnUse"
       x="11"
@@ -40,7 +39,7 @@
     >
       <rect x="11.0977" y="21.5" width="18" height="21" rx="1.7561" fill="#6882A7" />
     </mask>
-    <g mask="url(#mask0_8070_23079)">
+    <g :mask="`url(#mask0_${uniqueId})`">
       <path
         d="M23.4287 36.1426C25.6377 36.1427 27.4286 37.9336 27.4287 40.1426V43.333H12.5713V40.1426C12.5714 37.9336 14.3623 36.1426 16.5713 36.1426H23.4287ZM20 25C22.735 25 24.952 27.2171 24.9521 29.9521C24.9521 32.6873 22.7351 34.9043 20 34.9043C17.2649 34.9043 15.0479 32.6873 15.0479 29.9521C15.048 27.2171 17.265 25 20 25Z"
         fill="#B2C1D2"
@@ -60,11 +59,11 @@
       stroke-linejoin="round"
     />
     <defs>
-      <clipPath id="bgblur_0_8070_23079_clip_path" transform="translate(-0.487805 -11.3659)">
+      <clipPath :id="`bgblur_0_${uniqueId}_clip_path`" transform="translate(-0.487805 -11.3659)">
         <rect x="4" y="14.8781" width="56.1951" height="35.122" rx="4" />
       </clipPath>
       <linearGradient
-        id="paint0_linear_8070_23079"
+        :id="`paint0_linear_${uniqueId}`"
         x1="34.2927"
         y1="14"
         x2="34.2927"

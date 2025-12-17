@@ -1,24 +1,28 @@
+<script setup lang="ts">
+const uniqueId = Math.random().toString(36).substr(2, 9)
+</script>
+
 <template>
   <svg viewBox="0 0 64 64" fill="none">
     <rect x="15" y="10" width="34" height="52" rx="4" fill="#98ACC3" />
-    <rect x="15" y="9" width="34" height="52" rx="4" fill="url(#paint0_linear_8070_23304)" />
-    <rect x="20" y="19" width="24" height="11" rx="2" fill="url(#paint1_linear_8070_23304)" />
+    <rect x="15" y="9" width="34" height="52" rx="4" :fill="`url(#paint0_linear_${uniqueId})`" />
+    <rect x="20" y="19" width="24" height="11" rx="2" :fill="`url(#paint1_linear_${uniqueId})`" />
     <rect
       x="20"
       y="54"
       width="24"
       height="2"
       rx="1"
-      fill="url(#paint2_linear_8070_23304)"
+      :fill="`url(#paint2_linear_${uniqueId})`"
       fill-opacity="0.85"
     />
-    <rect x="20" y="35" width="6" height="6" rx="2" fill="url(#paint3_linear_8070_23304)" />
-    <rect x="20" y="45" width="6" height="6" rx="2" fill="url(#paint4_linear_8070_23304)" />
-    <rect x="29" y="35" width="6" height="6" rx="2" fill="url(#paint5_linear_8070_23304)" />
-    <rect x="29" y="45" width="6" height="6" rx="2" fill="url(#paint6_linear_8070_23304)" />
-    <rect x="38" y="35" width="6" height="6" rx="2" fill="url(#paint7_linear_8070_23304)" />
-    <rect x="38" y="45" width="6" height="6" rx="2" fill="url(#paint8_linear_8070_23304)" />
-    <rect x="20" y="2" width="24" height="14" rx="2" fill="url(#paint9_linear_8070_23304)" />
+    <rect x="20" y="35" width="6" height="6" rx="2" :fill="`url(#paint3_linear_${uniqueId})`" />
+    <rect x="20" y="45" width="6" height="6" rx="2" :fill="`url(#paint4_linear_${uniqueId})`" />
+    <rect x="29" y="35" width="6" height="6" rx="2" :fill="`url(#paint5_linear_${uniqueId})`" />
+    <rect x="29" y="45" width="6" height="6" rx="2" :fill="`url(#paint6_linear_${uniqueId})`" />
+    <rect x="38" y="35" width="6" height="6" rx="2" :fill="`url(#paint7_linear_${uniqueId})`" />
+    <rect x="38" y="45" width="6" height="6" rx="2" :fill="`url(#paint8_linear_${uniqueId})`" />
+    <rect x="20" y="2" width="24" height="14" rx="2" :fill="`url(#paint9_linear_${uniqueId})`" />
     <defs>
       <linearGradient
         id="paint0_linear_8070_23304"
@@ -32,7 +36,7 @@
         <stop offset="1" stop-color="#B2C1D2" />
       </linearGradient>
       <linearGradient
-        id="paint1_linear_8070_23304"
+        :id="`paint1_linear_${uniqueId}`"
         x1="31.5"
         y1="19"
         x2="31.5"
@@ -43,7 +47,7 @@
         <stop offset="1" stop-color="#6D86AD" />
       </linearGradient>
       <linearGradient
-        id="paint2_linear_8070_23304"
+        :id="`paint2_linear_${uniqueId}`"
         x1="31.5"
         y1="54"
         x2="31.5"
@@ -87,7 +91,7 @@
         <stop offset="1" stop-color="#6D86AD" />
       </linearGradient>
       <linearGradient
-        id="paint6_linear_8070_23304"
+        :id="`paint0_linear_${uniqueId}`"
         x1="32"
         y1="45"
         x2="32"
