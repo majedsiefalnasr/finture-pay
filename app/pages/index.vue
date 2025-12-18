@@ -1,14 +1,15 @@
 <script>
 import AnnouncementCard from '~/components/shared/AnnouncementCard.vue'
-import TeamCard from '~/components/shared/TeamCard.vue'
 import BlogFeature from '~/components/shared/BlogFeature.vue'
-
+import BlogRecentPostsCard from '~/components/shared/BlogRecentPostsCard.vue'
+import TeamCard from '~/components/shared/TeamCard.vue'
 import CheckExist from '~~/scripts/utilities/check_exist'
 export default {
   components: {
     AnnouncementCard,
     TeamCard,
     BlogFeature,
+    BlogRecentPostsCard,
   },
   setup() {
     definePageMeta({
@@ -103,7 +104,9 @@ export default {
 </script>
 
 <template>
-  <u-container style="background:#F5F7F9">
+  <u-container >
+    <BlogRecentPostsCard/>
+    <hr/>
     <BlogFeature />
     <hr />
     <TeamCard />
