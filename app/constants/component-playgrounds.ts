@@ -62,6 +62,11 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
         to: '/components/shared/page-header',
         description: 'Resizable harness to preview the PageHeader component.',
       },
+      {
+        label: 'Fees Table',
+        to: '/components/shared/fees-table',
+        description: 'Resizable harness to preview the FeesTable component.',
+      },
     ],
   },
 ]
