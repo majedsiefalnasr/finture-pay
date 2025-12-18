@@ -105,7 +105,7 @@ export default {
 <template>
   <u-container style="background:#F5F7F9">
     <BlogFeature />
-    <h />
+    <hr />
     <TeamCard />
     <hr />
     <AnnouncementCard />
