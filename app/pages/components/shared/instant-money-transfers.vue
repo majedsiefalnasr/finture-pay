@@ -53,7 +53,7 @@ const propDefinitions = [
     type: 'select',
     default: 'end',
     description: 'Position of the image on desktop: start or end.',
-    items: ['start', 'end'],
+    options: ['start', 'end'],
   },
 ]
 

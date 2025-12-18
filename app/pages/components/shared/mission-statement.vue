@@ -39,7 +39,7 @@ const propDefinitions = [
     type: 'select',
     default: 'd3:mission',
     description: 'The icon to display (from the 3d iconset).',
-    items: [
+    options: [
       'd3:add',
       'd3:building',
       'd3:business',

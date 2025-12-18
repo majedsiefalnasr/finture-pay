@@ -23,6 +23,7 @@
 - **Components must have default values for required props.**
 - **All props are required until provided with optional props.**
 - **Generate a playground page for generated components.**
+- **Place the playground page in `app/pages/components/category/ComponentName.vue`** (using kebab-case for the filename).
 - **Playground page follows the next template:**
 
   ```

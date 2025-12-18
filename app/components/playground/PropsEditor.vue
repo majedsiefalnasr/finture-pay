@@ -4,7 +4,7 @@ interface PropDefinition {
   type: string
   default?: unknown
   description: string
-  items?: string[]
+  options?: string[]
 }
 
 interface Props {
@@ -63,7 +63,7 @@ const resetToDefaults = () => {
             <u-combobox
               v-else-if="def.type === 'select'"
               :model-value="propsData[def.name] || def.default || ''"
-              :items="def.items || []"
+              :items="def.options || []"
               density="compact"
               hide-details="auto"
               @update:model-value="(value: unknown) => updateProp(def.name, value)"
