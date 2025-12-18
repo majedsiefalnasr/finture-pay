@@ -103,7 +103,7 @@ export default {
 </script>
 
 <template>
-  <u-container>
+  <u-container style="background:#F5F7F9">
     <BlogFeature />
     <h />
     <TeamCard />
