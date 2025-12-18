@@ -46,7 +46,7 @@ const propDefinitions = [
     type: 'select',
     default: 'd3:wallet',
     description: 'Icon to display (from iconsets).',
-    items: [
+    options: [
       'd3:add',
       'd3:building',
       'd3:business',

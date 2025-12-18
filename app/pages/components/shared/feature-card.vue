@@ -37,7 +37,7 @@ const propDefinitions = [
     type: 'select',
     default: 'features:transparent',
     description: 'Icon to display (from features iconset).',
-    items: [
+    options: [
       'features:ai',
       'features:banksecurity',
       'features:billing',
