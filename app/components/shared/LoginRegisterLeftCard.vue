@@ -27,24 +27,25 @@ const props = withDefaults(defineProps<Props>(), {
     </div>
 
     <div v-if="!props.is_menu" class="brand-content">
-      <h2 class="title">{{ props.title }}</h2>
+      <h1 class="title">{{ props.title }}</h1>
       <p class="description">{{ props.description }}</p>
     </div>
   </u-col>
 </template>
 
-<style scoped>
+<style>
 .brand-content {
   margin-left: -158px;
   width: 60%;
 }
 .brand-panel {
-  display: flex;
   position: relative;
-  background: linear-gradient(180deg, #0b4dba 0%, #083a91 100%);
-  padding: 72px;
-  overflow: hidden;
+  align-items: center;
+  background: linear-gradient(135deg, #0b4dba, #083a91);
+  padding: 64px;
   color: white;
+  overflow: hidden;
+
 }
 
 /* CONTENT */
@@ -70,7 +71,7 @@ h2 {
 .description {
   opacity: 0.9;
   max-width: 360px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .copyright {

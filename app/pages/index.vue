@@ -148,7 +148,7 @@ export default {
           <div class="hero-actions">
             <u-btn color="error" rounded size="large"> Open Individual Account </u-btn>
 
-            <u-btn variant="outlined" color="white" rounded size="large">
+            <u-btn :href="'/login'" variant="outlined" color="white" rounded size="large">
               Start Your Business Account
             </u-btn>
           </div>
