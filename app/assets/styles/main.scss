@@ -6,6 +6,13 @@
   font-family: 'Kumbh Sans Variable', sans-serif;
 }
 
+// Container max-widths for different screen sizes
+@media (min-width: 1920px) {
+  .v-container {
+    max-width: 1440px;
+  }
+}
+
 // Typography styles
 h1 {
   font-weight: 700;
@@ -159,4 +166,10 @@ body,
 
 .v-locale--is-ltr {
   direction: ltr;
+}
+
+.v-list-item__prepend > .v-badge ~ .v-list-item__spacer,
+.v-list-item__prepend > .v-icon ~ .v-list-item__spacer,
+.v-list-item__prepend > .v-tooltip ~ .v-list-item__spacer {
+  width: 16px;
 }

@@ -1,7 +1,7 @@
 <script>
 import EverythingPocketLayout from '~/components/shared/EverythingPocketLayout.vue'
 import FeatureCard from '~/components/shared/FeatureCard.vue'
-import Footer from '~/components/shared/Footer.vue'
+import AppFooter from '~/components/shared/Footer.vue'
 import GetStarted from '~/components/shared/GetStarted.vue'
 import howItWorks from '~/components/shared/howItWorks.vue'
 import ServiceCard from '~/components/shared/ServiceCard.vue'
@@ -13,7 +13,7 @@ export default {
     howItWorks,
     SolutionCard,
     GetStarted,
-    Footer,
+    AppFooter,
     EverythingPocketLayout,
   },
   data() {
@@ -129,7 +129,7 @@ export default {
 </script>
 
 <template>
-  <u-container>
+  <div>
     <section class="hero-wrapper">
       <u-row align="center">
         <!-- LEFT CONTENT -->
@@ -184,28 +184,23 @@ export default {
     </section>
 
     <section class="features">
-      <u-row justify="center" class="feature-title">
-        <u-col cols="12" class="text-center mb-12">
-          <h2 class="section-title">Why Finture</h2>
-          <p class="section-subtitle">
-            Transparency, security, speed, and always-on support<br />
-            the four core promises that set Finture apart.
-          </p>
-        </u-col>
-      </u-row>
+      <u-container>
+        <div class="d-flex flex-column ga-16">
+          <div class="features-header d-flex flex-column ga-6 mb-6 mx-auto">
+            <h2>Why Finture</h2>
+            <p class="text-h3">
+              Transparency, security, speed, and always-on support the four core promises that set
+              Finture apart.
+            </p>
+          </div>
 
-      <u-row>
-        <u-col
-          v-for="(f, index) in fetureDataList"
-          :key="index"
-          cols="12"
-          sm="6"
-          md="3"
-          class="mb-4 d-flex justify-center"
-        >
-          <FeatureCard :title="f.title" :subtitle="f.subtitle" :icon="f.icon" />
-        </u-col>
-      </u-row>
+          <u-row class="justify-center">
+            <u-col v-for="(f, index) in fetureDataList" :key="index" cols="12" sm="6" md="3">
+              <FeatureCard :title="f.title" :subtitle="f.subtitle" :icon="f.icon" />
+            </u-col>
+          </u-row>
+        </div>
+      </u-container>
     </section>
 
     <section class="how-it-work">
@@ -213,69 +208,95 @@ export default {
     </section>
 
     <section class="accept-payments">
-      <u-row justify="center" class="feature-title">
-        <u-col cols="12" class="text-center mb-12">
-          <h2 class="section-title">Accept Payments Your Way</h2>
-          <p class="section-subtitle">
-            Secure, flexible payment solutions for every way your customers want to pay.
-          </p>
-        </u-col>
-      </u-row>
+      <u-container>
+        <div class="d-flex flex-column ga-16">
+          <div class="accept-payments-header d-flex flex-column ga-6 mb-6 mx-auto">
+            <h2>Accept Payments Your Way</h2>
+            <p class="text-h3">
+              Secure, flexible payment solutions for every way your customers want to pay.
+            </p>
+          </div>
 
-      <u-row>
-        <u-col
-          v-for="(s, index) in solutionsDataList"
-          :key="index"
-          cols="12"
-          sm="6"
-          md="3"
-          class="mb-4 d-flex justify-center"
-        >
-          <SolutionCard
-            :title="s.title"
-            :subtitle="s.subtitle"
-            :price="s.price"
-            :image="s.image"
-            :image-max-width="s.imageMaxWidth"
-          />
-        </u-col>
-      </u-row>
+          <u-row>
+            <u-col v-for="(s, index) in solutionsDataList" :key="index" cols="12" sm="6" md="3">
+              <SolutionCard
+                :title="s.title"
+                :subtitle="s.subtitle"
+                :price="s.price"
+                :image="s.image"
+                :image-max-width="s.imageMaxWidth"
+              />
+            </u-col>
+          </u-row>
+        </div>
+      </u-container>
     </section>
 
     <section class="everything-pocket">
       <EverythingPocketLayout />
     </section>
 
-    <sction class="companies">
-      <u-row justify="center">
-        <u-col cols="12" class="text-center mb-8 mt-12 companies-title">
-          <h2 class="companies-title">Your Money is Safe. Always.</h2>
-        </u-col>
-      </u-row>
+    <section class="companies">
+      <u-container>
+        <div class="d-flex flex-column ga-16">
+          <div class="companies-header d-flex flex-column ga-6 mb-6 mx-auto">
+            <h2>Your Money is Safe. Always.</h2>
+          </div>
 
-      <u-row justify="center" align="center" class="logos-row" dense>
-        <u-col
-          v-for="(logo, index) in companiesLogosDataList"
-          :key="index"
-          cols="6"
-          sm="4"
-          md="2"
-          class="text-center"
-        >
-          <u-img :src="logo.src" :alt="logo.alt" max-width="110" contain class="trust-logo" />
-        </u-col>
-      </u-row>
-    </sction>
+          <div class="d-flex ga-6 justify-space-around flex-wrap">
+            <template v-for="(logo, index) in companiesLogosDataList" :key="index">
+              <img :src="logo.src" :alt="logo.alt" height="96" class="trust-logo" />
+            </template>
+          </div>
+        </div>
+      </u-container>
+    </section>
 
     <section class="footer">
       <GetStarted />
-      <Footer />
+      <AppFooter />
     </section>
-  </u-container>
+  </div>
 </template>
 
 <style scoped>
-.why-finture {
+.features,
+.accept-payments,
+.companies {
+  padding-block: 96px;
+}
+
+.companies {
+  padding-bottom: 160px;
+}
+
+.features-header,
+.accept-payments-header,
+.companies-header {
+  max-width: 800px;
+  text-align: center;
+}
+
+.companies-header h2 {
+  color: var(--Neutral-B30, #777e92);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+}
+
+.trust-logo {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  max-height: 96px;
+  object-fit: none;
+}
+
+.trust-logo:hover {
+  opacity: 1;
+}
+
+/* ////////////////// */
+/* .why-finture {
   background-color: #ffffff;
   padding: 100px 24px;
 }
@@ -346,15 +367,6 @@ export default {
   max-width: 1100px;
 }
 
-.trust-logo {
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.trust-logo:hover {
-  opacity: 1;
-}
-
 .companies-title {
   margin-top: 120px !important;
 }
@@ -405,5 +417,5 @@ export default {
 .value-card {
   border-radius: 16px;
   height: 100%;
-}
+} */
 </style>

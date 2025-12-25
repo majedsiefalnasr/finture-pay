@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="text-center d-flex flex-column align-center justify-center ga-4">
     <u-icon :icon="icon" size="100" class="two-tone-icon" />
     <div class="d-flex flex-column ga-2">
       <h4>{{ title }}</h4>

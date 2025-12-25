@@ -87,112 +87,114 @@ const { logoSrc, phoneNumber, socialLinks, linkGroups, tcmbText, copyrightText, 
 </script>
 
 <template>
-  <u-container class="footer bg-DBlue py-10 px-4 px-md-16">
-    <div class="d-flex flex-column ga-10">
-      <!-- Main Content -->
-      <u-row>
-        <!-- Left Column: Logo, Contact, Social -->
-        <u-col
-          cols="12"
-          md="4"
-          class="d-flex flex-column ga-8 align-center align-md-start text-center text-md-start"
-        >
-          <!-- Logo -->
-          <div class="logo-container">
-            <img :src="logoSrc" alt="Finture Logo" class="logo" />
-          </div>
-
-          <!-- Contact -->
-          <div class="d-flex flex-column ga-2">
-            <p class="label-2 text-DB90">Call Us</p>
-            <p class="label-3 text-DB60">{{ phoneNumber }}</p>
-          </div>
-
-          <!-- Social Links -->
-          <div class="d-flex flex-column ga-2">
-            <p class="label-2 text-DB90">Follow Us</p>
-            <div class="d-flex ga-3 mt-2">
-              <a
-                v-for="social in socialLinks"
-                :key="social.title"
-                :href="social.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                :title="social.title"
-                class="cursor-pointer"
-              >
-                <u-icon :icon="social.icon" size="24" class="text-DB60" />
-              </a>
+  <div class="footer bg-DBlue py-10 px-4 px-md-16">
+    <u-container>
+      <div class="d-flex flex-column ga-10">
+        <!-- Main Content -->
+        <u-row>
+          <!-- Left Column: Logo, Contact, Social -->
+          <u-col
+            cols="12"
+            md="4"
+            class="d-flex flex-column ga-8 align-center align-md-start text-center text-md-start"
+          >
+            <!-- Logo -->
+            <div class="logo-container">
+              <img :src="logoSrc" alt="Finture Logo" class="logo" />
             </div>
-          </div>
-        </u-col>
+
+            <!-- Contact -->
+            <div class="d-flex flex-column ga-2">
+              <p class="label-2 text-DB90">Call Us</p>
+              <p class="label-3 text-DB60">{{ phoneNumber }}</p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="d-flex flex-column ga-2">
+              <p class="label-2 text-DB90">Follow Us</p>
+              <div class="d-flex ga-3 mt-2">
+                <a
+                  v-for="social in socialLinks"
+                  :key="social.title"
+                  :href="social.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :title="social.title"
+                  class="cursor-pointer"
+                >
+                  <u-icon :icon="social.icon" size="24" class="text-DB60" />
+                </a>
+              </div>
+            </div>
+          </u-col>
+
+          <!-- Divider -->
+          <u-divider class="my-6 d-block d-md-none" />
+
+          <!-- Link Groups -->
+          <u-col cols="12" md="8">
+            <u-row class="px-6 px-md-0">
+              <u-col
+                v-for="group in linkGroups"
+                :key="group.title"
+                cols="6"
+                sm="3"
+                class="link-group d-flex flex-column ga-2"
+              >
+                <p class="label-2 text-DB90">{{ group.title }}</p>
+                <div class="d-flex flex-column ga-2">
+                  <NuxtLink
+                    v-for="link in group.links"
+                    :key="link.title"
+                    :to="link.link"
+                    class="label-3 text-DB60 cursor-pointer text-decoration-none"
+                  >
+                    {{ link.title }}
+                  </NuxtLink>
+                </div>
+              </u-col>
+            </u-row>
+          </u-col>
+        </u-row>
 
         <!-- Divider -->
-        <u-divider class="my-6 d-block d-md-none" />
+        <u-divider class="my-6" />
 
-        <!-- Link Groups -->
-        <u-col cols="12" md="8">
-          <u-row class="px-6 px-md-0">
-            <u-col
-              v-for="group in linkGroups"
-              :key="group.title"
-              cols="6"
-              sm="3"
-              class="link-group d-flex flex-column ga-2"
-            >
-              <p class="label-2 text-DB90">{{ group.title }}</p>
-              <div class="d-flex flex-column ga-2">
-                <NuxtLink
-                  v-for="link in group.links"
-                  :key="link.title"
-                  :to="link.link"
-                  class="label-3 text-DB60 cursor-pointer text-decoration-none"
-                >
-                  {{ link.title }}
-                </NuxtLink>
-              </div>
-            </u-col>
-          </u-row>
-        </u-col>
-      </u-row>
-
-      <!-- Divider -->
-      <u-divider class="my-6" />
-
-      <!-- Credits -->
-      <u-row>
-        <!-- TCMB Section -->
-        <u-col
-          cols="12"
-          md="8"
-          class="d-flex flex-column flex-md-row ga-3 align-center align-md-start"
-        >
-          <div class="tcmb-logo">
-            <img src="/assets/images/tcmb-logo.png" alt="TCMB" class="tcmb-image" />
-          </div>
-          <p class="label-4 text-DB60 text-center text-md-left" style="max-width: 320px">
-            {{ tcmbText }}
-          </p>
-        </u-col>
-
-        <!-- Copyright and Footer Links -->
-        <u-col cols="12" md="4" class="d-flex flex-column ga-4 align-center align-md-end">
-          <p class="label-3 text-DB60 text-center text-md-right">
-            {{ copyrightText }}
-          </p>
-          <div class="d-flex ga-4 align-center">
-            <p
-              v-for="link in footerLinks"
-              :key="link"
-              class="label-3 text-DB60 underline cursor-pointer"
-            >
-              {{ link }}
+        <!-- Credits -->
+        <u-row>
+          <!-- TCMB Section -->
+          <u-col
+            cols="12"
+            md="8"
+            class="d-flex flex-column flex-md-row ga-3 align-center align-md-start"
+          >
+            <div class="tcmb-logo">
+              <img src="/assets/images/tcmb-logo.png" alt="TCMB" class="tcmb-image" />
+            </div>
+            <p class="label-4 text-DB60 text-center text-md-left" style="max-width: 320px">
+              {{ tcmbText }}
             </p>
-          </div>
-        </u-col>
-      </u-row>
-    </div>
-  </u-container>
+          </u-col>
+
+          <!-- Copyright and Footer Links -->
+          <u-col cols="12" md="4" class="d-flex flex-column ga-4 align-center align-md-end">
+            <p class="label-3 text-DB60 text-center text-md-right">
+              {{ copyrightText }}
+            </p>
+            <div class="d-flex ga-4 align-center">
+              <p
+                v-for="link in footerLinks"
+                :key="link"
+                class="label-3 text-DB60 underline cursor-pointer"
+              >
+                {{ link }}
+              </p>
+            </div>
+          </u-col>
+        </u-row>
+      </div>
+    </u-container>
+  </div>
 </template>
 
 <style scoped>
