@@ -47,88 +47,85 @@ export default {
 </script>
 
 <template>
-  <u-container fluid class="fill-height pa-0">
-    <u-row no-gutters class="fill-height">
-      <LoginRegisterLeftCard :have_list="false" />
+  <u-row no-gutters class="fill-height">
+    <LoginRegisterLeftCard :have_list="false" />
 
-      <u-col cols="12" md="6" class="login-panel">
-        <div class="row">
+    <u-col cols="12" md="6" class="login-panel">
+      <div class="row">
+        <div col="12" md="12" class="back-home">
+          <NuxtLink u-if="mdAndUp" to="/" class="back-link"> Back to Home → </NuxtLink>
+        </div>
 
-          <div col="12" md="12" class="back-home">
-            <NuxtLink u-if="mdAndUp" to="/" class="back-link"> Back to Home → </NuxtLink>
-          </div>
+        <div cols="12" md="12" class="justfiy-center login" align="center">
+          <div class="login-card">
+            <h3 class="text-center title mb-4">Access Dashboard</h3>
 
-          <div cols="12" md="12" class="justfiy-center login" align="center">
-            <div class="login-card">
-              <h3 class="text-center title mb-4">Access Dashboard</h3>
+            <p class="text-center subtitle mb-3">
+              Securely log in to manage your wallet, track transactions, accept payments, and access
+              all Finture services.
+            </p>
 
-              <p class="text-center subtitle mb-3">
-                Securely log in to manage your wallet, track transactions, accept payments, and
-                access all Finture services.
-              </p>
+            <!-- ACCOUNT TYPE -->
+            <u-btn-toggle class="mb-5 account-toggle" mandatory divided>
+              <u-btn value="individual">Individual</u-btn>
+              <u-btn value="business">Business</u-btn>
+            </u-btn-toggle>
 
-              <!-- ACCOUNT TYPE -->
-              <u-btn-toggle class="mb-5 account-toggle" mandatory divided>
-                <u-btn value="individual">Individual</u-btn>
-                <u-btn value="business">Business</u-btn>
-              </u-btn-toggle>
+            <u-alert
+              v-if="messageError.status"
+              type="error"
+              :text="messageError.msg"
+              closable
+              variant="tonal"
+              class="mb-4"
+            />
 
-              <u-alert
-                v-if="messageError.status"
-                type="error"
-                :text="messageError.msg"
-                closable
-                variant="tonal"
-                class="mb-4"
-              />
-
-              <!-- PHONE -->
-              <div class="phone-row">
-                <u-text-field
-                  v-model="loginDataObject.email"
-                  variant="solo-filled"
-                  density="comfortable"
-                  placeholder="email or registration code"
-                  hide-details
-                />
-              </div>
-
-              <!-- PASSWORD -->
+            <!-- PHONE -->
+            <div class="phone-row">
               <u-text-field
-                v-model="loginDataObject.password"
+                v-model="loginDataObject.email"
                 variant="solo-filled"
                 density="comfortable"
-                type="password"
-                placeholder="Password"
+                placeholder="Email or registration code"
+                hide-details
               />
-              <!-- LOGIN BUTTON -->
-              <u-btn
-                color="primary"
-                size="large"
-                block
-                class="mt-4 login-btn"
-                :disabled="loading"
-                @click="login"
-              >
-                <u-progress-circular
-                  v-if="loading"
-                  color="white"
-                  size="28"
-                  indeterminate
-                ></u-progress-circular>
-                <span v-else class="ml-2">Login to Finture</span>
-              </u-btn>
-
-              <p class="register">
-                You don’t have an account?
-                <NuxtLink to="/register" class="nuxt-link-style">Register Now!</NuxtLink>
-              </p>
             </div>
+
+            <!-- PASSWORD -->
+            <u-text-field
+              v-model="loginDataObject.password"
+              variant="solo-filled"
+              density="comfortable"
+              type="password"
+              placeholder="Password"
+            />
+            <!-- LOGIN BUTTON -->
+            <u-btn
+              color="primary"
+              size="large"
+              block
+              class="mt-4 login-btn"
+              :disabled="loading"
+              @click="login"
+            >
+              <u-progress-circular
+                v-if="loading"
+                color="white"
+                size="28"
+                indeterminate
+              ></u-progress-circular>
+              <span v-else class="ml-2">Login to Finture</span>
+            </u-btn>
+
+            <p class="register">
+              You don’t have an account?
+              <NuxtLink to="/register" class="nuxt-link-style">Register Now!</NuxtLink>
+            </p>
           </div>
         </div>
-      </u-col>
-    </u-row>
-  </u-container>
+      </div>
+    </u-col>
+  </u-row>
 </template>
 
 <style scoped>
