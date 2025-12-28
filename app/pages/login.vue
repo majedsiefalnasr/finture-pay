@@ -9,20 +9,36 @@ export default {
   data() {
     return {
       loginDataObject: {
-        emailOrRegistrationCode: '',
+        email: '',
         password: '',
+      },
+      messageError: {
+        status: false,
+        msg: '',
       },
       loading: false,
     }
   },
   methods: {
     async login() {
+      this.loading = true
       const loginObj = new Login({ apiUrl: useRuntimeConfig().public.API_URL })
       await loginObj.loginWithEmailOrrRegCode(this.loginDataObject).then((RESPONSE) => {
         if (RESPONSE) {
-          console.log(RESPONSE)
+          this.loading = false
+          const responseDaata = RESPONSE.data
+          if (responseDaata['status'] !== 'success') {
+            this.messageError.status = true
+            this.messageError.msg = responseDaata.msg
+          } else {
+            this.messageError.status = false
+            this.messageError.msg = null
+            localStorage.setItem('ACT', responseDaata.access_token)
+          }
         } else {
-          console.log(RESPONSE)
+          this.loading = false
+          this.messageError.status = true
+          this.messageError.msg = 'cannot process your request now please try again later'
         }
       })
     },
@@ -33,10 +49,11 @@ export default {
 <template>
   <u-container fluid class="fill-height pa-0">
     <u-row no-gutters class="fill-height">
-      <LoginRegisterLeftCard />
+      <LoginRegisterLeftCard :have_list="false" />
 
       <u-col cols="12" md="6" class="login-panel">
         <div class="row">
+
           <div col="12" md="12" class="back-home">
             <NuxtLink u-if="mdAndUp" to="/" class="back-link"> Back to Home → </NuxtLink>
           </div>
@@ -56,10 +73,19 @@ export default {
                 <u-btn value="business">Business</u-btn>
               </u-btn-toggle>
 
+              <u-alert
+                v-if="messageError.status"
+                type="error"
+                :text="messageError.msg"
+                closable
+                variant="tonal"
+                class="mb-4"
+              />
+
               <!-- PHONE -->
               <div class="phone-row">
                 <u-text-field
-                  v-model="loginDataObject.emailOrRegistrationCode"
+                  v-model="loginDataObject.email"
                   variant="solo-filled"
                   density="comfortable"
                   placeholder="email or registration code"
@@ -75,10 +101,22 @@ export default {
                 type="password"
                 placeholder="Password"
               />
-
               <!-- LOGIN BUTTON -->
-              <u-btn @click="login" color="primary" size="large" block class="mt-4 login-btn">
-                Login to Finture
+              <u-btn
+                color="primary"
+                size="large"
+                block
+                class="mt-4 login-btn"
+                :disabled="loading"
+                @click="login"
+              >
+                <u-progress-circular
+                  v-if="loading"
+                  color="white"
+                  size="28"
+                  indeterminate
+                ></u-progress-circular>
+                <span v-else class="ml-2">Login to Finture</span>
               </u-btn>
 
               <p class="register">
@@ -174,5 +212,11 @@ export default {
 
 .brand {
   font-size: 18px;
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 28px !important;
+  }
 }
 </style>

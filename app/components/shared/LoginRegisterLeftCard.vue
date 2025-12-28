@@ -3,7 +3,11 @@ interface Props {
   logo?: string
   title?: string
   description?: string
-  is_menu?: boolean
+  have_list?: boolean
+  vertical_menu_itmes?: Array
+  vertical_menu_title?: string
+  horizental_menu_item?: Array
+  horizental_menu_title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -11,7 +15,22 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Your Business, Empowered.',
   description:
     'Track transactions, manage your wallet, and accept payments securely from a single dashboard.',
-  is_menu: false,
+  have_list: false,
+  // eslint-disable-next-line vue/require-valid-default-prop
+  vertical_menu_itmes: [
+    { icon: 'line:check', description: 'Digital wallet with instant money transfers' },
+    { icon: 'line:check', description: 'Virtual and physical debit cards' },
+    { icon: 'line:check', description: 'Exclusive cashback campaigns and rewards' },
+  ],
+  vertical_menu_title: 'Individual Account Benefits:',
+  // eslint-disable-next-line vue/require-valid-default-prop
+  horizental_menu_item: [
+    { icon: 'line:lock01', description: '256-bit SSL encryption' },
+    { icon: 'line:signature', description: 'MASAK compliant AML/KYC procedures' },
+    { icon: 'line:pos', description: 'Real-time fraud monitoring' },
+    { icon: 'line:flash', description: 'Instant transaction notifications' },
+  ],
+  horizental_menu_title: 'Security You Can Trust:',
 })
 </script>
 
@@ -26,9 +45,33 @@ const props = withDefaults(defineProps<Props>(), {
       </span>
     </div>
 
-    <div v-if="!props.is_menu" class="brand-content">
+    <div class="brand-content">
       <h1 class="title">{{ props.title }}</h1>
-      <p class="description">{{ props.description }}</p>
+      <p class="description mt-5">{{ props.description }}</p>
+
+      <div v-if="props.have_list" class="mt-5">
+        <div class="vertical-menu">
+          <h6>{{ vertical_menu_title }}</h6>
+          <ul v-if="vertical_menu_itmes.length > 0">
+            <li v-for="(v, index) in vertical_menu_itmes" :key="index">
+              <div class="check-circle">
+                <u-icon color="green" :icon="v.icon" size="small"></u-icon>
+              </div>
+              {{ v.description }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div v-if="props.have_list" class="horizental-menu mt-5">
+        <h6 class="mb-3">{{ horizental_menu_title }}</h6>
+
+        <u-row cols="12">
+          <u-col v-for="(h, index) in horizental_menu_item" :key="index" cols="6">
+            <u-icon color="green" :icon="h.icon" size="30"></u-icon> {{ h.description }}
+          </u-col>
+        </u-row>
+      </div>
     </div>
   </u-col>
 </template>
@@ -36,16 +79,15 @@ const props = withDefaults(defineProps<Props>(), {
 <style>
 .brand-content {
   margin-left: -158px;
-  width: 60%;
+  width: 98%;
 }
 .brand-panel {
   position: relative;
   align-items: center;
   background: linear-gradient(135deg, #0b4dba, #083a91);
   padding: 64px;
-  color: white;
   overflow: hidden;
-
+  color: white;
 }
 
 /* CONTENT */
@@ -110,5 +152,22 @@ h2 {
 .logo-img {
   margin-top: -370px;
   margin-left: 62px;
+}
+
+ul {
+  list-style-type: none;
+}
+li {
+  margin-top: 10px;
+}
+
+.check-circle {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: white;
+  width: 25px;
+  height: 25px;
 }
 </style>
