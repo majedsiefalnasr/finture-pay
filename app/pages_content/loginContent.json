@@ -1,0 +1,16 @@
+{
+  "title": "Your Business, Empowered.",
+  "description":
+    "Track transactions, manage your wallet, and accept payments securely from a single dashboard.",
+  "have_list": false,
+
+  "vertical_menu_itmes": [
+    { "icon": "line:check", "description": "Digital wallet with instant money transfers" },
+    { "icon": "line:check", "description": "Virtual and physical debit cards" },
+    { "icon": "line:check", "description": "Exclusive cashback campaigns and rewards" }
+  ],
+
+  "vertical_menu_title": "Individual Account Benefits:",
+  "horizental_menu_item": [],
+  "horizental_menu_title": ""
+}

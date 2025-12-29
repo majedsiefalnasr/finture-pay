@@ -1,5 +1,6 @@
 <script>
 import LoginRegisterLeftCard from '~/components/shared/LoginRegisterLeftCard.vue'
+import x from '~/pages_content/loginContent.json'
 import Login from '~~/scripts/addons/login'
 
 export default {
@@ -17,6 +18,12 @@ export default {
         msg: '',
       },
       loading: false,
+      loginPageContent: {},
+    }
+  },
+  created() {
+    if (import.meta.client) {
+      this.loginPageContent = x
     }
   },
   methods: {
@@ -48,7 +55,15 @@ export default {
 
 <template>
   <u-row no-gutters class="fill-height">
-    <LoginRegisterLeftCard :have_list="false" />
+    <LoginRegisterLeftCard
+      :title="loginPageContent.title"
+      :description="loginPageContent.description"
+      :have_list="loginPageContent.have_list"
+      :vertical_menu_itmes="loginPageContent.vertical_menu_itmes"
+      :vertical_menu_title="loginPageContent.vertical_menu_title"
+      :horizental_menu_item="loginPageContent.horizental_menu_item"
+      :horizental_menu_title="loginPageContent.horizental_menu_title"
+    />
 
     <u-col cols="12" md="6" class="login-panel">
       <div class="row">
