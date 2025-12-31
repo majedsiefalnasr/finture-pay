@@ -14,7 +14,13 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky && husky install",
-    "test:images": "bash scripts/check_image_sizes.sh"
+    "test:images": "bash scripts/check_image_sizes.sh",
+    "dev:prod": " nuxt dev --dotenv .env.prod",
+    "generate:prod": " nuxt generate --dotenv .env.prod",
+    "dev:test": " nuxt dev --dotenv .env.test",
+    "generate:test": " nuxt generate --dotenv .env.test",
+    "dev:dev": " nuxt dev --dotenv .env.dev",
+    "generate:dev": " nuxt generate --dotenv .env.dev"
   },
   "dependencies": {
     "@fontsource-variable/kumbh-sans": "^5.2.7",
