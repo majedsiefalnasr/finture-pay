@@ -125,6 +125,9 @@ export default {
       ],
     }
   },
+  created() {
+    this.$store.dispatch('GET_COUNTRY_DATA')
+  },
 }
 </script>
 
@@ -146,7 +149,7 @@ export default {
           </p>
 
           <div class="hero-actions">
-            <u-btn color="error" rounded size="large"> Open Individual Account </u-btn>
+            <u-btn to="/register" color="error" rounded size="large"> Open Individual Account </u-btn>
 
             <u-btn :to="'/login'" variant="outlined" color="white" rounded size="large">
               Start Your Business Account
