@@ -7,9 +7,10 @@ export default class Countries extends Requests {
 
   async getCurrentIpAccess() {
     try {
-      const req = await fetch('https://api.ipify.org?format=json')
-      const data = await req.json()
-      return data.ip ?? null
+      // const req = await fetch('https://api.ipify.org?format=json')
+      // const data = await req.json()
+      return '109.228.192.0'
+      // return data.ip ?? null
     } catch {
       return null
     }

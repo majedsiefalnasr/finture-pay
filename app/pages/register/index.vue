@@ -1,7 +1,7 @@
 <script>
 import LoginRegisterLeftCard from '~/components/shared/LoginRegisterLeftCard.vue'
 import x from '~/pages_content/registerContent.json'
-import Login from '~~/scripts/addons/login'
+import CheckExist from '~~/scripts/utilities/check_exist'
 
 export default {
   components: {
@@ -9,10 +9,9 @@ export default {
   },
   data() {
     return {
-      loginDataObject: {
-        email: '',
-        password: '',
-      },
+      email: '',
+      account_type: 'individual',
+
       messageError: {
         status: false,
         msg: '',
@@ -20,6 +19,16 @@ export default {
       loading: false,
       loginPageContent: {},
     }
+  },
+  watch: {
+    '$store.state.Otp.OTP_OBJ'() {
+      this.loading = false
+      if (this.$store.state.Otp.OTP_OBJ.status === 'success') {
+        localStorage.setItem('REGISTRATION_EMAIL', this.email)
+        localStorage.setItem('ACCOUNT_TYPE', this.account_type)
+        this.$router.push('/register/otp')
+      }
+    },
   },
   created() {
     if (import.meta.client) {
@@ -29,25 +38,25 @@ export default {
   methods: {
     async login() {
       this.loading = true
-      const loginObj = new Login({ apiUrl: useRuntimeConfig().public.API_URL })
-      await loginObj.loginWithEmailOrrRegCode(this.loginDataObject).then((RESPONSE) => {
-        if (RESPONSE) {
+      if (this.email) {
+        const checkDataTypeObj = new CheckExist({ apiUrl: useRuntimeConfig().public.API_URL })
+        const check_data = await checkDataTypeObj.checkEmailOrPhoneExist(this.email)
+        if (check_data.data.status === 'success') {
+          this.messageError.status = false
+          this.messageError.msg = ''
+          this.$store.dispatch('sendOtp', this.email)
+        } else if (check_data.data.status === 'invalid' && check_data.data.message === 'exist') {
           this.loading = false
-          const responseDaata = RESPONSE.data
-          if (responseDaata['status'] !== 'success') {
-            this.messageError.status = true
-            this.messageError.msg = responseDaata.msg
-          } else {
-            this.messageError.status = false
-            this.messageError.msg = null
-            localStorage.setItem('ACT', responseDaata.access_token)
-          }
+          this.email = ''
+          this.messageError.status = true
+          this.messageError.msg = 'email already exist please try again with another email'
         } else {
           this.loading = false
+          this.email = ''
           this.messageError.status = true
-          this.messageError.msg = 'cannot process your request now please try again later'
+          this.messageError.msg = check_data.data.message
         }
-      })
+      }
     },
   },
 }
@@ -88,7 +97,7 @@ export default {
             <p class="subtitle mb-3" align="start">Enter your email to begin your journey.</p>
 
             <!-- ACCOUNT TYPE -->
-            <u-btn-toggle class="mb-5 account-toggle" mandatory divided>
+            <u-btn-toggle v-model="account_type" class="mb-5 account-toggle" mandatory divided>
               <u-btn value="individual">Individual</u-btn>
               <u-btn value="business">Business</u-btn>
             </u-btn-toggle>
@@ -97,7 +106,7 @@ export default {
               v-if="messageError.status"
               type="error"
               :text="messageError.msg"
-              closable
+              :closable="false"
               variant="tonal"
               class="mb-4"
             />
@@ -105,7 +114,7 @@ export default {
             <!-- PHONE -->
             <div class="phone-row">
               <u-text-field
-                v-model="loginDataObject.email"
+                v-model="email"
                 variant="solo-filled"
                 density="comfortable"
                 placeholder="email@gmail.com"

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  fintrure:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'fintrure'
+    image: fintrure
+    restart: always
+    ports:
+      - '9001:80'
