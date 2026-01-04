@@ -422,6 +422,10 @@ export default {
     font-size: 48px !important;
     line-height: 120% !important;
   }
+
+  .home-hero .services {
+    margin-block-start: 80px;
+  }
 }
 
 @media (max-width: 575.98px) {
