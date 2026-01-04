@@ -345,7 +345,6 @@ export default {
 
 .home-hero .title {
   font-weight: var(--Weights-Bold, 700);
-
   font-size: 72px;
   line-height: 84px;
   letter-spacing: var(--Heading-H1-letterSpacing, 0);
@@ -415,6 +414,14 @@ export default {
 }
 
 @media (max-width: 767.98px) {
+  .home-hero .text {
+    text-align: center;
+  }
+
+  .home-hero .title {
+    font-size: 48px !important;
+    line-height: 120% !important;
+  }
 }
 
 @media (max-width: 575.98px) {
