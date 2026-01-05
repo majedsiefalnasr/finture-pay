@@ -266,7 +266,7 @@ export default {
     <section class="companies">
       <u-container>
         <div class="d-flex flex-column ga-16">
-          <div class="companies-header d-flex flex-column ga-6 mb-6 mx-auto">
+          <div class="companies-header d-flex flex-column ga-4 ga-md-6 mb-6 mx-auto">
             <h2>Your Money is Safe. Always.</h2>
           </div>
 
