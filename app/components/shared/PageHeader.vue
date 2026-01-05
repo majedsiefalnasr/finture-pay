@@ -45,8 +45,8 @@ const searchQuery = ref('')
         <!-- Main heading -->
         <h1
           class="heading text-center"
-          :class="$vuetify.display.mobile ? 'text-h3' : 'text-h1'"
-          :style="{ whiteSpace: $vuetify.display.mobile ? 'normal' : 'pre-line' }"
+          :class="$vuetify.display.mdAndUp ? 'text-h1' : 'text-h3'"
+          :style="{ whiteSpace: $vuetify.display.mdAndUp ? 'pre-line' : 'normal' }"
         >
           {{ title }}
         </h1>
