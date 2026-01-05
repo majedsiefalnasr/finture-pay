@@ -1,4 +1,8 @@
 <script>
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import EverythingPocketLayout from '~/components/shared/EverythingPocketLayout.vue'
 import FeatureCard from '~/components/shared/FeatureCard.vue'
 import AppFooter from '~/components/shared/Footer.vue'
@@ -8,6 +12,8 @@ import ServiceCard from '~/components/shared/ServiceCard.vue'
 import SolutionCard from '~/components/shared/SolutionCard.vue'
 export default {
   components: {
+    Swiper,
+    SwiperSlide,
     ServiceCard,
     FeatureCard,
     howItWorks,
@@ -15,6 +21,11 @@ export default {
     GetStarted,
     AppFooter,
     EverythingPocketLayout,
+  },
+  setup() {
+    return {
+      modules: [Navigation],
+    }
   },
   data() {
     return {
@@ -133,57 +144,70 @@ export default {
 
 <template>
   <div>
-    <section class="hero-wrapper">
-      <u-row align="center">
-        <!-- LEFT CONTENT -->
-        <u-col cols="12" md="6">
-          <h1 class="hero-title">
-            Your Money, Simplified.<br />
-            Your Business, Empowered.
-          </h1>
-
-          <p class="hero-subtitle">
-            Türkiye’s complete payment platform.<br />
-            Digital wallets, payment solutions,<br />
-            and business tools — all in one app.
-          </p>
-
-          <div class="hero-actions">
-            <u-btn to="/register" color="error" rounded size="large"> Open Individual Account </u-btn>
-
-            <u-btn :to="'/login'" variant="outlined" color="white" rounded size="large">
-              Start Your Business Account
-            </u-btn>
-          </div>
-        </u-col>
-
-        <!-- RIGHT IMAGE -->
-        <u-col cols="12" md="6" class="hero-image-wrapper">
-          <u-img src="/images/hero-1.png" max-width="560" contain />
-        </u-col>
-      </u-row>
-    </section>
-
-    <section class="services">
-      <u-row class="justify-center">
-        <u-col
-          v-for="(rec, index) in servicesDataList"
-          :key="index"
-          cols="12"
-          sm="6"
-          md="4"
-          class="mb-4 d-flex justify-center"
-        >
-          <ServiceCard
-            :subtitle="rec.subtitle"
-            :title="rec.title"
-            :description="rec.description"
-            :icon="rec.icon"
-            :action-text="rec.action_text"
-            :action-link="rec.action_link"
+    <section class="home-hero">
+      <u-container>
+        <div>
+          <img
+            src="/assets/images/home-hero/device.png"
+            class="home-hero-device d-none d-md-block"
           />
-        </u-col>
-      </u-row>
+
+          <div class="text">
+            <h1 class="title mb-6">Your Money, Simplified. Your Business, Empowered.</h1>
+
+            <p class="subtitle mb-6">
+              Türkiye’s complete payment platform. Digital wallets, payment solutions, and business
+              tools — all in one app.
+            </p>
+
+            <div class="mb-4">
+              <u-btn to="/register" color="Pink" rounded size="large">
+                Open Individual Account
+              </u-btn>
+            </div>
+
+            <div>
+              <u-btn :to="'/login'" variant="outlined" color="White" rounded size="large">
+                Start Your Business Account
+              </u-btn>
+            </div>
+          </div>
+
+          <u-img src="/assets/images/home-hero/device.png" class="d-block d-md-none mt-6" />
+        </div>
+
+        <div class="services">
+          <h2>Value Propositions</h2>
+
+          <Swiper
+            :modules="modules"
+            :slides-per-view="1.1"
+            :space-between="20"
+            :breakpoints="{
+              768: {
+                slidesPerView: 2.1,
+                spaceBetween: 24,
+              },
+              1200: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+              },
+            }"
+            class="services-swiper"
+          >
+            <SwiperSlide v-for="(rec, index) in servicesDataList" :key="index">
+              <ServiceCard
+                :subtitle="rec.subtitle"
+                :title="rec.title"
+                :description="rec.description"
+                :icon="rec.icon"
+                :action-text="rec.action_text"
+                :action-link="rec.action_link"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </u-container>
     </section>
 
     <section class="features">
@@ -242,7 +266,7 @@ export default {
     <section class="companies">
       <u-container>
         <div class="d-flex flex-column ga-16">
-          <div class="companies-header d-flex flex-column ga-6 mb-6 mx-auto">
+          <div class="companies-header d-flex flex-column ga-4 ga-md-6 mb-6 mx-auto">
             <h2>Your Money is Safe. Always.</h2>
           </div>
 
@@ -298,127 +322,112 @@ export default {
   opacity: 1;
 }
 
-/* ////////////////// */
-/* .why-finture {
-  background-color: #ffffff;
-  padding: 100px 24px;
+.home-hero {
+  background-image: url('/assets/images/home-hero/bg-desktop.png');
+  background-position: bottom center;
+  background-size: cover;
+  padding-block-start: 85px;
 }
 
-.section-title {
-  margin-bottom: 12px;
-  color: #000;
-  font-weight: 700;
-  font-size: 36px;
+.home-hero .home-hero-device {
+  float: inline-end;
+  shape-margin: 48px;
+  shape-outside: url(/assets/images/home-hero/device.png);
+  shape-image-threshold: 0.5;
+  margin-top: 60px;
+  margin-inline-end: -50px;
+  width: 70%;
 }
 
-.section-subtitle {
-  margin: 0 auto;
-  max-width: 640px;
-  color: #6b7280;
-  font-size: 20px;
-  line-height: 1.6;
-}
-
-.features-row {
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-.icon-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 24px;
-  border-radius: 50%;
-  background: rgba(59, 130, 246, 0.08);
-  width: 64px;
-  height: 64px;
-}
-
-.feature-title {
-  margin-bottom: 8px;
-  color: #000;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.feature-desc {
-  color: #6b7280;
-  font-size: 14px;
-}
-.feature-title {
-  margin-top: 120px;
-}
-
-.how-it-work {
-  margin-top: 100px;
-}
-.security-section {
-  background-color: #ffffff;
-  padding: 80px 24px;
-}
-
-.companies-title {
-  color: #6b7280;
-  font-weight: 600;
-  font-size: 32px;
-}
-
-.logos-row {
-  margin: 0 auto;
-  margin-bottom: 100px;
-  max-width: 1100px;
-}
-
-.companies-title {
-  margin-top: 120px !important;
-}
-.everything-pocket {
-  margin-top: 170px !important;
-}
-
-.hero-wrapper {
-  background: linear-gradient(135deg, #0b5fd7, #3a8dde);
-  padding: 80px 0 60px;
+.home-hero .text {
   color: #fff;
 }
 
-.hero-title {
-  margin-bottom: 24px;
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 1.2;
+.home-hero .title {
+  font-weight: var(--Weights-Bold, 700);
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: var(--Heading-H1-letterSpacing, 0);
 }
 
-.hero-subtitle {
-  opacity: 0.9;
-  margin-bottom: 32px;
-  font-size: 16px;
+.home-hero .subtitle {
+  font-weight: var(--Weights-Regular, 400);
+
+  font-size: var(--Heading-H4-fontSize, 20px) !important;
+  line-height: 30px !important;
+  letter-spacing: var(--Heading-H4-letterSpacing, 0);
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+.home-hero .services {
+  margin-block-start: 140px;
 }
 
-.hero-image-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.cards-section {
-  margin-top: 80px;
-}
-
-.cards-title {
-  margin-bottom: 24px;
+.home-hero .services h2 {
+  margin-block-end: 24px;
   color: #fff;
   font-weight: 700;
+  font-size: 36px !important;
+  line-height: 120% !important;
+  letter-spacing: var(--Heading-H1-letterSpacing, 0);
 }
 
-.value-card {
-  border-radius: 16px;
-  height: 100%;
-} */
+.services-swiper {
+  padding: 20px 0;
+}
+
+:deep(.swiper) {
+  overflow: visible;
+}
+
+:deep(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+:deep(.swiper-slide) {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+}
+
+:deep(.swiper-slide > *) {
+  width: 100%;
+}
+
+@media (max-width: 1199.98px) {
+  .home-hero .home-hero-device {
+    shape-margin: 48px;
+    margin-top: 290px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .home-hero {
+    background-image: url('/assets/images/home-hero/bg-mobile.png');
+  }
+
+  .home-hero .home-hero-device {
+    shape-margin: 48px;
+    margin-top: 290px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home-hero .text {
+    text-align: center;
+  }
+
+  .home-hero .title {
+    font-size: 48px !important;
+    line-height: 120% !important;
+  }
+
+  .home-hero .services {
+    margin-block-start: 80px;
+  }
+}
+
+@media (max-width: 575.98px) {
+}
 </style>
