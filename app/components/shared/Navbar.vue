@@ -5,9 +5,6 @@
  * Responsive design that adapts to mobile, tablet, and desktop views
  * Mobile menu uses drawer for better UX
  */
-
-import logo from '/assets/images/logo.svg'
-
 interface NavLink {
   title: string
   path: string
@@ -28,7 +25,7 @@ interface DropdownItem {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  logoSrc: logo,
+  logoSrc: '/assets/images/logo.svg',
   logoAlt: 'Finture Logo',
   navLinks: () => [
     {

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import logo from '/assets/images/logo-dark.svg'
-
 interface LinkItem {
   title: string
   link: string
@@ -28,7 +26,7 @@ interface Props {
 }
 
 const {
-  logoSrc = logo,
+  logoSrc = '/assets/images/logo-dark.svg',
   phoneNumber = '0850 XXX XX XX',
   socialLinks = [
     { title: 'Facebook', icon: 'faBrands:facebook', link: 'https://facebook.com/finture' },
@@ -99,7 +97,7 @@ const {
           >
             <!-- Logo -->
             <div class="logo-container">
-              <img :src="logoSrc" alt="Finture Logo" class="logo" />
+              <u-img :src="logoSrc" alt="Finture Logo" class="logo" />
             </div>
 
             <!-- Contact -->
