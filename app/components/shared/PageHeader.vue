@@ -43,11 +43,7 @@ const searchQuery = ref('')
         </div>
 
         <!-- Main heading -->
-        <h1
-          class="heading text-center"
-          :class="$vuetify.display.mdAndUp ? 'text-h1' : 'text-h3'"
-          :style="{ whiteSpace: $vuetify.display.mdAndUp ? 'pre-line' : 'normal' }"
-        >
+        <h1 class="heading text-center" style="white-space: pre-line">
           {{ title }}
         </h1>
 
@@ -127,16 +123,10 @@ const searchQuery = ref('')
   height: 695px;
 }
 
-.text-h1 {
+.heading {
   font-weight: 700 !important;
   font-size: 64px !important;
   line-height: 130% !important;
-}
-
-.text-h3 {
-  font-weight: 600 !important;
-  font-size: 32px !important;
-  line-height: 42px !important;
 }
 
 .description {
@@ -155,5 +145,13 @@ const searchQuery = ref('')
 
 .slot .footer-slot {
   padding-block: 100px 40px;
+}
+
+@media (max-width: 958.98px) {
+  .heading {
+    font-weight: 600 !important;
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
 }
 </style>
