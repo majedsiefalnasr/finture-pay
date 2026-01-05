@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <u-card class="u-card d-flex flex-column justify-start align-start ga-6">
-    <u-icon :icon="icon" size="90" />
+    <u-icon :icon="icon" size="80" />
     <div class="d-flex flex-column ga-4">
       <div class="d-flex flex-column ga-2">
         <p class="text-B20">{{ subtitle }}</p>

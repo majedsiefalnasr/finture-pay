@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
   navLinks: () => [
     {
       title: 'Individual',
-      path: '/#',
+      path: '',
       dropdownItems: [
         {
           title: 'Wallet',
@@ -346,6 +346,7 @@ onBeforeUnmount(() => {
 
 .nav-link {
   transition: color 0.2s ease;
+  cursor: pointer;
   border-radius: 80px;
   padding: 6px 16px;
   color: #0b0902;
