@@ -55,14 +55,14 @@ const resetToDefaults = () => {
           <div class="py-2">
             <u-text-field
               v-if="def.type === 'string'"
-              :model-value="propsData[def.name] || def.default || ''"
+              :model-value="def.name in propsData ? propsData[def.name] : (def.default ?? '')"
               density="compact"
               hide-details="auto"
               @update:model-value="(value: unknown) => updateProp(def.name, value)"
             />
             <u-combobox
               v-else-if="def.type === 'select'"
-              :model-value="propsData[def.name] || def.default || ''"
+              :model-value="def.name in propsData ? propsData[def.name] : (def.default ?? '')"
               :items="def.options || []"
               density="compact"
               hide-details="auto"
@@ -70,11 +70,22 @@ const resetToDefaults = () => {
             />
             <u-textarea
               v-else-if="def.type === 'textarea'"
-              :model-value="propsData[def.name] || def.default || ''"
+              :model-value="def.name in propsData ? propsData[def.name] : (def.default ?? '')"
               density="compact"
               hide-details="auto"
               rows="3"
               @update:model-value="(value: unknown) => updateProp(def.name, value)"
+            />
+            <u-switch
+              v-else-if="def.type === 'boolean'"
+              :model-value="def.name in propsData ? propsData[def.name] : (def.default ?? false)"
+              hide-details
+              @update:model-value="
+                (value: boolean) => {
+                  console.log('Switch update:', def.name, value)
+                  updateProp(def.name, value)
+                }
+              "
             />
             <div v-else class="text-body-4 text-B30">Type {{ def.type }} not supported</div>
           </div>
