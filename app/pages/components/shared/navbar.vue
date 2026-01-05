@@ -25,7 +25,7 @@ interface NavbarProps {
 }
 
 const navbarProps = ref<NavbarProps>({
-  logoSrc: '/assets/images/logo.svg',
+  logoSrc: '/assets/images/finture-logo.svg',
   logoAlt: 'Finture Logo',
   navLinks: [
     { title: 'Individual', path: '/individual' },
@@ -40,7 +40,7 @@ const propDefinitions = [
   {
     name: 'logoSrc',
     type: 'string',
-    default: '/assets/images/logo.svg',
+    default: '/assets/images/finture-logo.svg',
     description: 'Path to the logo image',
   },
   {

@@ -25,7 +25,7 @@ interface DropdownItem {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  logoSrc: '/assets/images/logo.svg',
+  logoSrc: '/assets/images/finture-logo.svg',
   logoAlt: 'Finture Logo',
   navLinks: () => [
     {
