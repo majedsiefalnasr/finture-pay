@@ -22,7 +22,7 @@ interface DropdownItem {
   title: string
   description: string
   icon: string
-  anchor: string
+  path: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,25 +31,25 @@ const props = withDefaults(defineProps<Props>(), {
   navLinks: () => [
     {
       title: 'Individual',
-      path: '',
+      path: '/individual',
       dropdownItems: [
         {
           title: 'Wallet',
           description: 'Lorem ipsum dolor sit amet consectetur.',
           icon: 'line:wallet03',
-          anchor: 'wallet',
+          path: '/individual/wallet',
         },
         {
           title: 'Card',
           description: 'Habitant quis elementum diam sed nisi sagittis auctor vel morbi.',
           icon: 'line:creditCard02',
-          anchor: 'card',
+          path: '/individual/card',
         },
         {
           title: 'Campaigns',
           description: 'Egestas turpis mi mus iaculis tortor viverra id cras integer.',
           icon: 'line:flash',
-          anchor: 'campaigns',
+          path: '/individual/campaigns',
         },
       ],
     },
@@ -64,11 +64,9 @@ const props = withDefaults(defineProps<Props>(), {
 const mobileMenuOpen = ref(false)
 const openDropdown = ref<string | null>(null)
 const mobileDropdownOpen = ref<string | null>(null)
+let dropdownCloseTimer: ReturnType<typeof setTimeout> | null = null
 const currentDropdownItems = computed(
   () => props.navLinks?.find((link) => link.title === openDropdown.value)?.dropdownItems ?? []
-)
-const currentDropdownBasePath = computed(
-  () => props.navLinks?.find((link) => link.title === openDropdown.value)?.path ?? '/individual'
 )
 
 /**
@@ -95,20 +93,35 @@ const closeDropdownMenu = () => {
   openDropdown.value = null
 }
 
-const toggleDropdownMenu = (title: string) => {
+const clearDropdownCloseTimer = () => {
+  if (dropdownCloseTimer) {
+    clearTimeout(dropdownCloseTimer)
+    dropdownCloseTimer = null
+  }
+}
+
+const scheduleDropdownClose = () => {
+  clearDropdownCloseTimer()
+  dropdownCloseTimer = setTimeout(() => {
+    closeDropdownMenu()
+    dropdownCloseTimer = null
+  }, 150)
+}
+
+const handleDesktopHover = (link: NavLink) => {
+  if (!link.dropdownItems?.length) {
+    closeDropdownMenu()
+    return
+  }
+
+  clearDropdownCloseTimer()
   closeMobileMenu()
-  openDropdown.value = openDropdown.value === title ? null : title
+  openDropdown.value = link.title
 }
 
 const isDropdownOpen = (title: string) => openDropdown.value === title
 
-const handleNavClick = (link: NavLink, event: Event) => {
-  if (link.dropdownItems?.length) {
-    event.preventDefault()
-    toggleDropdownMenu(link.title)
-    return
-  }
-
+const handleNavClick = () => {
   closeDropdownMenu()
 }
 
@@ -140,6 +153,7 @@ onBeforeUnmount(() => {
     document.body.style.height = ''
   }
 
+  clearDropdownCloseTimer()
   closeDropdownMenu()
 })
 </script>
@@ -175,7 +189,10 @@ onBeforeUnmount(() => {
                 { opened: link.dropdownItems?.length && isDropdownOpen(link.title) },
               ]"
               :aria-expanded="link.dropdownItems?.length ? isDropdownOpen(link.title) : undefined"
-              @click="handleNavClick(link, $event)"
+              @mouseenter="handleDesktopHover(link)"
+              @focus="handleDesktopHover(link)"
+              @mouseleave="scheduleDropdownClose"
+              @click="handleNavClick"
             >
               {{ link.title }}
             </NuxtLink>
@@ -231,30 +248,32 @@ onBeforeUnmount(() => {
                 {{ link.title }}
               </NuxtLink>
 
-              <div
-                v-if="link.dropdownItems?.length && mobileDropdownOpen === link.title"
-                class="d-flex flex-column ga-2 mt-1 mb-6 px-4 opened"
-              >
-                <NuxtLink
-                  v-for="item in link.dropdownItems"
-                  :key="item.title"
-                  :to="`${link.path}#${item.anchor}`"
-                  class="d-flex align-start ga-3 rounded-lg pa-3 text-decoration-none text-B10 dropdown-item"
-                  @click="closeMobileMenu"
+              <Transition name="mobile-dropdown-transition">
+                <div
+                  v-if="link.dropdownItems?.length && mobileDropdownOpen === link.title"
+                  class="d-flex flex-column ga-2 mt-1 mb-6 px-4 opened"
                 >
-                  <div
-                    class="d-inline-flex flex-shrink-0 justify-center align-center rounded-lg bg-B80 dropdown-icon"
-                    style="width: 40px; height: 40px"
-                    aria-hidden="true"
+                  <NuxtLink
+                    v-for="item in link.dropdownItems"
+                    :key="item.title"
+                    :to="`${item.path}`"
+                    class="d-flex align-start ga-3 rounded-lg pa-3 text-decoration-none text-B10 dropdown-item"
+                    @click="closeMobileMenu"
                   >
-                    <u-icon :icon="item.icon" class="two-tone-icon" size="26" color="B10" />
-                  </div>
-                  <div class="d-flex flex-column ga-1">
-                    <p class="mobile-dropdown-title">{{ item.title }}</p>
-                    <p class="mobile-dropdown-description">{{ item.description }}</p>
-                  </div>
-                </NuxtLink>
-              </div>
+                    <div
+                      class="d-inline-flex flex-shrink-0 justify-center align-center rounded-lg bg-B80 dropdown-icon"
+                      style="width: 40px; height: 40px"
+                      aria-hidden="true"
+                    >
+                      <u-icon :icon="item.icon" class="two-tone-icon" size="26" color="B10" />
+                    </div>
+                    <div class="d-flex flex-column ga-1">
+                      <p class="mobile-dropdown-title">{{ item.title }}</p>
+                      <p class="mobile-dropdown-description">{{ item.description }}</p>
+                    </div>
+                  </NuxtLink>
+                </div>
+              </Transition>
             </div>
           </div>
 
@@ -272,37 +291,41 @@ onBeforeUnmount(() => {
     </u-container>
   </nav>
 
-  <div
-    v-if="openDropdown && currentDropdownItems.length"
-    class="desktop-dropdown d-none d-lg-block"
-    role="menu"
-    aria-label="Individual menu"
-  >
-    <u-container>
-      <div class="d-flex flex-column ga-2">
-        <NuxtLink
-          v-for="item in currentDropdownItems"
-          :key="item.title"
-          :to="`${currentDropdownBasePath}#${item.anchor}`"
-          class="d-flex align-start ga-3 rounded-lg pa-3 text-decoration-none text-B10 dropdown-item"
-          role="menuitem"
-          @click="closeDropdownMenu"
-        >
-          <div
-            class="d-inline-flex flex-shrink-0 justify-center align-center rounded-lg bg-B80 dropdown-icon"
-            style="width: 44px; height: 44px"
-            aria-hidden="true"
+  <Transition name="desktop-dropdown-transition">
+    <div
+      v-if="openDropdown && currentDropdownItems.length"
+      class="desktop-dropdown d-none d-lg-block"
+      role="menu"
+      aria-label="Individual menu"
+      @mouseenter="clearDropdownCloseTimer"
+      @mouseleave="scheduleDropdownClose"
+    >
+      <u-container>
+        <div class="d-flex flex-column ga-2">
+          <NuxtLink
+            v-for="item in currentDropdownItems"
+            :key="item.title"
+            :to="`${item.path}`"
+            class="d-flex align-start ga-3 rounded-lg pa-3 text-decoration-none text-B10 dropdown-item"
+            role="menuitem"
+            @click="closeDropdownMenu"
           >
-            <u-icon :icon="item.icon" class="two-tone-icon" size="28" color="B10" />
-          </div>
-          <div class="d-flex flex-column ga-1">
-            <p class="dropdown-title">{{ item.title }}</p>
-            <p class="dropdown-description">{{ item.description }}</p>
-          </div>
-        </NuxtLink>
-      </div>
-    </u-container>
-  </div>
+            <div
+              class="d-inline-flex flex-shrink-0 justify-center align-center rounded-lg bg-B80 dropdown-icon"
+              style="width: 44px; height: 44px"
+              aria-hidden="true"
+            >
+              <u-icon :icon="item.icon" class="two-tone-icon" size="28" color="B10" />
+            </div>
+            <div class="d-flex flex-column ga-1">
+              <p class="dropdown-title">{{ item.title }}</p>
+              <p class="dropdown-description">{{ item.description }}</p>
+            </div>
+          </NuxtLink>
+        </div>
+      </u-container>
+    </div>
+  </Transition>
 
   <!-- Mobile Menu Overlay -->
   <div v-if="mobileMenuOpen" class="mobile-overlay d-lg-none" @click="closeMobileMenu" />
@@ -361,7 +384,8 @@ onBeforeUnmount(() => {
   color: #0047ab;
 }
 
-.nav-link.opened {
+.nav-link.opened,
+:deep(.nav-link.router-link-exact-active) {
   background-color: #e8eff8;
   color: #0047ab;
 }
@@ -398,11 +422,13 @@ onBeforeUnmount(() => {
     transform 0.2s ease;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover,
+:deep(.dropdown-item.router-link-exact-active) {
   background-color: #f4f4f6;
 }
 
-.dropdown-item:hover .dropdown-icon {
+.dropdown-item:hover .dropdown-icon,
+:deep(.dropdown-item.router-link-exact-active) .dropdown-icon {
   background-color: #fff !important;
 }
 
@@ -433,6 +459,32 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid #dddee4;
   background-color: #ffffff;
   padding: 20px 0 28px;
+}
+
+.desktop-dropdown-transition-enter-active,
+.desktop-dropdown-transition-leave-active {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.desktop-dropdown-transition-enter-from,
+.desktop-dropdown-transition-leave-to {
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+.mobile-dropdown-transition-enter-active,
+.mobile-dropdown-transition-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobile-dropdown-transition-enter-from,
+.mobile-dropdown-transition-leave-to {
+  transform: translateY(-6px);
+  opacity: 0;
 }
 
 .btn-login {
