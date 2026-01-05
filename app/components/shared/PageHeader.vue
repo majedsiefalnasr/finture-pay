@@ -27,7 +27,7 @@ const searchQuery = ref('')
 
 <template>
   <div
-    class="overflow-hidden position-relative d-flex flex-column align-center justify-center px-4 py-16 text-white bg-Blue"
+    class="page-header overflow-hidden position-relative d-flex flex-column align-center justify-center px-4 text-white bg-Blue"
     :class="{ slot: $slots.footer }"
   >
     <!-- Floating shapes -->
@@ -104,6 +104,10 @@ const searchQuery = ref('')
 </template>
 
 <style scoped>
+.page-header {
+  padding-block: 120px;
+}
+
 .floating {
   position: absolute;
   user-select: none;
