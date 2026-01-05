@@ -173,3 +173,44 @@ body,
 .v-list-item__prepend > .v-tooltip ~ .v-list-item__spacer {
   width: 16px;
 }
+
+@media (max-width: 1918.98px) {
+}
+
+@media (max-width: 1278.98px) {
+}
+
+@media (max-width: 958.98px) {
+  h1 {
+    font-size: 48px !important;
+    line-height: 58px !important;
+  }
+
+  h2 {
+    font-size: 40px !important;
+    line-height: 50px !important;
+  }
+
+  h3 {
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
+
+  h4 {
+    font-size: 24px !important;
+    line-height: 36px !important;
+  }
+
+  h5 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+
+  h6 {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+}
+
+@media (max-width: 598.98px) {
+}
