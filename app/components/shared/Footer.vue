@@ -26,7 +26,7 @@ interface Props {
 }
 
 const {
-  logoSrc = '/assets/images/logo-dark.svg',
+  logoSrc = '/assets/images/finture-logo-dark.svg',
   phoneNumber = '0850 XXX XX XX',
   socialLinks = [
     { title: 'Facebook', icon: 'faBrands:facebook', link: 'https://facebook.com/finture' },
