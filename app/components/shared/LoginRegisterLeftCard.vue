@@ -76,7 +76,7 @@ const props = withDefaults(defineProps<Props>(), {
   </u-col>
 </template>
 
-<style>
+<style scoped>
 .brand-content {
   margin-left: -158px;
   width: 98%;
