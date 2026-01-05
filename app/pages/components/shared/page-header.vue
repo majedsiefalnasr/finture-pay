@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import CodeViewer from '~/components/playground/CodeViewer.vue'
 import PropsEditor from '~/components/playground/PropsEditor.vue'
 import ResizableContainer from '~/components/playground/ResizableContainer.vue'
 import PageHeader from '~/components/shared/PageHeader.vue'
+import ServiceCard from '~/components/shared/ServiceCard.vue'
 
 // Available only in development mode
 if (!import.meta.env.DEV) {
@@ -27,6 +31,7 @@ interface PageHeaderProps {
   blogDate?: string
   blogReadTime?: string
   searchPlaceholder?: string
+  showFooter?: boolean
 }
 
 const pageHeaderProps = ref<PageHeaderProps>({
@@ -38,7 +43,37 @@ const pageHeaderProps = ref<PageHeaderProps>({
   blogDate: 'October 24, 2025',
   blogReadTime: '5 min read',
   searchPlaceholder: "Search for answers (e.g. 'Reset Password', 'Fees')",
+  showFooter: true,
 })
+
+const servicesDataList = [
+  {
+    subtitle: 'For Individuals',
+    title: 'Send Money Instantly',
+    description:
+      'Free transfers, multi-currency wallet, QR payments, and cashback rewards up to 5%.',
+    icon: 'd3:wallet',
+    action_text: 'Learn More',
+    action_link: '#',
+  },
+  {
+    subtitle: 'For Businesses',
+    title: 'Accept Payments Everywhere',
+    description:
+      'Physical POS, Soft POS, Virtual POS, multi-currency ,Payment Links . Starting from 1.99%.',
+    icon: 'd3:pos',
+    action_text: 'Try Free',
+    action_link: '#',
+  },
+  {
+    subtitle: 'Bizkolay',
+    title: 'Run Your Business Smarter',
+    description: 'Manage your business finances, track expenses, generate reports, and more.',
+    icon: 'd3:business',
+    action_text: 'Get Started',
+    action_link: '#',
+  },
+]
 
 const propDefinitions = [
   {
@@ -84,10 +119,19 @@ const propDefinitions = [
     default: "Search for answers (e.g. 'Reset Password', 'Fees')",
     description: 'The search input placeholder',
   },
+  {
+    name: 'showFooter',
+    type: 'boolean',
+    default: true,
+    description: 'Whether to show the footer slot content',
+  },
 ] as PropDefinition[]
 
 const updateProps = (newProps: Partial<PageHeaderProps>) => {
+  console.log('updateProps called with:', newProps)
+  console.log('showFooter before:', pageHeaderProps.value.showFooter)
   pageHeaderProps.value = { ...pageHeaderProps.value, ...newProps }
+  console.log('showFooter after:', pageHeaderProps.value.showFooter)
 }
 
 const componentCode = computed(() => {
@@ -106,7 +150,13 @@ const componentCode = computed(() => {
     code += `\n  search-placeholder="${props.searchPlaceholder}"`
   }
 
-  code += '\n/>'
+  if (props.showFooter) {
+    code +=
+      '\n>\n  <!-- Optional footer slot -->\n  <template #footer>\n    <Swiper\n      :slides-per-view="1.1"\n      :space-between="20"\n      :breakpoints="{\n        768: {\n          slidesPerView: 2.1,\n          spaceBetween: 24,\n        },\n        1200: {\n          slidesPerView: 3,\n          spaceBetween: 24,\n        },\n      }"\n      class="services-swiper"\n    >\n      <SwiperSlide v-for="(rec, index) in servicesDataList" :key="index">\n        <ServiceCard\n          :subtitle="rec.subtitle"\n          :title="rec.title"\n          :description="rec.description"\n          :icon="rec.icon"\n          :action-text="rec.action_text"\n          :action-link="rec.action_link"\n        />\n      </SwiperSlide>\n    </Swiper>\n  </template>\n</PageHeader>'
+  } else {
+    code += '\n/>'
+  }
+
   return code
 })
 </script>
@@ -144,7 +194,36 @@ const componentCode = computed(() => {
               ? pageHeaderProps.searchPlaceholder
               : undefined
           "
-        />
+        >
+          <template v-if="pageHeaderProps.showFooter" #footer>
+            <Swiper
+              :slides-per-view="1.1"
+              :space-between="20"
+              :breakpoints="{
+                768: {
+                  slidesPerView: 2.1,
+                  spaceBetween: 24,
+                },
+                1200: {
+                  slidesPerView: 3,
+                  spaceBetween: 24,
+                },
+              }"
+              class="services-swiper"
+            >
+              <SwiperSlide v-for="(rec, index) in servicesDataList" :key="index">
+                <ServiceCard
+                  :subtitle="rec.subtitle"
+                  :title="rec.title"
+                  :description="rec.description"
+                  :icon="rec.icon"
+                  :action-text="rec.action_text"
+                  :action-link="rec.action_link"
+                />
+              </SwiperSlide>
+            </Swiper>
+          </template>
+        </PageHeader>
       </ResizableContainer>
 
       <PropsEditor
@@ -157,3 +236,23 @@ const componentCode = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+:deep(.swiper) {
+  overflow: visible;
+}
+
+:deep(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+:deep(.swiper-slide) {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+}
+
+:deep(.swiper-slide > *) {
+  width: 100%;
+}
+</style>

@@ -27,7 +27,8 @@ const searchQuery = ref('')
 
 <template>
   <div
-    class="about-us-header overflow-hidden position-relative d-flex flex-column align-center justify-center px-4 py-16 text-white bg-Blue"
+    class="overflow-hidden position-relative d-flex flex-column align-center justify-center px-4 py-16 text-white bg-Blue"
+    :class="{ slot: $slots.footer }"
   >
     <!-- Floating shapes -->
     <u-img :src="floatingShape" class="floating floating-1" />
@@ -94,6 +95,10 @@ const searchQuery = ref('')
           color="B30"
         />
       </div>
+
+      <div class="footer-slot">
+        <slot name="footer" />
+      </div>
     </u-container>
   </div>
 </template>
@@ -138,5 +143,13 @@ const searchQuery = ref('')
 .content {
   margin: auto;
   max-width: 1000px;
+}
+
+.slot {
+  background: linear-gradient(180deg, #0047ab 0%, #4b7ec3 52.27%, #fff 98%);
+}
+
+.slot .footer-slot {
+  padding-block: 100px 40px;
 }
 </style>
