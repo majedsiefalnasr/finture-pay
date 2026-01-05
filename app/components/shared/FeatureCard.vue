@@ -16,14 +16,10 @@ withDefaults(defineProps<Props>(), {
   <div class="text-center d-flex flex-column align-center justify-center ga-4">
     <u-icon :icon="icon" size="100" class="two-tone-icon" />
     <div class="d-flex flex-column ga-2">
-      <h4>{{ title }}</h4>
+      <h5>{{ title }}</h5>
       <p class="text-B20">{{ subtitle }}</p>
     </div>
   </div>
 </template>
 
-<style scoped>
-h4 {
-  font-size: 24px !important;
-}
-</style>
+<style scoped></style>
