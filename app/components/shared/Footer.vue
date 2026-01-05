@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import logo from '/assets/images/logo-dark.svg'
+
 interface LinkItem {
   title: string
   link: string
@@ -25,65 +27,62 @@ interface Props {
   footerLinks?: string[]
 }
 
-const { logoSrc, phoneNumber, socialLinks, linkGroups, tcmbText, copyrightText, footerLinks } =
-  withDefaults(defineProps<Props>(), {
-    logoSrc: '/assets/images/logo-dark.svg',
-    phoneNumber: '0850 XXX XX XX',
-    socialLinks: () => [
-      { title: 'Facebook', icon: 'faBrands:facebook', link: 'https://facebook.com/finture' },
-      { title: 'Instagram', icon: 'faBrands:instagram', link: 'https://instagram.com/finture' },
-      { title: 'X', icon: 'faBrands:twitter', link: 'https://x.com/finture' },
-      {
-        title: 'LinkedIn',
-        icon: 'faBrands:linkedin',
-        link: 'https://linkedin.com/company/finture',
-      },
-      { title: 'YouTube', icon: 'faBrands:youtube', link: 'https://youtube.com/@finture' },
-    ],
-    linkGroups: () => [
-      {
-        title: 'Products',
-        links: [
-          { title: 'Individual', link: '/individual' },
-          { title: 'Business', link: '/business' },
-          { title: 'POS Solutions', link: '/pos-solutions' },
-          { title: 'Bizkolay', link: '/bizkolay' },
-        ],
-      },
-      {
-        title: 'Company',
-        links: [
-          { title: 'About', link: '/about' },
-          { title: 'Careers', link: '/careers' },
-          { title: 'Blog', link: '/blog' },
-          { title: 'Contact', link: '/contact' },
-        ],
-      },
-      {
-        title: 'Support',
-        links: [
-          { title: 'Help Center', link: '/help' },
-          { title: 'FAQs', link: '/faqs' },
-          { title: 'Fees', link: '/fees' },
-          { title: 'System Status', link: '/status' },
-        ],
-      },
-      {
-        title: 'Legal',
-        links: [
-          { title: 'Terms', link: '/terms' },
-          { title: 'Privacy', link: '/privacy' },
-          { title: 'KVKK', link: '/kvkk' },
-          { title: 'Agreements', link: '/agreements' },
-        ],
-      },
-    ],
-    tcmbText:
-      'Finture is an electronic money institution licensed by the Central Bank of the Republic of Türkiye pursuant to Law No. 6493.',
-    copyrightText:
-      '©2025 Tekno Tek Teknoloji Ödeme Hizmetleri ve Elektronik Para A.Ş. All rights reserved.',
-    footerLinks: () => ['Terms of service', 'Cookie settings'],
-  })
+const {
+  logoSrc = logo,
+  phoneNumber = '0850 XXX XX XX',
+  socialLinks = [
+    { title: 'Facebook', icon: 'faBrands:facebook', link: 'https://facebook.com/finture' },
+    { title: 'Instagram', icon: 'faBrands:instagram', link: 'https://instagram.com/finture' },
+    { title: 'X', icon: 'faBrands:twitter', link: 'https://x.com/finture' },
+    {
+      title: 'LinkedIn',
+      icon: 'faBrands:linkedin',
+      link: 'https://linkedin.com/company/finture',
+    },
+    { title: 'YouTube', icon: 'faBrands:youtube', link: 'https://youtube.com/@finture' },
+  ],
+  linkGroups = [
+    {
+      title: 'Products',
+      links: [
+        { title: 'Individual', link: '/individual' },
+        { title: 'Business', link: '/business' },
+        { title: 'POS Solutions', link: '/pos-solutions' },
+        { title: 'Bizkolay', link: '/bizkolay' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { title: 'About', link: '/about' },
+        { title: 'Careers', link: '/careers' },
+        { title: 'Blog', link: '/blog' },
+        { title: 'Contact', link: '/contact' },
+      ],
+    },
+    {
+      title: 'Support',
+      links: [
+        { title: 'Help Center', link: '/help' },
+        { title: 'FAQs', link: '/faqs' },
+        { title: 'Fees', link: '/fees' },
+        { title: 'System Status', link: '/status' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { title: 'Terms', link: '/terms' },
+        { title: 'Privacy', link: '/privacy' },
+        { title: 'KVKK', link: '/kvkk' },
+        { title: 'Agreements', link: '/agreements' },
+      ],
+    },
+  ],
+  tcmbText = 'Finture is an electronic money institution licensed by the Central Bank of the Republic of Türkiye pursuant to Law No. 6493.',
+  copyrightText = '©2025 Tekno Tek Teknoloji Ödeme Hizmetleri ve Elektronik Para A.Ş. All rights reserved.',
+  footerLinks = ['Terms of service', 'Cookie settings'],
+} = defineProps<Props>()
 </script>
 
 <template>

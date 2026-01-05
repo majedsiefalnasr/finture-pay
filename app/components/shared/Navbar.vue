@@ -6,6 +6,8 @@
  * Mobile menu uses drawer for better UX
  */
 
+import logo from '/assets/images/logo.svg'
+
 interface NavLink {
   title: string
   path: string
@@ -26,7 +28,7 @@ interface DropdownItem {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  logoSrc: '/assets/images/logo.svg',
+  logoSrc: logo,
   logoAlt: 'Finture Logo',
   navLinks: () => [
     {
