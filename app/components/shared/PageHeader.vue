@@ -27,7 +27,7 @@ const searchQuery = ref('')
 
 <template>
   <div
-    class="overflow-hidden position-relative d-flex flex-column align-center justify-center px-4 py-16 text-white bg-Blue"
+    class="page-header overflow-hidden position-relative d-flex flex-column align-center justify-center px-4 text-white bg-Blue"
     :class="{ slot: $slots.footer }"
   >
     <!-- Floating shapes -->
@@ -43,11 +43,7 @@ const searchQuery = ref('')
         </div>
 
         <!-- Main heading -->
-        <h1
-          class="heading text-center"
-          :class="$vuetify.display.mobile ? 'text-h3' : 'text-h1'"
-          :style="{ whiteSpace: $vuetify.display.mobile ? 'normal' : 'pre-line' }"
-        >
+        <h1 class="heading text-center" style="white-space: pre-line">
           {{ title }}
         </h1>
 
@@ -104,6 +100,10 @@ const searchQuery = ref('')
 </template>
 
 <style scoped>
+.page-header {
+  padding-block: 120px;
+}
+
 .floating {
   position: absolute;
   user-select: none;
@@ -123,16 +123,10 @@ const searchQuery = ref('')
   height: 695px;
 }
 
-.text-h1 {
+.heading {
   font-weight: 700 !important;
   font-size: 64px !important;
   line-height: 130% !important;
-}
-
-.text-h3 {
-  font-weight: 600 !important;
-  font-size: 32px !important;
-  line-height: 42px !important;
 }
 
 .description {
@@ -151,5 +145,13 @@ const searchQuery = ref('')
 
 .slot .footer-slot {
   padding-block: 100px 40px;
+}
+
+@media (max-width: 958.98px) {
+  .heading {
+    font-weight: 600 !important;
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
 }
 </style>
