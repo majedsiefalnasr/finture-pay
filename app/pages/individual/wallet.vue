@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AppFooter from '~/components/shared/Footer.vue'
 import GetStarted from '~/components/shared/GetStarted.vue'
-import InstantMoneyTransfers from '~/components/shared/InstantMoneyTransfers.vue'
 import PageHeader from '~/components/shared/PageHeader.vue'
+import SolutionCard from '~/components/shared/SolutionCard.vue'
 
 interface Transfer {
   icon: string
@@ -83,9 +83,10 @@ const features: string[] = [
         </div>
 
         <div class="features-list d-flex flex-column">
-          <InstantMoneyTransfers
+          <SolutionCard
             v-for="(transfer, index) in transfers"
             :key="index"
+            variant="long"
             :title="transfer.title"
             :description="transfer.description"
             :icon="transfer.icon"
