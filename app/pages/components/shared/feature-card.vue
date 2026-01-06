@@ -14,6 +14,7 @@ definePageMeta({
 })
 
 const featureCardProps = reactive<Record<string, unknown>>({
+  variant: 'default',
   title: '100% Transparent',
   subtitle: 'No hidden fees, ever',
   icon: 'features:transparent',
@@ -66,6 +67,13 @@ const propDefinitions = [
       'features:transparent',
     ],
   },
+  {
+    name: 'variant',
+    type: 'select',
+    default: 'default',
+    description: 'Visual variant of the feature card.',
+    options: ['default', 'primary'],
+  },
 ]
 
 const updateProps = (newProps: Record<string, unknown>) => {
@@ -74,6 +82,7 @@ const updateProps = (newProps: Record<string, unknown>) => {
 
 const featureCardCode = computed(
   () => `<FeatureCard
+  variant="${featureCardProps.variant}"
   title="${featureCardProps.title}"
   subtitle="${featureCardProps.subtitle}"
   icon="${featureCardProps.icon}"
