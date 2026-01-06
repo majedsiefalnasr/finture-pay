@@ -14,14 +14,24 @@ definePageMeta({
 })
 
 const solutionCardProps = reactive<Record<string, unknown>>({
+  variant: 'default',
   title: 'Physical POS',
-  subtitle: 'Android-based smart terminals',
+  description: 'Android-based smart terminals',
   price: '$750',
   image: '/assets/images/solutions/AndroidPOS.png',
   imageMaxWidth: '',
+  icon: 'line:switchHorizontal01',
+  imagePosition: 'end',
 })
 
 const propDefinitions = [
+  {
+    name: 'variant',
+    type: 'select',
+    options: ['default', 'long'],
+    default: 'default',
+    description: 'Variant of the solution card.',
+  },
   {
     name: 'title',
     type: 'string',
@@ -29,10 +39,10 @@ const propDefinitions = [
     description: 'Main title of the solution card.',
   },
   {
-    name: 'subtitle',
+    name: 'description',
     type: 'string',
     default: 'Android-based smart terminals',
-    description: 'Subtitle text below the title.',
+    description: 'Description text for the card.',
   },
   {
     name: 'price',
@@ -52,21 +62,63 @@ const propDefinitions = [
     default: '',
     description: 'Maximum width for the image.',
   },
+  {
+    name: 'icon',
+    type: 'string',
+    default: 'line:switchHorizontal01',
+    description: 'Icon for long variant.',
+  },
+  {
+    name: 'imagePosition',
+    type: 'select',
+    options: ['start', 'end'],
+    default: 'end',
+    description: 'Position of the image for long variant.',
+  },
 ]
 
 const updateProps = (newProps: Record<string, unknown>) => {
   Object.assign(solutionCardProps, newProps)
 }
 
-const solutionCardCode = computed(
-  () => `<SolutionCard
-  title="${solutionCardProps.title}"
-  subtitle="${solutionCardProps.subtitle}"
-  price="${solutionCardProps.price}"
-  image="${solutionCardProps.image}"
-  imageMaxWidth="${solutionCardProps.imageMaxWidth}"
-/>`
+watch(
+  () => solutionCardProps.variant,
+  (newVariant) => {
+    if (newVariant === 'long') {
+      solutionCardProps.title = 'Instant Money Transfers'
+      solutionCardProps.description =
+        'Send money to anyone in Turkey using just their phone number, email, or Finture username. Transfers complete in seconds, 24/7—even on holidays and weekends.'
+      solutionCardProps.image = '/assets/images/instant-money-transfers-example.png'
+      solutionCardProps.icon = 'line:switchHorizontal01'
+      solutionCardProps.imagePosition = 'end'
+    } else {
+      solutionCardProps.title = 'Physical POS'
+      solutionCardProps.description = 'Android-based smart terminals'
+      solutionCardProps.price = '$750'
+      solutionCardProps.image = '/assets/images/solutions/AndroidPOS.png'
+      solutionCardProps.imageMaxWidth = ''
+    }
+  }
 )
+
+const solutionCardCode = computed(() => {
+  let code = `<SolutionCard\n`
+  if (solutionCardProps.variant !== 'default') code += `  variant="${solutionCardProps.variant}"\n`
+  code += `  title="${solutionCardProps.title}"\n`
+  code += `  description="${solutionCardProps.description}"\n`
+  if (solutionCardProps.variant === 'default') {
+    if (solutionCardProps.price) code += `  price="${solutionCardProps.price}"\n`
+    if (solutionCardProps.imageMaxWidth)
+      code += `  imageMaxWidth="${solutionCardProps.imageMaxWidth}"\n`
+  } else {
+    if (solutionCardProps.icon) code += `  icon="${solutionCardProps.icon}"\n`
+    if (solutionCardProps.imagePosition !== 'end')
+      code += `  imagePosition="${solutionCardProps.imagePosition}"\n`
+  }
+  code += `  image="${solutionCardProps.image}"\n`
+  code += `/>`
+  return code
+})
 </script>
 
 <template>

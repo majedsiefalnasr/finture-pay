@@ -53,11 +53,6 @@ export const componentPlaygroundCategories: ComponentPlaygroundCategory[] = [
         description: 'Resizable harness to preview the MissionStatement component.',
       },
       {
-        label: 'Instant Money Transfers',
-        to: '/components/shared/instant-money-transfers',
-        description: 'Resizable harness to preview the InstantMoneyTransfers component.',
-      },
-      {
         label: 'Page Header',
         to: '/components/shared/page-header',
         description: 'Resizable harness to preview the PageHeader component.',
