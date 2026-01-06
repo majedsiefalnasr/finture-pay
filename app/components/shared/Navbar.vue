@@ -52,7 +52,36 @@ const props = withDefaults(defineProps<Props>(), {
         },
       ],
     },
-    { title: 'Business', path: '/business' },
+    {
+      title: 'Business',
+      path: '/business',
+      dropdownItems: [
+        {
+          title: 'Corporate Wallet',
+          description: 'Centralized Financial Management for Growing Businesses',
+          icon: 'line:wallet03',
+          path: '/individual/000000',
+        },
+        {
+          title: 'Corporate Expense Management',
+          description: 'Take Control of Business Spending',
+          icon: 'line:wallet03',
+          path: '/individual/000000',
+        },
+        {
+          title: 'Payment Solutions',
+          description: 'Accept Payments Anywhere, Anytime Across Every Channel',
+          icon: 'line:wallet03',
+          path: '/individual/000000',
+        },
+        {
+          title: 'Business Solutions',
+          description: 'Intelligent Tools to Run Your Business More Efficiently',
+          icon: 'line:wallet03',
+          path: '/individual/000000',
+        },
+      ],
+    },
     { title: 'Fees and Commissions', path: '/fees' },
     { title: 'Blog', path: '/blog' },
     { title: 'Help Center', path: '/help' },
