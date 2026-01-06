@@ -12,7 +12,7 @@ const servicesDataList = [
       'Free transfers, multi-currency wallet, QR payments, and cashback rewards up to 5%.',
     icon: 'd3:wallet',
     action_text: 'Learn More',
-    action_link: '#',
+    action_link: '/individual/wallet',
   },
   {
     subtitle: 'For Businesses',
@@ -21,7 +21,7 @@ const servicesDataList = [
       'Physical POS, Soft POS, Virtual POS, multi-currency ,Payment Links . Starting from 1.99%.',
     icon: 'd3:pos',
     action_text: 'Try Free',
-    action_link: '#',
+    action_link: '/individual/card',
   },
   {
     subtitle: 'Bizkolay',
@@ -29,7 +29,7 @@ const servicesDataList = [
     description: 'Manage your business finances, track expenses, generate reports, and more.',
     icon: 'd3:business',
     action_text: 'Get Started',
-    action_link: '#',
+    action_link: '/individual/campaigns',
   },
 ]
 </script>
