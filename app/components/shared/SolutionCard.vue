@@ -8,6 +8,7 @@ interface Props {
   imageMaxWidth?: string
   icon?: string
   imagePosition?: 'start' | 'end'
+  imageRatio?: '1/1' | '1/2' | '2/1'
 }
 
 const props = defineProps<Props>()
@@ -21,6 +22,7 @@ const defaultProps = computed(() => {
       icon: 'line:switchHorizontal01',
       image: '/assets/images/instant-money-transfers-example.png',
       imagePosition: 'end' as const,
+      imageRatio: '1/1' as const,
     }
   } else {
     return {
@@ -29,6 +31,7 @@ const defaultProps = computed(() => {
       price: '$750',
       image: '/assets/images/solutions/AndroidPOS.png',
       imageMaxWidth: undefined,
+      imageRatio: '1/1' as const,
     }
   }
 })
@@ -41,11 +44,26 @@ const effectiveProps = computed(() => ({
   imageMaxWidth: props.imageMaxWidth ?? defaultProps.value.imageMaxWidth,
   icon: props.icon ?? defaultProps.value.icon,
   imagePosition: props.imagePosition ?? defaultProps.value.imagePosition,
+  imageRatio: props.imageRatio ?? defaultProps.value.imageRatio,
 }))
 
 const contentPaddingClass = computed(() =>
   effectiveProps.value.imagePosition === 'end' ? 'pe-3 pe-md-16' : 'ps-3 ps-md-16'
 )
+
+const imageMd = computed(() => {
+  if (effectiveProps.value.imageRatio === '1/1') return 6
+  if (effectiveProps.value.imageRatio === '1/2') return 4
+  if (effectiveProps.value.imageRatio === '2/1') return 8
+  return 6
+})
+
+const contentMd = computed(() => {
+  if (effectiveProps.value.imageRatio === '1/1') return 6
+  if (effectiveProps.value.imageRatio === '1/2') return 8
+  if (effectiveProps.value.imageRatio === '2/1') return 4
+  return 6
+})
 </script>
 
 <template>
@@ -60,7 +78,7 @@ const contentPaddingClass = computed(() =>
       <u-col
         v-if="effectiveProps.imagePosition === 'start'"
         cols="12"
-        md="6"
+        :md="imageMd"
         class="d-none d-md-block"
       >
         <img
@@ -74,7 +92,7 @@ const contentPaddingClass = computed(() =>
       <!-- Content -->
       <u-col
         cols="12"
-        md="6"
+        :md="contentMd"
         class="d-flex flex-column ga-6 align-center align-md-start justify-center text-center text-md-start pt-6 pt-md-0"
         :class="contentPaddingClass"
       >
@@ -97,7 +115,7 @@ const contentPaddingClass = computed(() =>
       <u-col
         v-if="effectiveProps.imagePosition === 'end'"
         cols="12"
-        md="6"
+        :md="imageMd"
         class="d-none d-md-block"
       >
         <img

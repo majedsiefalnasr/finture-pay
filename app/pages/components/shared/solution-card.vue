@@ -22,6 +22,7 @@ const solutionCardProps = reactive<Record<string, unknown>>({
   imageMaxWidth: '',
   icon: 'line:switchHorizontal01',
   imagePosition: 'end',
+  imageRatio: '1/1',
 })
 
 const propDefinitions = [
@@ -75,6 +76,13 @@ const propDefinitions = [
     default: 'end',
     description: 'Position of the image for long variant.',
   },
+  {
+    name: 'imageRatio',
+    type: 'select',
+    options: ['1/1', '1/2', '2/1'],
+    default: '1/1',
+    description: 'Ratio for image to content columns.',
+  },
 ]
 
 const updateProps = (newProps: Record<string, unknown>) => {
@@ -91,12 +99,14 @@ watch(
       solutionCardProps.image = '/assets/images/instant-money-transfers-example.png'
       solutionCardProps.icon = 'line:switchHorizontal01'
       solutionCardProps.imagePosition = 'end'
+      solutionCardProps.imageRatio = '1/1'
     } else {
       solutionCardProps.title = 'Physical POS'
       solutionCardProps.description = 'Android-based smart terminals'
       solutionCardProps.price = '$750'
       solutionCardProps.image = '/assets/images/solutions/AndroidPOS.png'
       solutionCardProps.imageMaxWidth = ''
+      solutionCardProps.imageRatio = '1/1'
     }
   }
 )
@@ -114,6 +124,8 @@ const solutionCardCode = computed(() => {
     if (solutionCardProps.icon) code += `  icon="${solutionCardProps.icon}"\n`
     if (solutionCardProps.imagePosition !== 'end')
       code += `  imagePosition="${solutionCardProps.imagePosition}"\n`
+    if (solutionCardProps.imageRatio !== '1/1')
+      code += `  imageRatio="${solutionCardProps.imageRatio}"\n`
   }
   code += `  image="${solutionCardProps.image}"\n`
   code += `/>`
