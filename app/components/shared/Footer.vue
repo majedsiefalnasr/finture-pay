@@ -52,7 +52,7 @@ const {
     {
       title: 'Company',
       links: [
-        { title: 'About', link: '/about' },
+        { title: 'About', link: '/about-us' },
         { title: 'Careers', link: '/careers' },
         { title: 'Blog', link: '/blog' },
         { title: 'Contact', link: '/contact' },
