@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import floatingShape from '/assets/images/floating-shape.svg'
+
 interface Props {
   variant?: 'default' | 'primary'
   title?: string
@@ -15,10 +17,14 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="text-center d-flex flex-column align-center"
+    class="text-center d-flex flex-column align-center justify-center"
     :class="variant === 'primary' ? 'highlighted text-white ga-12' : 'ga-4'"
   >
-    <u-icon :icon="icon" size="100" class="two-tone-icon" />
+    <div class="icon w-100">
+      <u-icon :icon="icon" size="100" class="two-tone-icon" />
+      <u-img v-if="variant === 'primary'" :src="floatingShape" class="floating" />
+    </div>
+
     <div class="d-flex flex-column ga-2">
       <template v-if="variant !== 'primary'">
         <h5>{{ title }}</h5>
@@ -39,20 +45,34 @@ withDefaults(defineProps<Props>(), {
   padding: 50px;
   overflow: hidden;
 
-  &:before {
-    position: absolute;
-    top: 90px;
-    left: 0;
-    background-image: url(/assets/images/floating-shape.svg);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 400px;
-    content: '';
+  > *:not(.icon) {
+    position: relative;
+    z-index: 1;
   }
 
-  > * {
-    z-index: 1;
+  .icon {
+    position: relative;
+    z-index: 0;
+
+    > *:not(.floating) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .floating {
+      position: absolute;
+      top: 25px;
+      left: -30%;
+      width: 160%;
+      max-width: unset;
+      height: 400%;
+      max-height: unset;
+
+      :deep(img) {
+        object-fit: cover;
+        object-position: top center;
+      }
+    }
   }
 }
 </style>
