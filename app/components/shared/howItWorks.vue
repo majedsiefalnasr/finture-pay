@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 
-interface FeatureListItem {
+interface ListItem {
   label: string
   description: string
   image: string
@@ -10,7 +10,7 @@ interface FeatureListItem {
 interface Props {
   title?: string
   subtitle?: string
-  list?: FeatureListItem[]
+  list?: ListItem[]
   actionLabel?: string
   onAction?: () => void
   autoplayInterval?: number
@@ -92,18 +92,18 @@ onUnmounted(() => {
               <p class="text-body-1 text-B20 mb-4">{{ subtitle }}</p>
             </div>
 
-            <div class="feature-list d-flex flex-column my-6">
+            <div class="list d-flex flex-column my-6">
               <div
                 v-for="(item, idx) in list"
                 :key="idx"
-                class="feature-list-item d-flex flex-row align-center pa-4 rounded-lg"
+                class="list-item d-flex flex-row align-center pa-4 rounded-lg"
                 :class="{
                   'bg-B90': idx === activeIndex,
                 }"
                 @click="setActive(idx)"
               >
                 <div
-                  class="feature-list-item-index d-flex align-center justify-center rounded-circle"
+                  class="list-item-index d-flex align-center justify-center rounded-circle"
                   :class="idx === activeIndex ? 'bg-BL20 text-White' : 'bg-B40 text-White'"
                   style="width: 48px; height: 48px"
                 >
@@ -117,18 +117,21 @@ onUnmounted(() => {
                     {{ item.description }}
                   </span>
                 </div>
-                <u-icon
-                  v-if="idx === activeIndex"
-                  icon="line:arrow-narrow-right"
-                  class="ml-auto d-none d-md-block"
-                  color="Blue"
-                />
-                <u-icon
-                  v-if="idx === activeIndex"
-                  icon="line:arrow-narrow-down"
-                  class="ml-auto d-block d-md-none"
-                  color="Blue"
-                />
+
+                <div class="list-item-icon">
+                  <u-icon
+                    v-if="idx === activeIndex"
+                    icon="line:arrow-narrow-right"
+                    class="ml-auto d-none d-md-block"
+                    color="Blue"
+                  />
+                  <u-icon
+                    v-if="idx === activeIndex"
+                    icon="line:arrow-narrow-down"
+                    class="ml-auto d-block d-md-none"
+                    color="Blue"
+                  />
+                </div>
               </div>
             </div>
 
@@ -144,7 +147,7 @@ onUnmounted(() => {
           </div>
         </u-col>
 
-        <u-col cols="12" md="6">
+        <u-col cols="12" md="6" class="align-content-center">
           <div class="feature-card-image d-flex align-center justify-center">
             <img
               :src="displayedImage"
@@ -161,12 +164,21 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.feature-list-item {
+.list-item {
   transition: background-color 0.3s ease;
 }
 
-.feature-list-item:hover {
+.list-item:hover {
   cursor: pointer;
+}
+
+.list-item-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 12px auto auto;
+  width: 36px;
+  height: 36px;
 }
 
 img {

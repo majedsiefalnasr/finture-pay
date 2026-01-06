@@ -2,7 +2,7 @@
 import CodeViewer from '~/components/playground/CodeViewer.vue'
 import PropsEditor from '~/components/playground/PropsEditor.vue'
 import ResizableContainer from '~/components/playground/ResizableContainer.vue'
-import FeatureShowcase from '~/components/shared/howItWorks.vue'
+import HowItWorks from '~/components/shared/howItWorks.vue'
 
 // Available only in development mode
 if (!import.meta.env.DEV) {
@@ -13,7 +13,7 @@ definePageMeta({
   layout: 'components-playground',
 })
 
-const featureShowcaseProps = reactive<Record<string, unknown>>({
+const howItWorksProps = reactive<Record<string, unknown>>({
   title: 'How It Works',
   subtitle:
     'Open your account in 2 minutes, verify with digital KYC, and start using Finture instantly.',
@@ -67,17 +67,17 @@ const propDefinitions = [
 ]
 
 const updateProps = (newProps: Record<string, unknown>) => {
-  Object.assign(featureShowcaseProps, newProps)
+  Object.assign(howItWorksProps, newProps)
 }
 
-const featureShowcaseCode = computed(
-  () => `<FeatureShowcase
-  title="${featureShowcaseProps.title}"
-  subtitle="${featureShowcaseProps.subtitle}"
+const howItWorksCode = computed(
+  () => `<HowItWorks
+  title="${howItWorksProps.title}"
+  subtitle="${howItWorksProps.subtitle}"
   :list="features"
-  action-label="${featureShowcaseProps.actionLabel}"
+  action-label="${howItWorksProps.actionLabel}"
   :on-action="handleAction"
-  :autoplay-interval="${featureShowcaseProps.autoplayInterval}"
+  :autoplay-interval="${howItWorksProps.autoplayInterval}"
 />`
 )
 </script>
@@ -98,22 +98,22 @@ const featureShowcaseCode = computed(
 
     <div class="d-flex flex-column ga-10">
       <ResizableContainer>
-        <FeatureShowcase
-          :title="featureShowcaseProps.title as string"
-          :subtitle="featureShowcaseProps.subtitle as string"
-          :list="featureShowcaseProps.list as any"
-          :action-label="featureShowcaseProps.actionLabel as string"
-          :autoplay-interval="featureShowcaseProps.autoplayInterval as number"
+        <HowItWorks
+          :title="howItWorksProps.title as string"
+          :subtitle="howItWorksProps.subtitle as string"
+          :list="howItWorksProps.list as any"
+          :action-label="howItWorksProps.actionLabel as string"
+          :autoplay-interval="howItWorksProps.autoplayInterval as number"
         />
       </ResizableContainer>
 
       <PropsEditor
-        :props-data="featureShowcaseProps"
+        :props-data="howItWorksProps"
         :prop-definitions="propDefinitions"
         @update="updateProps"
       />
 
-      <CodeViewer :code="featureShowcaseCode" />
+      <CodeViewer :code="howItWorksCode" />
     </div>
   </div>
 </template>
