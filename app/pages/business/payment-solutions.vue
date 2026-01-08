@@ -10,7 +10,7 @@ import HowItWorks from '~/components/shared/howItWorks.vue'
 
 import { ref } from 'vue'
 
-const masterTab = ref('payment-by-link')
+const masterTab = ref('android-physical-pos')
 
 const virtualPOSTab = ref('payment-methods')
 
