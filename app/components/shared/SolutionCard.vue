@@ -2,6 +2,7 @@
 interface Props {
   variant?: 'default' | 'long'
   title?: string
+  subtitle?: string
   description?: string
   price?: string
   image?: string
@@ -13,31 +14,21 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const defaultProps = computed(() => {
-  if (props.variant === 'long') {
-    return {
-      title: 'Instant Money Transfers',
-      description:
-        'Send money to anyone in Turkey using just their phone number, email, or Finture username. Transfers complete in seconds, 24/7—even on holidays and weekends.',
-      icon: 'line:switchHorizontal01',
-      image: '/assets/images/instant-money-transfers-example.png',
-      imagePosition: 'end' as const,
-      imageRatio: '1/1' as const,
-    }
-  } else {
-    return {
-      title: 'Physical POS',
-      description: 'Android-based smart terminals',
-      price: '$750',
-      image: '/assets/images/solutions/AndroidPOS.png',
-      imageMaxWidth: undefined,
-      imageRatio: '1/1' as const,
-    }
-  }
-})
+const defaultProps = computed(() => ({
+  title: 'Physical POS',
+  subtitle: undefined,
+  description: 'Android-based smart terminals',
+  price: '$750',
+  image: '/assets/images/solutions/AndroidPOS.png',
+  imageMaxWidth: undefined,
+  imageRatio: '1/1' as const,
+  icon: undefined,
+  imagePosition: undefined,
+}))
 
 const effectiveProps = computed(() => ({
   title: props.title ?? defaultProps.value.title,
+  subtitle: props.subtitle ?? defaultProps.value.subtitle,
   description: props.description ?? defaultProps.value.description,
   price: props.price ?? defaultProps.value.price,
   image: props.image ?? defaultProps.value.image,
@@ -98,6 +89,7 @@ const contentMd = computed(() => {
       >
         <!-- Icon -->
         <div
+          v-if="effectiveProps.icon"
           class="bg-white border border-B60 rounded-xl pa-4 elevation-2 d-flex align-center justify-center"
         >
           <u-icon :icon="effectiveProps.icon" size="40" class="two-tone-icon" />
@@ -105,9 +97,13 @@ const contentMd = computed(() => {
 
         <div class="d-flex flex-column ga-6 align-center align-md-start text-center text-md-start">
           <!-- Title -->
-          <h2 class="text-h2 font-weight-semibold">{{ effectiveProps.title }}</h2>
+          <h2 v-if="effectiveProps.title">{{ effectiveProps.title }}</h2>
+          <!-- Title -->
+          <h4 v-if="effectiveProps.subtitle">{{ effectiveProps.subtitle }}</h4>
           <!-- Description -->
-          <p class="text-body-1 text-B20">{{ effectiveProps.description }}</p>
+          <p v-if="effectiveProps.description" class="text-body-1 text-B20">
+            {{ effectiveProps.description }}
+          </p>
         </div>
       </u-col>
 
@@ -136,9 +132,11 @@ const contentMd = computed(() => {
         :max-width="effectiveProps.imageMaxWidth"
       ></u-img>
       <div class="d-flex flex-column ga-2">
-        <h3 class="text-h3">{{ effectiveProps.title }}</h3>
-        <p class="text-B20">{{ effectiveProps.description }}</p>
-        <p class="text-h4 text-Blue font-weight-bold">{{ effectiveProps.price }}</p>
+        <h3 v-if="effectiveProps.title" class="text-h3">{{ effectiveProps.title }}</h3>
+        <p v-if="effectiveProps.description" class="text-B20">{{ effectiveProps.description }}</p>
+        <p v-if="effectiveProps.price" class="text-h4 text-Blue font-weight-bold">
+          {{ effectiveProps.price }}
+        </p>
       </div>
     </div>
   </div>
