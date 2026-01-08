@@ -16,6 +16,7 @@ definePageMeta({
 const solutionCardProps = reactive<Record<string, unknown>>({
   variant: 'default',
   title: 'Physical POS',
+  subtitle: undefined,
   description: 'Android-based smart terminals',
   price: '$750',
   image: '/assets/images/solutions/AndroidPOS.png',
@@ -38,6 +39,12 @@ const propDefinitions = [
     type: 'string',
     default: 'Physical POS',
     description: 'Main title of the solution card.',
+  },
+  {
+    name: 'subtitle',
+    type: 'string',
+    default: undefined,
+    description: 'Subtitle for the solution card.',
   },
   {
     name: 'description',
@@ -89,32 +96,11 @@ const updateProps = (newProps: Record<string, unknown>) => {
   Object.assign(solutionCardProps, newProps)
 }
 
-watch(
-  () => solutionCardProps.variant,
-  (newVariant) => {
-    if (newVariant === 'long') {
-      solutionCardProps.title = 'Instant Money Transfers'
-      solutionCardProps.description =
-        'Send money to anyone in Turkey using just their phone number, email, or Finture username. Transfers complete in seconds, 24/7—even on holidays and weekends.'
-      solutionCardProps.image = '/assets/images/instant-money-transfers-example.png'
-      solutionCardProps.icon = 'line:switchHorizontal01'
-      solutionCardProps.imagePosition = 'end'
-      solutionCardProps.imageRatio = '1/1'
-    } else {
-      solutionCardProps.title = 'Physical POS'
-      solutionCardProps.description = 'Android-based smart terminals'
-      solutionCardProps.price = '$750'
-      solutionCardProps.image = '/assets/images/solutions/AndroidPOS.png'
-      solutionCardProps.imageMaxWidth = ''
-      solutionCardProps.imageRatio = '1/1'
-    }
-  }
-)
-
 const solutionCardCode = computed(() => {
   let code = `<SolutionCard\n`
   if (solutionCardProps.variant !== 'default') code += `  variant="${solutionCardProps.variant}"\n`
   code += `  title="${solutionCardProps.title}"\n`
+  if (solutionCardProps.subtitle) code += `  subtitle="${solutionCardProps.subtitle}"\n`
   code += `  description="${solutionCardProps.description}"\n`
   if (solutionCardProps.variant === 'default') {
     if (solutionCardProps.price) code += `  price="${solutionCardProps.price}"\n`
