@@ -129,6 +129,7 @@ export default {
 
     <section class="customer-support">
       <h2 class="text-center mb-6">Customer Support</h2>
+
       <u-row cols="12" class="text-center customer-support-row" md="12">
         <u-col
           v-for="(r, index) in data"
