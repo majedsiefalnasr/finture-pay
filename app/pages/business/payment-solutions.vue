@@ -770,9 +770,9 @@ const howItWorksList = [
 </template>
 
 <style scoped lang="scss">
-.solutions-content :deep(.v-window-item),
-.how-it-works {
+.solutions-content :deep(.v-window-item) {
   padding-block: 96px;
+  scroll-margin-top: 100px;
 }
 
 .solutions-content > :deep(.v-tabs) {
@@ -847,6 +847,7 @@ const howItWorksList = [
 
 .how-it-works {
   margin-block: 96px;
+  padding-block: 96px;
 
   :deep(.text-Blue) {
     color: #121416 !important;
