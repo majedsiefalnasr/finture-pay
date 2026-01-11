@@ -2,6 +2,7 @@
 interface FeeItem {
   description: string
   fee: string
+  free?: boolean
 }
 
 interface Props {
@@ -35,10 +36,10 @@ withDefaults(defineProps<Props>(), {
         class="fee-item d-flex flex-column flex-md-row ga-4 py-4"
         :class="{ 'border-bottom': index < fees.length - 1 }"
       >
-        <p style="max-width: 300px">
+        <p style="max-width: 500px">
           {{ fee.description }}
         </p>
-        <p class="text-Blue font-weight-semibold ms-0 ms-md-auto">
+        <p class="font-weight-semibold ms-0 ms-md-auto" :class="fee.free ? 'text-Blue' : ''">
           {{ fee.fee }}
         </p>
       </div>
