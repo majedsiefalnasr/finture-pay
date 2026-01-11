@@ -95,7 +95,7 @@ const fees = [
                   <u-icon icon="hugeicons:tick-02" color="Green" class="icon" size="32" />
                 </template>
 
-                <u-list-item-title class="text-h3 feature-item-title">
+                <u-list-item-title class="text-h3 list-item-title">
                   <h6 class="font-weight-medium">{{ item }}</h6>
                 </u-list-item-title>
               </u-list-item>
@@ -185,6 +185,14 @@ const fees = [
 .debit-cards,
 .no-hidden-fees {
   background: #f5f7f9;
+}
+
+.debit-cards .list-item-title {
+  color: var(--Neutral-B20, #59606e);
+  font-weight: var(--Weights-SemiBold, 600);
+  font-size: var(--Heading-H4-fontSize, 20px) !important;
+  line-height: 30px !important;
+  white-space: unset;
 }
 
 .no-hidden-fees-card {

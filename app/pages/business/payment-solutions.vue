@@ -320,7 +320,7 @@ const howItWorksList = [
                           <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
                         </template>
 
-                        <u-list-item-title class="text-h5 font-weight-medium feature-item-title">{{
+                        <u-list-item-title class="text-h5 font-weight-medium list-item-title">{{
                           item
                         }}</u-list-item-title>
                       </u-list-item>
@@ -615,10 +615,9 @@ const howItWorksList = [
                             <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
                           </template>
 
-                          <u-list-item-title
-                            class="text-h5 font-weight-medium feature-item-title"
-                            >{{ item }}</u-list-item-title
-                          >
+                          <u-list-item-title class="text-h5 font-weight-medium list-item-title">{{
+                            item
+                          }}</u-list-item-title>
                         </u-list-item>
                       </u-list>
                     </div>
@@ -640,10 +639,9 @@ const howItWorksList = [
                             <u-icon icon="hugeicons:tick-02" color="White" class="icon" size="32" />
                           </template>
 
-                          <u-list-item-title
-                            class="text-h5 font-weight-medium feature-item-title"
-                            >{{ item }}</u-list-item-title
-                          >
+                          <u-list-item-title class="text-h5 font-weight-medium list-item-title">{{
+                            item
+                          }}</u-list-item-title>
                         </u-list-item>
                       </u-list>
 
@@ -799,6 +797,14 @@ const howItWorksList = [
   z-index: 11;
 }
 
+.solutions-content .list-item-title {
+  color: var(--Neutral-B20, #59606e);
+  font-weight: var(--Weights-SemiBold, 600);
+  font-size: var(--Heading-H4-fontSize, 20px) !important;
+  line-height: 30px !important;
+  white-space: unset;
+}
+
 .features-header {
   max-width: 800px;
   text-align: center;
@@ -826,6 +832,10 @@ const howItWorksList = [
       object-fit: cover;
       object-position: top center;
     }
+  }
+
+  .list-item-title {
+    color: var(--Neutral-White, #ffffff);
   }
 }
 
