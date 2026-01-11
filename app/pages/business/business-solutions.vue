@@ -54,110 +54,114 @@ const stockControlOptions: string[] = [
         </u-tabs>
 
         <u-tabs-window v-model="tabs">
-          <u-tabs-window-item value="inventory-management">
-            <u-expand-transition>
-              <u-row>
-                <u-col cols="12" md="6">
-                  <div class="segmented-card d-flex flex-column ga-4 h-100">
-                    <u-icon icon="hugeicons:layers-02" size="64" color="BL10" />
+          <u-tabs-window-item
+            value="inventory-management"
+            transition="fade-transition"
+            reverse-transition="fade-transition"
+          >
+            <u-row>
+              <u-col cols="12" md="6">
+                <div class="segmented-card d-flex flex-column ga-4 h-100">
+                  <u-icon icon="hugeicons:layers-02" size="64" color="BL10" />
 
-                    <h5 class="font-weight-semibold">Product Catalog</h5>
+                  <h5 class="font-weight-semibold">Product Catalog</h5>
 
-                    <u-list bg-color="transparent">
-                      <u-list-item
-                        v-for="(item, i) in productCatalogOptions"
-                        :key="i"
-                        class="list-item px-0"
-                      >
-                        <template #prepend>
-                          <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
-                        </template>
+                  <u-list bg-color="transparent">
+                    <u-list-item
+                      v-for="(item, i) in productCatalogOptions"
+                      :key="i"
+                      class="list-item px-0"
+                    >
+                      <template #prepend>
+                        <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
+                      </template>
 
-                        <u-list-item-title class="text-h5 font-weight-medium list-item-title">
-                          {{ item }}
-                        </u-list-item-title>
-                      </u-list-item>
-                    </u-list>
-                  </div>
-                </u-col>
-                <u-col cols="12" md="6">
-                  <div class="segmented-card d-flex flex-column ga-4 h-100">
-                    <u-icon icon="hugeicons:task-done-01" size="64" color="BL10" />
+                      <u-list-item-title class="text-h5 font-weight-medium list-item-title">
+                        {{ item }}
+                      </u-list-item-title>
+                    </u-list-item>
+                  </u-list>
+                </div>
+              </u-col>
+              <u-col cols="12" md="6">
+                <div class="segmented-card d-flex flex-column ga-4 h-100">
+                  <u-icon icon="hugeicons:task-done-01" size="64" color="BL10" />
 
-                    <h5 class="font-weight-semibold">Stock Control</h5>
+                  <h5 class="font-weight-semibold">Stock Control</h5>
 
-                    <u-list bg-color="transparent">
-                      <u-list-item
-                        v-for="(item, i) in stockControlOptions"
-                        :key="i"
-                        class="list-item px-0"
-                      >
-                        <template #prepend>
-                          <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
-                        </template>
+                  <u-list bg-color="transparent">
+                    <u-list-item
+                      v-for="(item, i) in stockControlOptions"
+                      :key="i"
+                      class="list-item px-0"
+                    >
+                      <template #prepend>
+                        <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
+                      </template>
 
-                        <u-list-item-title class="text-h5 font-weight-medium list-item-title">
-                          {{ item }}
-                        </u-list-item-title>
-                      </u-list-item>
-                    </u-list>
-                  </div>
-                </u-col>
-              </u-row>
-            </u-expand-transition>
+                      <u-list-item-title class="text-h5 font-weight-medium list-item-title">
+                        {{ item }}
+                      </u-list-item-title>
+                    </u-list-item>
+                  </u-list>
+                </div>
+              </u-col>
+            </u-row>
           </u-tabs-window-item>
 
-          <u-tabs-window-item value="sales-management">
-            <u-expand-transition>
-              <u-row>
-                <u-col cols="12" md="6">
-                  <div class="segmented-card d-flex flex-column ga-4 h-100">
-                    <u-icon icon="hugeicons:layers-02" size="64" color="BL10" />
+          <u-tabs-window-item
+            value="sales-management"
+            transition="fade-transition"
+            reverse-transition="fade-transition"
+          >
+            <u-row>
+              <u-col cols="12" md="6">
+                <div class="segmented-card d-flex flex-column ga-4 h-100">
+                  <u-icon icon="hugeicons:layers-02" size="64" color="BL10" />
 
-                    <h5 class="font-weight-semibold">Product Catalog</h5>
+                  <h5 class="font-weight-semibold">Product Catalog</h5>
 
-                    <u-list bg-color="transparent">
-                      <u-list-item
-                        v-for="(item, i) in productCatalogOptions"
-                        :key="i"
-                        class="list-item px-0"
-                      >
-                        <template #prepend>
-                          <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
-                        </template>
+                  <u-list bg-color="transparent">
+                    <u-list-item
+                      v-for="(item, i) in productCatalogOptions"
+                      :key="i"
+                      class="list-item px-0"
+                    >
+                      <template #prepend>
+                        <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
+                      </template>
 
-                        <u-list-item-title class="text-h5 font-weight-medium list-item-title">
-                          {{ item }}
-                        </u-list-item-title>
-                      </u-list-item>
-                    </u-list>
-                  </div>
-                </u-col>
-                <u-col cols="12" md="6">
-                  <div class="segmented-card d-flex flex-column ga-4 h-100">
-                    <u-icon icon="hugeicons:task-done-01" size="64" color="BL10" />
+                      <u-list-item-title class="text-h5 font-weight-medium list-item-title">
+                        {{ item }}
+                      </u-list-item-title>
+                    </u-list-item>
+                  </u-list>
+                </div>
+              </u-col>
+              <u-col cols="12" md="6">
+                <div class="segmented-card d-flex flex-column ga-4 h-100">
+                  <u-icon icon="hugeicons:task-done-01" size="64" color="BL10" />
 
-                    <h5 class="font-weight-semibold">Stock Control</h5>
+                  <h5 class="font-weight-semibold">Stock Control</h5>
 
-                    <u-list bg-color="transparent">
-                      <u-list-item
-                        v-for="(item, i) in stockControlOptions"
-                        :key="i"
-                        class="list-item px-0"
-                      >
-                        <template #prepend>
-                          <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
-                        </template>
+                  <u-list bg-color="transparent">
+                    <u-list-item
+                      v-for="(item, i) in stockControlOptions"
+                      :key="i"
+                      class="list-item px-0"
+                    >
+                      <template #prepend>
+                        <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="32" />
+                      </template>
 
-                        <u-list-item-title class="text-h5 font-weight-medium list-item-title">
-                          {{ item }}
-                        </u-list-item-title>
-                      </u-list-item>
-                    </u-list>
-                  </div>
-                </u-col>
-              </u-row>
-            </u-expand-transition>
+                      <u-list-item-title class="text-h5 font-weight-medium list-item-title">
+                        {{ item }}
+                      </u-list-item-title>
+                    </u-list-item>
+                  </u-list>
+                </div>
+              </u-col>
+            </u-row>
           </u-tabs-window-item>
         </u-tabs-window>
       </u-container>

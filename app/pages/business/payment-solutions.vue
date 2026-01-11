@@ -269,7 +269,12 @@ const howItWorksList = [
       <u-divider></u-divider>
 
       <u-tabs-window v-model="masterTab">
-        <u-tabs-window-item id="android-physical-pos" value="android-physical-pos">
+        <u-tabs-window-item
+          id="android-physical-pos"
+          value="android-physical-pos"
+          transition="fade-transition"
+          reverse-transition="fade-transition"
+        >
           <u-container>
             <div class="d-flex flex-column ga-16">
               <SolutionCard
@@ -382,7 +387,12 @@ const howItWorksList = [
           </u-container>
         </u-tabs-window-item>
 
-        <u-tabs-window-item id="soft-pos" value="soft-pos">
+        <u-tabs-window-item
+          id="soft-pos"
+          value="soft-pos"
+          transition="fade-transition"
+          reverse-transition="fade-transition"
+        >
           <u-container>
             <SolutionCard
               variant="long"
@@ -508,7 +518,12 @@ const howItWorksList = [
           </u-container>
         </u-tabs-window-item>
 
-        <u-tabs-window-item id="virtual-pos" value="virtual-pos">
+        <u-tabs-window-item
+          id="virtual-pos"
+          value="virtual-pos"
+          transition="fade-transition"
+          reverse-transition="fade-transition"
+        >
           <div class="d-flex flex-column ga-16">
             <u-container>
               <SolutionCard
@@ -529,46 +544,50 @@ const howItWorksList = [
                 </u-tabs>
 
                 <u-tabs-window v-model="virtualPOSTab">
-                  <u-tabs-window-item value="payment-methods">
-                    <u-expand-transition>
-                      <u-row>
-                        <u-col
-                          v-for="(method, index) in virtualPOSPaymentMethodSupport"
-                          :key="index"
-                          cols="12"
-                          md="4"
+                  <u-tabs-window-item
+                    value="payment-methods"
+                    transition="fade-transition"
+                    reverse-transition="fade-transition"
+                  >
+                    <u-row>
+                      <u-col
+                        v-for="(method, index) in virtualPOSPaymentMethodSupport"
+                        :key="index"
+                        cols="12"
+                        md="4"
+                      >
+                        <div
+                          class="segmented-card d-flex flex-column align-center ga-4 text-center h-100"
                         >
-                          <div
-                            class="segmented-card d-flex flex-column align-center ga-4 text-center h-100"
-                          >
-                            <u-icon :icon="method.icon" color="Blue" size="64" />
-                            <h5>{{ method.title }}</h5>
-                            <p>{{ method.description }}</p>
-                          </div>
-                        </u-col>
-                      </u-row>
-                    </u-expand-transition>
+                          <u-icon :icon="method.icon" color="Blue" size="64" />
+                          <h5>{{ method.title }}</h5>
+                          <p>{{ method.description }}</p>
+                        </div>
+                      </u-col>
+                    </u-row>
                   </u-tabs-window-item>
 
-                  <u-tabs-window-item value="integration-options">
-                    <u-expand-transition>
-                      <u-row>
-                        <u-col
-                          v-for="(method, index) in virtualPOSIntegrationOptions"
-                          :key="index"
-                          cols="12"
-                          md="4"
+                  <u-tabs-window-item
+                    value="integration-options"
+                    transition="fade-transition"
+                    reverse-transition="fade-transition"
+                  >
+                    <u-row>
+                      <u-col
+                        v-for="(method, index) in virtualPOSIntegrationOptions"
+                        :key="index"
+                        cols="12"
+                        md="4"
+                      >
+                        <div
+                          class="segmented-card d-flex flex-column align-center ga-4 text-center h-100"
                         >
-                          <div
-                            class="segmented-card d-flex flex-column align-center ga-4 text-center h-100"
-                          >
-                            <u-icon :icon="method.icon" color="Blue" size="64" />
-                            <h5>{{ method.title }}</h5>
-                            <p>{{ method.description }}</p>
-                          </div>
-                        </u-col>
-                      </u-row>
-                    </u-expand-transition>
+                          <u-icon :icon="method.icon" color="Blue" size="64" />
+                          <h5>{{ method.title }}</h5>
+                          <p>{{ method.description }}</p>
+                        </div>
+                      </u-col>
+                    </u-row>
                   </u-tabs-window-item>
                 </u-tabs-window>
               </u-container>
@@ -693,7 +712,12 @@ const howItWorksList = [
           </div>
         </u-tabs-window-item>
 
-        <u-tabs-window-item id="payment-by-link" value="payment-by-link">
+        <u-tabs-window-item
+          id="payment-by-link"
+          value="payment-by-link"
+          transition="fade-transition"
+          reverse-transition="fade-transition"
+        >
           <div class="d-flex flex-column ga-16">
             <u-container>
               <SolutionCard
