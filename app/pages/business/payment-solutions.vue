@@ -274,7 +274,7 @@ const howItWorksList = [
             <div class="d-flex flex-column ga-16">
               <SolutionCard
                 variant="long"
-                title="Instant Money Transfers"
+                title=""
                 subtitle="Transform Your Smartphone into a Smart POS Terminal"
                 description="Turn any Android device into a full-featured point-of-sale system. Accept all major credit and debit cards, process contactless payments, and manage sale no expensive dedicated hardware required."
                 image="/assets/images/instant-money-transfers-example.png"
@@ -348,13 +348,17 @@ const howItWorksList = [
                 <h4>Pricing</h4>
 
                 <div class="d-flex flex-column flex-md-row ga-10 mt-12">
-                  <div class="flex-grow-1 d-flex flex-column ga-2 px-10 py-12 bg-DB90 rounded-lg">
+                  <div
+                    class="flex-grow-1 d-flex flex-column ga-2 justify-center align-center px-10 py-12 bg-DB90 rounded-lg"
+                  >
                     <p class="label-1">Device</p>
                     <h3 class="text-DBlue">Starting from ₺3499</h3>
                     <p class="label-1">(Android terminal with card reader)</p>
                   </div>
 
-                  <div class="flex-grow-1 d-flex flex-column ga-2 px-10 py-12 bg-DB90 rounded-lg">
+                  <div
+                    class="flex-grow-1 d-flex flex-column ga-2 justify-center align-center px-10 py-12 bg-DB90 rounded-lg"
+                  >
                     <p class="label-1">Transaction Fees</p>
                     <h3 class="text-DBlue">Starting from 1.99%</h3>
                     <p class="label-1">(based on volume and business type)</p>
@@ -445,7 +449,9 @@ const howItWorksList = [
                   <div class="d-flex flex-column ga-10">
                     <h4>Pricing</h4>
 
-                    <div class="flex-grow-1 d-flex flex-column ga-2 px-10 py-12 bg-DB90 rounded-lg">
+                    <div
+                      class="flex-grow-1 d-flex flex-column ga-2 justify-center align-center px-10 py-12 bg-DB90 rounded-lg"
+                    >
                       <p class="label-1">Transaction Fees</p>
                       <h3 class="text-DBlue">2.29%</h3>
                       <p class="label-1">per transaction</p>
@@ -470,7 +476,9 @@ const howItWorksList = [
                   <div class="d-flex flex-column ga-10">
                     <h4>Requirements</h4>
 
-                    <div class="flex-grow-1 d-flex flex-column ga-2 px-10 py-12 bg-DB90 rounded-lg">
+                    <div
+                      class="flex-grow-1 d-flex flex-column ga-2 justify-center align-center px-10 py-12 bg-DB90 rounded-lg"
+                    >
                       <div class="d-flex flex-column ga-4 justify-center align-center text-start">
                         <div class="d-flex ga-2">
                           <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="20" />
@@ -730,16 +738,19 @@ const howItWorksList = [
                 <h4>Pricing</h4>
 
                 <div class="d-flex flex-column flex-md-row ga-10 mt-12">
-                  <div class="flex-grow-1 d-flex flex-column ga-2 px-10 py-12 bg-DB90 rounded-lg">
-                    <p class="label-1">Device</p>
-                    <h3 class="text-DBlue">Starting from ₺3499</h3>
-                    <p class="label-1">(Android terminal with card reader)</p>
+                  <div
+                    class="flex-grow-1 d-flex flex-column ga-2 justify-center align-center px-10 py-12 bg-DB90 rounded-lg"
+                  >
+                    <p class="label-1">Transaction fees</p>
+                    <h3 class="text-DBlue">2.69% + ₺0.25</h3>
+                    <p class="label-1">per successful payment</p>
                   </div>
 
-                  <div class="flex-grow-1 d-flex flex-column ga-2 px-10 py-12 bg-DB90 rounded-lg">
-                    <p class="label-1">Transaction Fees</p>
-                    <h3 class="text-DBlue">Starting from 1.99%</h3>
-                    <p class="label-1">(based on volume and business type)</p>
+                  <div
+                    class="flex-grow-1 d-flex flex-column ga-2 justify-center align-center px-10 py-12 bg-DB90 rounded-lg"
+                  >
+                    <p class="label-1">Optional instant settlement</p>
+                    <h3 class="text-DBlue">+0.5%</h3>
                   </div>
                 </div>
 
@@ -747,12 +758,12 @@ const howItWorksList = [
                   <div class="d-flex ga-2">
                     <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="20" />
 
-                    <div class="label-1 text-DB20">No monthly rental fees</div>
+                    <div class="label-1 text-DB20">No setup or monthly fees</div>
                   </div>
                   <div class="d-flex ga-2">
                     <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" size="20" />
 
-                    <div class="label-1 text-DB20">Free software updates and technical support</div>
+                    <div class="label-1 text-DB20">Unlimited link creation</div>
                   </div>
                 </div>
               </div>
