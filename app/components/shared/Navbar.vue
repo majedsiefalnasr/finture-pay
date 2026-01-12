@@ -82,9 +82,9 @@ const props = withDefaults(defineProps<Props>(), {
         },
       ],
     },
-    { title: 'Fees and Commissions', path: '/fees' },
-    { title: 'Blog', path: '/blog' },
-    { title: 'Help Center', path: '/help' },
+    { title: 'Fees and Commissions', path: '/fees-and-commissions' },
+    { title: 'About Us', path: '/about-us' },
+    { title: 'Contact', path: '/contact' },
   ],
 })
 
