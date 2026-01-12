@@ -144,7 +144,7 @@ export default {
 
 <template>
   <div>
-    <section class="home-hero">
+    <section class="home-hero overflow-hidden">
       <u-container>
         <div>
           <img
@@ -334,7 +334,7 @@ export default {
   shape-margin: 48px;
   shape-outside: url(/assets/images/home-hero/device.png);
   shape-image-threshold: 0.5;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-inline-end: -50px;
   width: 70%;
 }
