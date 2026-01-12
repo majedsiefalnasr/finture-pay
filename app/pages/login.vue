@@ -9,6 +9,7 @@ export default {
   },
   data() {
     return {
+      account_type: 'individual',
       loginDataObject: {
         email: '',
         password: '',
@@ -66,91 +67,86 @@ export default {
     />
 
     <u-col cols="12" md="6" class="login-panel">
-      <div class="row">
-        <div col="12" md="12" class="back-home">
-          <NuxtLink u-if="mdAndUp" to="/" class="back-link"> Back to Home → </NuxtLink>
-        </div>
+      <u-container class="h-100">
+        <div class="d-flex flex-column ga-6 h-100">
+          <div class="back-home">
+            <NuxtLink u-if="mdAndUp" to="/" class="back-link"> Back to Home → </NuxtLink>
+          </div>
 
-        <div cols="12" md="12" class="justfiy-center login" align="center">
-          <div class="login-card">
-            <h3 class="text-center title mb-4">Access Dashboard</h3>
+          <div class="ma-auto pb-16" align="center">
+            <div class="login-card">
+              <h3 class="text-center title mb-4">Access Dashboard</h3>
 
-            <p class="text-center subtitle mb-3">
-              Securely log in to manage your wallet, track transactions, accept payments, and access
-              all Finture services.
-            </p>
+              <p class="text-center subtitle mb-3">
+                Securely log in to manage your wallet, track transactions, accept payments, and
+                access all Finture services.
+              </p>
 
-            <!-- ACCOUNT TYPE -->
-            <u-btn-toggle class="mb-5 account-toggle" mandatory divided>
-              <u-btn value="individual">Individual</u-btn>
-              <u-btn value="business">Business</u-btn>
-            </u-btn-toggle>
+              <!-- ACCOUNT TYPE -->
+              <u-btn-toggle v-model="account_type" class="mb-5 account-toggle" border mandatory>
+                <u-btn value="individual">Individual</u-btn>
+                <u-btn value="business">Business</u-btn>
+              </u-btn-toggle>
 
-            <u-alert
-              v-if="messageError.status"
-              type="error"
-              :text="messageError.msg"
-              closable
-              variant="tonal"
-              class="mb-4"
-            />
+              <u-alert
+                v-if="messageError.status"
+                type="error"
+                :text="messageError.msg"
+                closable
+                variant="tonal"
+                class="mb-4"
+              />
 
-            <!-- PHONE -->
-            <div class="phone-row">
+              <!-- PHONE -->
+              <div class="phone-row">
+                <u-text-field
+                  v-model="loginDataObject.email"
+                  variant="solo-filled"
+                  density="comfortable"
+                  placeholder="Email or registration code"
+                  hide-details
+                />
+              </div>
+
+              <!-- PASSWORD -->
               <u-text-field
-                v-model="loginDataObject.email"
+                v-model="loginDataObject.password"
                 variant="solo-filled"
                 density="comfortable"
-                placeholder="Email or registration code"
-                hide-details
+                type="password"
+                placeholder="Password"
               />
+              <!-- LOGIN BUTTON -->
+              <u-btn
+                color="primary"
+                size="large"
+                block
+                class="mt-4 login-btn"
+                :disabled="loading"
+                @click="login"
+              >
+                <u-progress-circular
+                  v-if="loading"
+                  color="white"
+                  size="28"
+                  indeterminate
+                ></u-progress-circular>
+                <span v-else class="ml-2">Login to Finture</span>
+              </u-btn>
+
+              <p class="register">
+                You don’t have an account?
+                <NuxtLink to="/register" class="nuxt-link-style">Register Now!</NuxtLink>
+              </p>
             </div>
-
-            <!-- PASSWORD -->
-            <u-text-field
-              v-model="loginDataObject.password"
-              variant="solo-filled"
-              density="comfortable"
-              type="password"
-              placeholder="Password"
-            />
-            <!-- LOGIN BUTTON -->
-            <u-btn
-              color="primary"
-              size="large"
-              block
-              class="mt-4 login-btn"
-              :disabled="loading"
-              @click="login"
-            >
-              <u-progress-circular
-                v-if="loading"
-                color="white"
-                size="28"
-                indeterminate
-              ></u-progress-circular>
-              <span v-else class="ml-2">Login to Finture</span>
-            </u-btn>
-
-            <p class="register">
-              You don’t have an account?
-              <NuxtLink to="/register" class="nuxt-link-style">Register Now!</NuxtLink>
-            </p>
           </div>
         </div>
-      </div>
+      </u-container>
     </u-col>
   </u-row>
 </template>
 
 <style scoped>
-.login {
-  margin-top: 100px;
-}
-.back-home {
-  margin-top: -150px;
-}
-
 .back-link {
   color: #0047ab;
   font-weight: bold;
@@ -230,5 +226,27 @@ export default {
   .title {
     font-size: 28px !important;
   }
+}
+
+.account-toggle .v-btn--variant-elevated {
+  background: unset;
+}
+
+.account-toggle {
+  border-radius: 8px;
+  background: var(--Neutral-B70, #e8eaed);
+  padding: 2px;
+}
+
+.account-toggle .v-btn--active {
+  box-shadow:
+    0 3px 8px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px 0 rgba(0, 0, 0, 0.04);
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+}
+
+.account-toggle .v-btn--active > :deep(.v-btn__overlay) {
+  opacity: 0 !important;
 }
 </style>

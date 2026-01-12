@@ -97,7 +97,7 @@ export default {
             <p class="subtitle mb-3" align="start">Enter your email to begin your journey.</p>
 
             <!-- ACCOUNT TYPE -->
-            <u-btn-toggle v-model="account_type" class="mb-5 account-toggle" mandatory divided>
+            <u-btn-toggle v-model="account_type" class="mb-5 account-toggle" border mandatory>
               <u-btn value="individual">Individual</u-btn>
               <u-btn value="business">Business</u-btn>
             </u-btn-toggle>
@@ -261,5 +261,27 @@ export default {
 }
 .progress-status span {
   float: left;
+}
+
+.account-toggle .v-btn--variant-elevated {
+  background: unset;
+}
+
+.account-toggle {
+  border-radius: 8px;
+  background: var(--Neutral-B70, #e8eaed);
+  padding: 2px;
+}
+
+.account-toggle .v-btn--active {
+  box-shadow:
+    0 3px 8px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px 0 rgba(0, 0, 0, 0.04);
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+}
+
+.account-toggle .v-btn--active > :deep(.v-btn__overlay) {
+  opacity: 0 !important;
 }
 </style>
