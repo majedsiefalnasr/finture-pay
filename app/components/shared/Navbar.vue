@@ -158,21 +158,6 @@ const toggleMobileDropdown = (title: string) => {
 }
 
 /**
- * Watch drawer state and lock/unlock body scroll
- */
-watch([mobileMenuOpen, openDropdown], ([isMobileOpen, activeDropdown]) => {
-  if (import.meta.client) {
-    if (isMobileOpen || activeDropdown) {
-      document.body.style.overflow = 'hidden'
-      document.body.style.height = '100vh'
-    } else {
-      document.body.style.overflow = ''
-      document.body.style.height = ''
-    }
-  }
-})
-
-/**
  * Cleanup on component unmount
  */
 onBeforeUnmount(() => {

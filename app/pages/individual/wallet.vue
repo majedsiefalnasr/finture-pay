@@ -120,7 +120,7 @@ const features: string[] = [
                   <u-icon icon="hugeicons:tick-02" color="Blue" class="icon" />
                 </template>
 
-                <u-list-item-title class="text-h3 font-weight-medium feature-item-title">{{
+                <u-list-item-title class="text-h3 font-weight-medium list-item-title">{{
                   item
                 }}</u-list-item-title>
               </u-list-item>
@@ -159,17 +159,17 @@ const features: string[] = [
   padding-block: 96px;
 }
 
-.features-list {
-  gap: 100px;
-  padding-block-start: 64px;
-}
-
-.feature-item-title {
+.security-features .list-item-title {
   color: var(--Neutral-B20, #59606e);
   font-weight: var(--Weights-SemiBold, 600);
   font-size: var(--Heading-H4-fontSize, 20px) !important;
   line-height: 30px !important;
   white-space: unset;
+}
+
+.features-list {
+  gap: 100px;
+  padding-block-start: 64px;
 }
 
 .feature-item-image {

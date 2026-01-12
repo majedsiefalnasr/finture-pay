@@ -23,7 +23,7 @@ const defaultProps = computed(() => ({
   imageMaxWidth: undefined,
   imageRatio: '1/1' as const,
   icon: undefined,
-  imagePosition: undefined,
+  imagePosition: 'end',
 }))
 
 const effectiveProps = computed(() => ({
@@ -97,7 +97,7 @@ const contentMd = computed(() => {
 
         <div class="d-flex flex-column ga-6 align-center align-md-start text-center text-md-start">
           <!-- Title -->
-          <h2 v-if="effectiveProps.title">{{ effectiveProps.title }}</h2>
+          <h2 v-if="effectiveProps.title" class="text-Blue">{{ effectiveProps.title }}</h2>
           <!-- Title -->
           <h4 v-if="effectiveProps.subtitle">{{ effectiveProps.subtitle }}</h4>
           <!-- Description -->

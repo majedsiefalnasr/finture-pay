@@ -24,17 +24,17 @@ interface PropDefinition {
 interface FeesTableProps {
   title: string
   icon: string
-  fees: Array<{ description: string; fee: string }>
+  fees: Array<{ description: string; fee: string; free?: boolean }>
 }
 
 const feesTableProps = ref<FeesTableProps>({
   title: 'Individual Account Fees',
   icon: 'line:user01',
   fees: [
-    { description: 'Account Opening & Maintenance', fee: 'Free' },
-    { description: 'Monthly Account Fee', fee: 'Free' },
-    { description: 'Digital Wallet Maintenance', fee: 'Free' },
-    { description: 'Account Closure', fee: 'Free' },
+    { description: 'Account Opening & Maintenance', fee: 'Free', free: true },
+    { description: 'Monthly Account Fee', fee: 'Free', free: true },
+    { description: 'Digital Wallet Maintenance', fee: 'Free', free: true },
+    { description: 'Account Closure', fee: 'Free', free: true },
   ],
 })
 
@@ -68,7 +68,7 @@ const componentCode = computed(() => {
   let code = `<FeesTable\n  title="${props.title}"\n  icon="${props.icon}"\n  :fees="["`
 
   props.fees.forEach((fee, index) => {
-    code += `\n    { description: '${fee.description}', fee: '${fee.fee}' }`
+    code += `\n    { description: '${fee.description}', fee: '${fee.fee}'${fee.free ? ', free: true' : ''} }`
     if (index < props.fees.length - 1) code += ','
   })
 

@@ -63,7 +63,7 @@ const {
       links: [
         { title: 'Help Center', link: '/help' },
         { title: 'FAQs', link: '/faqs' },
-        { title: 'Fees', link: '/fees' },
+        { title: 'Fees', link: '/fees-and-commissions' },
         { title: 'System Status', link: '/status' },
       ],
     },

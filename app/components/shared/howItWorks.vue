@@ -18,8 +18,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'How It Works',
-  subtitle:
-    'Open your account in 2 minutes, verify with digital KYC, and start using Finture instantly.',
+  subtitle: undefined,
   list: () => [
     { label: 'Sign Up', description: '2 minutes', image: '/assets/images/how-it-works/01.png' },
     {
@@ -29,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
     },
     { label: 'Start Using', description: 'Instantly', image: '/assets/images/how-it-works/03.png' },
   ],
-  actionLabel: 'Register with Finture',
+  actionLabel: undefined,
   onAction: () => {},
   autoplayInterval: 5000,
 })
@@ -105,7 +104,7 @@ onUnmounted(() => {
                 <div
                   class="list-item-index d-flex align-center justify-center rounded-circle"
                   :class="idx === activeIndex ? 'bg-BL20 text-White' : 'bg-B40 text-White'"
-                  style="width: 48px; height: 48px"
+                  style="width: 48px; height: 48px; flex: none"
                 >
                   <span class="text-h3">{{ idx + 1 }}</span>
                 </div>
@@ -136,6 +135,7 @@ onUnmounted(() => {
             </div>
 
             <u-btn
+              v-if="actionLabel && props.onAction"
               class="mt-6 text-capitalize"
               color="Blue"
               size="x-large"
