@@ -73,7 +73,7 @@ const {
         { title: 'Terms', link: '/terms' },
         { title: 'Privacy', link: '/privacy' },
         { title: 'KVKK', link: '/kvkk' },
-        { title: 'Agreements', link: '/agreements' },
+        { title: 'Agreements', link: '/agreements-pollicies' },
       ],
     },
   ],
