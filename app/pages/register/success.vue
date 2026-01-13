@@ -47,13 +47,12 @@ export default {
           Your company data has been saved. We'll notify you once the verification is complete.
         </p>
 
-        <p algin="start">Name: {{ NAME }} </p>
+        <p algin="start">Name: {{ NAME }}</p>
         <p algin="start">Email: {{ REGISTRATION_EMAIL }}</p>
-        <p  algin="start">Registration code: {{ REG_CODE }}</p>
-
+        <p algin="start">Registration code: {{ REG_CODE }}</p>
 
         <!-- Button -->
-        <u-btn color="white" size="large" class="home-btn" to="/"> Go to Homepage </u-btn>
+        <u-btn color="white" size="large" class="home-btn mt-4" to="/"> Go to Homepage </u-btn>
       </u-col>
     </u-row>
   </u-container>

@@ -119,7 +119,7 @@ export default {
               :text="messageError.msg"
               :closable="false"
               variant="tonal"
-              class="mb-4"
+              class="mb-4 text-start"
             />
 
             <u-otp-input v-model="otpNumber" autofocus width="auto" min-width="100%"></u-otp-input>

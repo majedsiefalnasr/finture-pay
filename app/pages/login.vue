@@ -94,7 +94,7 @@ export default {
                 :text="messageError.msg"
                 closable
                 variant="tonal"
-                class="mb-4"
+                class="mb-4 text-start"
               />
 
               <!-- PHONE -->

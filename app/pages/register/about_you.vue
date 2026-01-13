@@ -96,7 +96,7 @@ export default {
               :text="messageError.msg"
               :closable="false"
               variant="tonal"
-              class="mb-4"
+              class="mb-4 text-start"
             />
 
             <u-row cols="12" class="mb-3">
@@ -134,7 +134,7 @@ export default {
               />
             </div>
 
-            <div class="checkbox-wrapper">
+            <div class="checkbox-wrapper text-start">
               <!-- User Agreement -->
               <u-checkbox
                 v-model="acceptAgreement"
@@ -145,8 +145,10 @@ export default {
                 <template #label>
                   <u-dialog max-width="800">
                     <template #activator="{ props: activatorProps }">
-                      I have read, understood, and accept the
-                      <NuxtLink v-bind="activatorProps" class="link"> User Agreement</NuxtLink>.
+                      <span>
+                        I have read, understood, and accept the
+                        <NuxtLink v-bind="activatorProps" class="link"> User Agreement</NuxtLink>.
+                      </span>
                     </template>
                     <template #default="{ isActive }">
                       <u-card>

@@ -74,8 +74,6 @@ export default {
         this.messageError.status = false
         this.messageError.msg = ''
         if (this.password && this.confirmPassword && first_name && last_name) {
-
-
           this.$store.dispatch('demoSubscription', {
             name: first_name + ' ' + last_name,
             email: this.email,
@@ -156,7 +154,7 @@ export default {
               :text="messageError.msg"
               :closable="false"
               variant="tonal"
-              class="mb-4"
+              class="mb-4 text-start"
             />
 
             <u-text-field
